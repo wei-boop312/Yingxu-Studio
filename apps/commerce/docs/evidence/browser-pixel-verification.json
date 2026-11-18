@@ -1,0 +1,19 @@
+{
+  "task_id": "dc74db55-2770-4d86-ae1d-b3d0c79c44be",
+  "browser_download_sha256": "1a0ac11c8941e50a83bf434c4b1adae24ba8be40594f63ed163bac59dc217782",
+  "matches_database_final_sha256": true,
+  "checks": [
+    {
+      "region": {
+        "source_x": 98,
+        "source_y": 98,
+        "width": 129,
+        "height": 129,
+        "target_x": 300,
+        "target_y": 200
+      },
+      "rgb_equal": true,
+      "region_sha256": "0f022ba72f94855779be0db23ba4ce6bfaec8d65a51825315bc5caede48828b0"
+    }
+  ]
+}

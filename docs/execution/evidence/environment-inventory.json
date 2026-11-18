@@ -1,0 +1,18 @@
+{
+  "os": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.6",
+  "node": "v24.22.3",
+  "commerce_environment": "isolated .venv from original uv.lock",
+  "architect_environment": "isolated .venv; test extra; new uv.lock",
+  "native_services": "owned WSL Docker; PostgreSQL 17, RabbitMQ 4, SeaweedFS private S3",
+  "network_scope": "loopback only",
+  "credentials": "ignored private local profiles; excluded from evidence",
+  "comfy": {
+    "desktop": "1.1.9",
+    "server": "0.43.0",
+    "frontend": "1.57.4",
+    "node_count": 1458,
+    "gpu_vram_bytes": 8585216000,
+    "connection": "read-only GET verified; no workflow execution yet"
+  }
+}

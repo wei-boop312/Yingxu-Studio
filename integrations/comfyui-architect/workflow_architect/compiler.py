@@ -15,6 +15,7 @@ from .schemas import (
 )
 from .settings import GENERATOR_VERSION
 from .templates import TemplateRepository
+from .validator import WorkflowValidator
 
 PLACEHOLDER = re.compile(r"^\$\{([a-z_]+)\}$")
 GROUP_COLORS = {
@@ -198,7 +199,7 @@ class WorkflowCompiler:
             },
             "version": 0.4,
         }
-        return {
+        result = {
             "schema_version": "2.0",
             "generator_version": GENERATOR_VERSION,
             "template_id": plan.template_id,
@@ -223,6 +224,11 @@ class WorkflowCompiler:
                 ),
             },
         }
+
+        report = WorkflowValidator().validate_compiled(result, registry)
+        if not report.valid:
+            raise CompilationError("工作流未通过执行前校验", details=report.to_dict())
+        return result
 
     @staticmethod
     def _resolve_class(
@@ -478,11 +484,13 @@ def _resolve(value: Any, bindings: dict[str, Any]) -> Any:
 
 
 def _is_link(value: Any) -> bool:
-    return (
-        isinstance(value, dict)
-        and isinstance(value.get("link"), list)
-        and len(value["link"]) == 2
-    )
+    if not isinstance(value, dict) or "link" not in value:
+        return False
+    link = value["link"]
+    if (set(value) != {"link"} or not isinstance(link, list) or len(link) != 2
+            or type(link[0]) not in (str, int) or type(link[1]) is not int or link[1] < 0):
+        raise CompilationError("模板连接必须指定有效节点和非负整数输出端口")
+    return True
 
 
 def _guess_input_type(value: Any) -> str:

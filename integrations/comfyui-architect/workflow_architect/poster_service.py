@@ -3,6 +3,7 @@ import hashlib
 import copy
 import io
 import json
+import os
 from pathlib import Path
 import re
 import threading
@@ -15,6 +16,12 @@ from .errors import InputError
 
 SLOT=threading.BoundedSemaphore(1)
 ROLES={'scene','table','product','product_mask','remote','remote_mask'}
+
+def poster_font_path():
+    configured=os.environ.get('WORKFLOW_ARCHITECT_POSTER_FONT')
+    path=Path(configured) if configured else Path('C:/Windows/Fonts/arialbd.ttf')
+    if not path.is_file():raise InputError('请显式配置 WORKFLOW_ARCHITECT_POSTER_FONT 为可用英文字体，不静默替换字体')
+    return path
 
 def resolve(ref,folders):
     if not isinstance(ref,dict) or set(ref)!={'filename','subfolder','type'} or ref['type'] not in ('input','output'):raise InputError('素材引用结构不合法')
@@ -78,7 +85,9 @@ def prepare(service,payload,cancel=None,folders=None):
         for key,path in paths.items():
             current();hashes[key]=digest(path)
             with Image.open(path) as image:image.load();loaded[key]=image.copy()
-        current();overlay,report=create_overlay(loaded['product'],loaded['product_mask'],loaded['remote'],loaded['remote_mask'],payload['style'],Path('C:/Windows/Fonts/arialbd.ttf'))
+        font_path=poster_font_path()
+        current();overlay,report=create_overlay(loaded['product'],loaded['product_mask'],loaded['remote'],loaded['remote_mask'],payload['style'],font_path)
+        report.update(font_filename=font_path.name,font_sha256=digest(font_path))
         base=compose(loaded['scene'],Image.new('RGBA',(1600,1600)),loaded['table']);preview=Image.alpha_composite(base.convert('RGBA'),overlay).convert('RGB')
         encoded_images=[]
         for image in (base,overlay,preview):
@@ -122,7 +131,8 @@ def options(service,folders=None):
             if not path.is_file() or path.is_symlink() or path.stat().st_size>30*1024*1024:continue
             result.append({'filename':path.name,'subfolder':sub,'type':kind})
             if len(result)>2000:raise InputError('本机素材选项超过2000，请显式整理后再选，不删除原图')
-    return {'assets':result,'execution_authorized':False,'font_available':Path('C:/Windows/Fonts/arialbd.ttf').is_file()}
+    font_path=Path(os.environ.get('WORKFLOW_ARCHITECT_POSTER_FONT','C:/Windows/Fonts/arialbd.ttf'))
+    return {'assets':result,'execution_authorized':False,'font_available':font_path.is_file(),'font_filename':font_path.name}
 
 def package_path(ident,folders=None):
     if not isinstance(ident,str) or not re.fullmatch(r'[0-9a-f]{32}',ident):raise InputError('海报包编号不合法')

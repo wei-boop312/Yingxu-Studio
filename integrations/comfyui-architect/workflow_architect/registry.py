@@ -50,7 +50,9 @@ class CapabilityRegistry:
             raise InputError("object_info 必须是节点定义对象")
 
         nodes: dict[str, NodeDefinition] = {}
-        for class_name, raw in sorted(object_info.items(), key=lambda item: str(item[0])):
+        for class_name, raw in sorted(
+            object_info.items(), key=lambda item: str(item[0])
+        ):
             try:
                 nodes[str(class_name)] = self._normalize_node(str(class_name), raw)
             except Exception:
@@ -63,13 +65,17 @@ class CapabilityRegistry:
                 item["class"] if isinstance(item, dict) else str(item)
                 for item in config.get("candidates", [])
             )
-            matched = next((candidate for candidate in candidates if candidate in nodes), None)
+            matched = next(
+                (candidate for candidate in candidates if candidate in nodes), None
+            )
             statuses[name] = CapabilityStatus(
                 name=name,
                 required=bool(config.get("required", False)),
                 matched_node=matched,
                 candidates=candidates,
-                search_terms=tuple(str(item) for item in config.get("search_terms", ())),
+                search_terms=tuple(
+                    str(item) for item in config.get("search_terms", ())
+                ),
             )
 
         with self._lock:
@@ -106,10 +112,31 @@ class CapabilityRegistry:
 
         inputs: list[InputDefinition] = []
         for required, group_name in ((True, "required"), (False, "optional")):
-            group = input_root.get(group_name, {}) if isinstance(input_root, Mapping) else {}
+            group = (
+                input_root.get(group_name, {})
+                if isinstance(input_root, Mapping)
+                else {}
+            )
             if not isinstance(group, Mapping):
                 continue
             for name, definition in group.items():
+                options = (
+                    definition[1]
+                    if isinstance(definition, (list, tuple))
+                    and len(definition) > 1
+                    and isinstance(definition[1], Mapping)
+                    else {}
+                )
+                raw_type = (
+                    definition[0]
+                    if isinstance(definition, (list, tuple)) and definition
+                    else definition
+                )
+                enum_values = (
+                    tuple(raw_type)
+                    if isinstance(raw_type, (list, tuple))
+                    else tuple(options.get("options", ()))
+                )
                 (
                     input_type,
                     default,
@@ -124,6 +151,10 @@ class CapabilityRegistry:
                         default=default,
                         choices=choices,
                         control_after_generate=control_after_generate,
+                        minimum=options.get("min"),
+                        maximum=options.get("max"),
+                        enum_values=enum_values,
+                        force_input=bool(options.get("forceInput", False)),
                     )
                 )
         return NodeDefinition(
@@ -140,7 +171,11 @@ def _parse_input_definition(
 ) -> tuple[str, Any, tuple[str, ...], bool | str | None]:
     if isinstance(definition, (list, tuple)) and definition:
         raw_type = definition[0]
-        options = definition[1] if len(definition) > 1 and isinstance(definition[1], Mapping) else {}
+        options = (
+            definition[1]
+            if len(definition) > 1 and isinstance(definition[1], Mapping)
+            else {}
+        )
     else:
         raw_type, options = definition, {}
     if isinstance(raw_type, (list, tuple)):
@@ -151,7 +186,11 @@ def _parse_input_definition(
         choices = tuple(str(item) for item in options.get("options", ()))
     default = options.get("default")
     if default is None and choices:
-        default = choices[0]
+        default = (
+            raw_type[0]
+            if isinstance(raw_type, (list, tuple))
+            else options["options"][0]
+        )
     control_after_generate = options.get("control_after_generate")
     if not isinstance(control_after_generate, (bool, str)):
         control_after_generate = None

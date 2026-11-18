@@ -2061,6 +2061,833 @@
           }
         }
       }
+    },
+    "/api/v1/studio/skus": {
+      "get": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "List Skus",
+        "operationId": "list_skus_api_v1_studio_skus_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Create Sku",
+        "operationId": "create_sku_api_v1_studio_skus_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SkuCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/skus/{sku_id}/evidence": {
+      "get": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Evidence",
+        "operationId": "evidence_api_v1_studio_skus__sku_id__evidence_get",
+        "parameters": [
+          {
+            "name": "sku_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Sku Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/skus/{sku_id}/references": {
+      "post": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Create Reference",
+        "operationId": "create_reference_api_v1_studio_skus__sku_id__references_post",
+        "parameters": [
+          {
+            "name": "sku_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Sku Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReferenceCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/skus/{sku_id}/facts": {
+      "post": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Write Fact",
+        "operationId": "write_fact_api_v1_studio_skus__sku_id__facts_post",
+        "parameters": [
+          {
+            "name": "sku_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Sku Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FactWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/projects": {
+      "get": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "List Projects",
+        "operationId": "list_projects_api_v1_studio_projects_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Create Project",
+        "operationId": "create_project_api_v1_studio_projects_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/projects/{project_id}": {
+      "get": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Read Project",
+        "operationId": "read_project_api_v1_studio_projects__project_id__get",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/projects/{project_id}/slots": {
+      "put": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Change Slot Scope",
+        "operationId": "change_slot_scope_api_v1_studio_projects__project_id__slots_put",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SlotScopeWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/projects/{project_id}/slots/{slot_id}/plans": {
+      "post": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Freeze Plan",
+        "operationId": "freeze_plan_api_v1_studio_projects__project_id__slots__slot_id__plans_post",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Project Id"
+            }
+          },
+          {
+            "name": "slot_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Slot Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/projects/{project_id}/slots/{slot_id}/outputs": {
+      "post": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Import Output",
+        "operationId": "import_output_api_v1_studio_projects__project_id__slots__slot_id__outputs_post",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Project Id"
+            }
+          },
+          {
+            "name": "slot_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Slot Id"
+            }
+          },
+          {
+            "name": "idempotency-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportOutput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/outputs/{output_id}/reviews": {
+      "post": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Review Output",
+        "operationId": "review_output_api_v1_studio_outputs__output_id__reviews_post",
+        "parameters": [
+          {
+            "name": "output_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Output Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/outputs/{output_id}/preview": {
+      "get": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Preview",
+        "operationId": "preview_api_v1_studio_outputs__output_id__preview_get",
+        "parameters": [
+          {
+            "name": "output_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Output Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/references/{reference_id}/preview": {
+      "get": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Reference Preview",
+        "operationId": "reference_preview_api_v1_studio_references__reference_id__preview_get",
+        "parameters": [
+          {
+            "name": "reference_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Reference Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/outputs/{output_id}/download": {
+      "get": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Draft Download",
+        "operationId": "draft_download_api_v1_studio_outputs__output_id__download_get",
+        "parameters": [
+          {
+            "name": "output_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Output Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/projects/{project_id}/deliveries": {
+      "post": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Deliver",
+        "operationId": "deliver_api_v1_studio_projects__project_id__deliveries_post",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Project Id"
+            }
+          },
+          {
+            "name": "idempotency-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeliveryWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/deliveries/{delivery_id}/download": {
+      "get": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Download Delivery",
+        "operationId": "download_delivery_api_v1_studio_deliveries__delivery_id__download_get",
+        "parameters": [
+          {
+            "name": "delivery_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Delivery Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/projects/{project_id}/cases": {
+      "post": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "Save Case",
+        "operationId": "save_case_api_v1_studio_projects__project_id__cases_post",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CaseWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/studio/cases": {
+      "get": {
+        "tags": [
+          "studio"
+        ],
+        "summary": "List Cases",
+        "operationId": "list_cases_api_v1_studio_cases_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -2140,6 +2967,35 @@
         ],
         "title": "AppearanceCreate"
       },
+      "CaseWrite": {
+        "properties": {
+          "delivery_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Delivery Id"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "lessons": {
+            "type": "string",
+            "maxLength": 8000,
+            "minLength": 1,
+            "title": "Lessons"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "delivery_id",
+          "title",
+          "lessons"
+        ],
+        "title": "CaseWrite"
+      },
       "ConfirmAppearance": {
         "properties": {
           "name": {
@@ -2164,6 +3020,112 @@
           "confirmed"
         ],
         "title": "ConfirmAppearance"
+      },
+      "DeliveryWrite": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Expected Revision"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "formal"
+            ],
+            "title": "Mode"
+          },
+          "output_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Output Ids"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision",
+          "mode",
+          "output_ids"
+        ],
+        "title": "DeliveryWrite"
+      },
+      "FactWrite": {
+        "properties": {
+          "appearance_profile_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Appearance Profile Id"
+          },
+          "fact_key": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,79}$",
+            "title": "Fact Key"
+          },
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Revision",
+            "default": 0
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Label"
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 4000,
+            "title": "Value",
+            "default": ""
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "confirmed",
+              "unknown",
+              "conflict"
+            ],
+            "title": "Status"
+          },
+          "conditions": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Conditions",
+            "default": ""
+          },
+          "reference_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Reference Ids"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "fact_key",
+          "label",
+          "status"
+        ],
+        "title": "FactWrite"
       },
       "Generation": {
         "allOf": [
@@ -2260,6 +3222,43 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
+      "ImportOutput": {
+        "properties": {
+          "plan_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Plan Id"
+          },
+          "source_asset_version_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Source Asset Version Id"
+          },
+          "route": {
+            "type": "string",
+            "enum": [
+              "manual_import",
+              "offline_fixture"
+            ],
+            "title": "Route",
+            "default": "manual_import"
+          },
+          "source_note": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Source Note"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "plan_id",
+          "source_asset_version_id",
+          "source_note"
+        ],
+        "title": "ImportOutput"
+      },
       "Login": {
         "properties": {
           "email": {
@@ -2311,6 +3310,122 @@
           "format"
         ],
         "title": "Output"
+      },
+      "OutputSpec": {
+        "properties": {
+          "width": {
+            "type": "integer",
+            "maximum": 5000.0,
+            "minimum": 64.0,
+            "title": "Width",
+            "default": 1600
+          },
+          "height": {
+            "type": "integer",
+            "maximum": 5000.0,
+            "minimum": 64.0,
+            "title": "Height",
+            "default": 1600
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "jpeg",
+              "png"
+            ],
+            "title": "Format",
+            "default": "jpeg"
+          },
+          "max_bytes": {
+            "type": "integer",
+            "maximum": 20000000.0,
+            "minimum": 10000.0,
+            "title": "Max Bytes",
+            "default": 3000000
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "OutputSpec"
+      },
+      "PlanWrite": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Expected Revision"
+          },
+          "goal": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Goal"
+          },
+          "copy": {
+            "type": "string",
+            "maxLength": 4000,
+            "title": "Copy",
+            "default": ""
+          },
+          "fact_version_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Fact Version Ids"
+          },
+          "reference_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Reference Ids"
+          },
+          "allowed_faces": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "FRONT",
+                "BACK",
+                "LEFT",
+                "RIGHT",
+                "TOP",
+                "BOTTOM",
+                "UNKNOWN"
+              ]
+            },
+            "type": "array",
+            "maxItems": 6,
+            "minItems": 1,
+            "title": "Allowed Faces"
+          },
+          "route": {
+            "type": "string",
+            "enum": [
+              "manual_import",
+              "offline_fixture",
+              "comfyui"
+            ],
+            "title": "Route",
+            "default": "manual_import"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision",
+          "goal",
+          "fact_version_ids",
+          "reference_ids",
+          "allowed_faces"
+        ],
+        "title": "PlanWrite"
       },
       "ProductCreate": {
         "properties": {
@@ -2368,6 +3483,88 @@
         "type": "object",
         "title": "ProductPatch"
       },
+      "ProjectCreate": {
+        "properties": {
+          "template": {
+            "type": "string",
+            "enum": [
+              "sop10",
+              "detail6",
+              "custom"
+            ],
+            "title": "Template",
+            "default": "sop10"
+          },
+          "sku_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Sku Id"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "platform": {
+            "type": "string",
+            "enum": [
+              "amazon",
+              "temu",
+              "ozon"
+            ],
+            "title": "Platform"
+          },
+          "marketplace": {
+            "type": "string",
+            "maxLength": 32,
+            "minLength": 1,
+            "title": "Marketplace"
+          },
+          "language": {
+            "type": "string",
+            "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$",
+            "title": "Language"
+          },
+          "category": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Category"
+          },
+          "image_use": {
+            "type": "string",
+            "enum": [
+              "MAIN",
+              "GALLERY",
+              "DETAIL"
+            ],
+            "title": "Image Use"
+          },
+          "slot_count": {
+            "type": "integer",
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "title": "Slot Count",
+            "default": 10
+          },
+          "output": {
+            "$ref": "#/components/schemas/OutputSpec"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "sku_id",
+          "title",
+          "platform",
+          "marketplace",
+          "language",
+          "category",
+          "image_use"
+        ],
+        "title": "ProjectCreate"
+      },
       "QuoteRequest": {
         "properties": {
           "product_id": {
@@ -2416,6 +3613,59 @@
         ],
         "title": "QuoteRequest"
       },
+      "ReferenceCreate": {
+        "properties": {
+          "asset_version_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Asset Version Id"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "product",
+              "packaging",
+              "accessory",
+              "specification",
+              "style",
+              "scene"
+            ],
+            "title": "Role"
+          },
+          "physical_face": {
+            "type": "string",
+            "enum": [
+              "FRONT",
+              "BACK",
+              "LEFT",
+              "RIGHT",
+              "TOP",
+              "BOTTOM",
+              "UNKNOWN"
+            ],
+            "title": "Physical Face",
+            "default": "UNKNOWN"
+          },
+          "confirmed": {
+            "type": "boolean",
+            "title": "Confirmed",
+            "default": false
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 4000,
+            "title": "Note",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "asset_version_id",
+          "role"
+        ],
+        "title": "ReferenceCreate"
+      },
       "Region": {
         "properties": {
           "source_x": {
@@ -2462,6 +3712,210 @@
           "target_y"
         ],
         "title": "Region"
+      },
+      "ReviewChecks": {
+        "properties": {
+          "identity": {
+            "type": "string",
+            "enum": [
+              "passed",
+              "failed",
+              "unknown",
+              "not_applicable"
+            ],
+            "title": "Identity"
+          },
+          "structure": {
+            "type": "string",
+            "enum": [
+              "passed",
+              "failed",
+              "unknown",
+              "not_applicable"
+            ],
+            "title": "Structure"
+          },
+          "accessories": {
+            "type": "string",
+            "enum": [
+              "passed",
+              "failed",
+              "unknown",
+              "not_applicable"
+            ],
+            "title": "Accessories"
+          },
+          "copy": {
+            "type": "string",
+            "enum": [
+              "passed",
+              "failed",
+              "unknown",
+              "not_applicable"
+            ],
+            "title": "Copy"
+          },
+          "scene": {
+            "type": "string",
+            "enum": [
+              "passed",
+              "failed",
+              "unknown",
+              "not_applicable"
+            ],
+            "title": "Scene"
+          },
+          "technical": {
+            "type": "string",
+            "enum": [
+              "passed",
+              "failed",
+              "unknown",
+              "not_applicable"
+            ],
+            "title": "Technical"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "identity",
+          "structure",
+          "accessories",
+          "copy",
+          "scene",
+          "technical"
+        ],
+        "title": "ReviewChecks"
+      },
+      "ReviewWrite": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Expected Revision"
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "passed",
+              "rework",
+              "insufficient_evidence"
+            ],
+            "title": "Decision"
+          },
+          "critical": {
+            "type": "boolean",
+            "title": "Critical"
+          },
+          "checks": {
+            "$ref": "#/components/schemas/ReviewChecks"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Notes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision",
+          "decision",
+          "critical",
+          "checks",
+          "notes"
+        ],
+        "title": "ReviewWrite"
+      },
+      "SkuCreate": {
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Product Id"
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Code"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Name"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "product_id",
+          "code",
+          "name"
+        ],
+        "title": "SkuCreate"
+      },
+      "SlotAddition": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "purpose": {
+            "type": "string",
+            "enum": [
+              "product",
+              "dimensions",
+              "package"
+            ],
+            "title": "Purpose",
+            "default": "product"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "title": "SlotAddition"
+      },
+      "SlotScopeWrite": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Expected Revision"
+          },
+          "slot_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Slot Ids"
+          },
+          "additions": {
+            "items": {
+              "$ref": "#/components/schemas/SlotAddition"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Additions"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision",
+          "slot_ids"
+        ],
+        "title": "SlotScopeWrite"
       },
       "Target": {
         "properties": {

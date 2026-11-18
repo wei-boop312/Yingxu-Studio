@@ -1,0 +1,28 @@
+{
+  "local_result": "PASS",
+  "gate_result": "PENDING_CURRENT_COMMIT_CI",
+  "native_services": {
+    "tests": 299,
+    "skipped": 0,
+    "result": "PASS"
+  },
+  "studio_browser": {
+    "tests": 1,
+    "skipped": 0,
+    "result": "PASS",
+    "scope": "synthetic product; production built frontend; real owned services; 8 of 10 reviewed exact files downloaded; reload; 390px mobile"
+  },
+  "incremental_delivery": {
+    "result": "PASS",
+    "scope": "native API; retained first eight output identities; 10 of 10 complete archive"
+  },
+  "comfy_execution": "NOT_RUN",
+  "real_product_quality": "NOT_RUN",
+  "evidence": [
+    "commerce-native-all.json",
+    "studio-native-incremental.json",
+    "browser-current.json",
+    "static-checks.json",
+    "local-checks.json"
+  ]
+}

@@ -432,6 +432,18 @@ class PipelineTests(unittest.TestCase):
                 self.spec, self.make_plan(), self.registry.current(), concrete
             )
 
+    def test_invalid_template_link_indices_fail_before_ui_compilation(self):
+        for index in (-99, -1, True, 0.5, "0", 99):
+            with self.subTest(index=index):
+                concrete = json.loads(json.dumps(self.concrete))
+                value = next(value for node in concrete["nodes"]
+                             for value in node.get("inputs", {}).values()
+                             if isinstance(value, dict) and "link" in value)
+                value["link"][1] = index
+                with self.assertRaises(CompilationError):
+                    WorkflowCompiler().compile(
+                        self.spec, self.make_plan(), self.registry.current(), concrete)
+
     def test_missing_model_creates_non_executable_draft(self):
         concrete = json.loads(json.dumps(self.concrete))
         concrete["required_models"] = [

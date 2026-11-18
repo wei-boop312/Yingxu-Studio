@@ -40,7 +40,9 @@ async def verify(source, output):
     digest = hashlib.sha256(raw).hexdigest()
     canonical, meta = await decode(raw, "image/png")
     width, height = meta["width"], meta["height"]
-    if hashlib.sha256(canonical).hexdigest() != digest or width * height > 4_000_000:
+    if width * height > 4_000_000:
+        raise ValueError("image_too_large_for_offline_sample")
+    if hashlib.sha256(canonical).hexdigest() != digest:
         raise ValueError("canonical_final_png_of_at_most_four_megapixels_required")
     calls = []
 
@@ -143,6 +145,12 @@ def main():
                 {
                     "result": "OFFLINE_SAMPLE_REJECTED",
                     "error_type": type(error).__name__,
+                    "error_code": (
+                        "image_too_large_for_offline_sample"
+                        if isinstance(error, ValueError)
+                        and str(error) == "image_too_large_for_offline_sample"
+                        else "offline_sample_execution_error"
+                    ),
                     "remote_requests": 0,
                     "paid_calls": 0,
                 }

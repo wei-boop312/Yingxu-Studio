@@ -1,0 +1,302 @@
+[
+  {
+    "id": "A01",
+    "phase": "M1",
+    "title": "非法端口与链接",
+    "expected": "负数、越界、bool、断链均有专属错误，合法图通过。",
+    "owner_task": "T01-01",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A02",
+    "phase": "M1",
+    "title": "依赖环与输出可达性",
+    "expected": "自环、多节点环及游离环拒绝，共享上游的正常图通过。",
+    "owner_task": "T01-01",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A03",
+    "phase": "M1",
+    "title": "节点参数合同",
+    "expected": "必填、类型、枚举、未知字段和边界检查一致，未知动态合同不误标可执行。",
+    "owner_task": "T01-02",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A04",
+    "phase": "M1",
+    "title": "负例正确失败原因",
+    "expected": "缺依赖不会使尺寸负例通过；有效样例与超尺寸样例分别满足预期。",
+    "owner_task": "T01-03",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A05",
+    "phase": "M1",
+    "title": "两会话同一意图模拟",
+    "expected": "一个领取者，重复请求复用同一记录，同键不同请求摘要被拒绝。",
+    "owner_task": "T01-04",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A06",
+    "phase": "M2",
+    "title": "用户与 SKU 隔离",
+    "expected": "用实际非 owner 角色测试跨用户访问和 SKU 混用，拒绝非法关系。",
+    "owner_task": "T02-01",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A07",
+    "phase": "M2",
+    "title": "原图同名替换",
+    "expected": "新文件生成新版本，旧任务仍使用旧哈希，不随 current 指针变化。",
+    "owner_task": "T02-02",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A08",
+    "phase": "M2",
+    "title": "未知面和事实冲突",
+    "expected": "未拍底面、冲突尺寸、无证据配件不能进入可用角度或确认文案。",
+    "owner_task": "T02-03",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A09",
+    "phase": "M2",
+    "title": "可变图数和稳定图号",
+    "expected": "5、6、10、12 图可保存执行计划，排序增删不冒用历史图号。",
+    "owner_task": "T02-04",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A10",
+    "phase": "M2",
+    "title": "市场语言用途",
+    "expected": "明确选择主图、副图、详情、国家和语言；不自动强置 US/RU/MAIN。",
+    "owner_task": "T02-04",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A11",
+    "phase": "M2",
+    "title": "局部事实变更",
+    "expected": "修改一项接口或尺寸，只标记相关图号待复核，旧快照可重建。",
+    "owner_task": "T02-05",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A12",
+    "phase": "M3",
+    "title": "最小业务正向流程",
+    "expected": "真实服务与生产前端完成资料、计划、人工或样例制作、审核、交付。",
+    "owner_task": "T03-05",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A13",
+    "phase": "M3",
+    "title": "制作成功但关键结构错误",
+    "expected": "接口错面或错配件时进入返工，正式交付 API 拒绝。",
+    "owner_task": "T03-03",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A14",
+    "phase": "M3",
+    "title": "新文件和审核失效",
+    "expected": "替换输出、改交付规格或关联事实后，不继承旧版本的交付资格。",
+    "owner_task": "T03-03",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A15",
+    "phase": "M3",
+    "title": "十图部分交付",
+    "expected": "09/10 缺资料，01—08 继续并交付；清单明确 8/10，项目保持未完成。",
+    "owner_task": "T03-04",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A16",
+    "phase": "M3",
+    "title": "导出并发与失败",
+    "expected": "打包时修订事实或写入失败，不产生过期的正式完成记录。",
+    "owner_task": "T03-04",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A17",
+    "phase": "M3",
+    "title": "文件清单完整性",
+    "expected": "清单与独立文件数量、图号、审核版本、规格和哈希完全一致；无虚构源文件。",
+    "owner_task": "T03-04",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A18",
+    "phase": "M4",
+    "title": "真实连接诊断",
+    "expected": "目标版本、认证、节点和模型缺项可诊断；未验证版本不被宣称支持。",
+    "owner_task": "T04-01",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A19",
+    "phase": "M4",
+    "title": "宿主参数对照",
+    "expected": "D-01—D-03 在本地各入口及目标宿主的结果得到对照。",
+    "owner_task": "T04-02",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A20",
+    "phase": "M4",
+    "title": "输入与环境快照",
+    "expected": "实际输入版本、模型节点信息和摘要有记录；不可验证项明确 unknown。",
+    "owner_task": "T04-03",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A21",
+    "phase": "M4",
+    "title": "真实执行回收",
+    "expected": "图号可追到任务、意图、prompt_id、真实输出和哈希，完成后仅待审核。",
+    "owner_task": "T04-04",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A22",
+    "phase": "M4",
+    "title": "真实双会话并发",
+    "expected": "同一意图在目标环境只观察到一次提交，回执与产物一致。",
+    "owner_task": "T04-06",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A23",
+    "phase": "M4",
+    "title": "丢响应和服务重启",
+    "expected": "已知编号只恢复查询，未知不自动重发，旧执行者不能覆盖新状态。",
+    "owner_task": "T04-05",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A24",
+    "phase": "M4",
+    "title": "取消范围",
+    "expected": "取消本任务不清空宿主全局队列，不影响其他项目和用户。",
+    "owner_task": "T04-05",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A25",
+    "phase": "M5",
+    "title": "真实双 SKU 和增量补齐",
+    "expected": "A 完成 8/10 到 10/10，B 的实质差异得到验证，修改只推进相关图。",
+    "owner_task": "T05-01",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A26",
+    "phase": "M5",
+    "title": "真实外观理解与无划区重绘",
+    "expected": "真实模型理解原图，经校订确认后实际进入重绘输入；不靠贴片冒充。",
+    "owner_task": "T05-02",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A27",
+    "phase": "M5",
+    "title": "真实商品逐图与整套质量",
+    "expected": "A 的十张图逐一有依据、文件和有效审核，关键错误为零，最终质量签认。",
+    "owner_task": "T05-02",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A28",
+    "phase": "M5",
+    "title": "案例回流和重新绑定",
+    "expected": "保存成功方案与失败原因，复用时重新绑定当前商品事实，不编造营销结果。",
+    "owner_task": "T05-03",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A29",
+    "phase": "M5",
+    "title": "干净环境和备份恢复",
+    "expected": "按文档独立运行，恢复后的历史任务、输入输出和交付哈希一致。",
+    "owner_task": "T05-04",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  },
+  {
+    "id": "A30",
+    "phase": "M5",
+    "title": "旧功能回归和总体验收",
+    "expected": "已有登录上传报价账本单图等无已知回归，15 项发现均有相应层级证据。",
+    "owner_task": "T05-05",
+    "result": "NOT_RUN",
+    "commit_sha": null,
+    "evidence_paths": []
+  }
+]

@@ -277,6 +277,10 @@ const detailSource=(await readFile(new URL('../web/js/detail_panel.js',import.me
  .replace("import { runDetailJobs,renderDetailPage,validateJournal } from './detail_runner.js';",'const runDetailJobs=()=>{throw Error("must not queue")},renderDetailPage=()=>{},validateJournal=j=>j;');
 const {openDetailPanel}=await import('data:text/javascript;base64,'+Buffer.from(detailSource).toString('base64'));
 openDetailPanel();assert.equal(detailCalls.length,0);
+assert(byText('确认后连续运行六张').disabled);
+await byText('确认后连续运行六张').emit('click');
+await byText('仅明确失败模块：允许人工重试一次').emit('click');
+assert.equal(detailCalls.length,0);
 byLabel('详情商品名称').value='自有商品';byLabel('详情真实资料').value='蓝色';
 await byText('读取环境并生成六模块草案').emit('click');assert.equal(detailCalls.length,2);
 await byText('校验方案并预览文案').emit('click');assert(detailCalls.at(-1).endsWith('/validate'));

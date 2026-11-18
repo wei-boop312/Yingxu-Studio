@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-11-18T18:02:54.155246+00:00",
+  "scope": "owned-native-PG-MQ-S3; not real model or production acceptance",
+  "action": "test",
+  "pattern": "test_studio.py",
+  "tests": 11,
+  "skipped": 0,
+  "exit_code": 0,
+  "result": "PASS"
+}

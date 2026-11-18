@@ -20,6 +20,7 @@ class OfflineVisionSampleContracts(unittest.TestCase):
             [sys.executable, str(SCRIPT), *map(str, arguments)],
             capture_output=True,
             text=True,
+            encoding="utf-8",
             timeout=25,
         )
 
@@ -53,9 +54,42 @@ class OfflineVisionSampleContracts(unittest.TestCase):
 
     def test_over_four_megapixels_fails_before_creating_output(self):
         with tempfile.TemporaryDirectory(dir=ROOT / "work") as directory:
+            valid = Path(directory) / "valid.png"
+            valid.write_bytes(canonical_png(512, 512))
+            baseline = self.run_cli(
+                "--run", "--source", valid, "--output-dir", Path(directory) / "valid-proof"
+            )
+            self.assertEqual(baseline.returncode, 0, baseline.stderr)
+            self.assertEqual(
+                json.loads(baseline.stdout)["result"], "OFFLINE_FINAL_SAMPLE_PROTOCOL_VERIFIED"
+            )
             source = Path(directory) / "oversized.png"
             source.write_bytes(canonical_png(2049, 2049))
             output = Path(directory) / "not-created"
             process = self.run_cli("--run", "--source", source, "--output-dir", output)
             self.assertEqual(process.returncode, 1)
+            report = json.loads(process.stdout)
+            self.assertEqual(report["result"], "OFFLINE_SAMPLE_REJECTED")
+            self.assertEqual(report["error_code"], "image_too_large_for_offline_sample")
             self.assertFalse(output.exists())
+
+    def test_missing_dependency_is_not_a_size_rejection(self):
+        code = (
+            "import builtins,runpy,sys; original=builtins.__import__; "
+            'exec("def guarded(name,*args,**kwargs):\\n'
+            " if name=='httpx': raise ModuleNotFoundError('synthetic missing httpx')\\n"
+            ' return original(name,*args,**kwargs)"); '
+            "builtins.__import__=guarded; script=sys.argv[1]; sys.argv=sys.argv[1:]; "
+            "runpy.run_path(script,run_name='__main__')"
+        )
+        process = subprocess.run(
+            [sys.executable, "-c", code, str(SCRIPT)],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            timeout=25,
+        )
+        self.assertNotEqual(process.returncode, 0)
+        self.assertIn("synthetic missing httpx", process.stderr)
+        with self.assertRaises(json.JSONDecodeError):
+            json.loads(process.stdout)

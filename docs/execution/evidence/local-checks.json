@@ -1,0 +1,41 @@
+{
+  "started_at": "2026-11-18T18:12:31.133538+00:00",
+  "commit_sha": "7a8d866b770d210d64cc69b8036537cb33363d51",
+  "working_tree_dirty": true,
+  "scope": "all",
+  "configured_provider_profile": "offline",
+  "checks": [
+    {
+      "name": "commerce-unit",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "work\\current-check-commerce-unit.log"
+    },
+    {
+      "name": "commerce-contracts",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "work\\current-check-commerce-contracts.log"
+    },
+    {
+      "name": "frontend-unit",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "work\\current-check-frontend-unit.log"
+    },
+    {
+      "name": "frontend-build",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "work\\current-check-frontend-build.log"
+    },
+    {
+      "name": "architect",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "work\\current-check-architect.log"
+    }
+  ],
+  "result": "PASS",
+  "limitations": "Offline checks do not establish browser, native-service, ComfyUI or product-quality acceptance."
+}

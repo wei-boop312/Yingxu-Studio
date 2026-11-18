@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import math
 import re
+from collections import deque
 from typing import Any
 
 from .schemas import (
@@ -8,6 +10,7 @@ from .schemas import (
     ValidationIssue,
     ValidationReport,
     WorkflowPlan,
+    InputDefinition,
 )
 
 UNRESOLVED = re.compile(r"\$\{[^}]+\}")
@@ -25,11 +28,7 @@ class WorkflowValidator:
             ValidationIssue(
                 code="MISSING_CAPABILITY",
                 stage=next(
-                    (
-                        stage.id
-                        for stage in plan.stages
-                        if capability in stage.missing
-                    ),
+                    (stage.id for stage in plan.stages if capability in stage.missing),
                     None,
                 ),
                 capability=capability,
@@ -58,6 +57,15 @@ class WorkflowValidator:
     ) -> ValidationReport:
         errors: list[ValidationIssue] = []
         warnings: list[ValidationIssue] = []
+        if not isinstance(compiled, dict):
+            return ValidationReport(
+                valid=False,
+                errors=(
+                    ValidationIssue(
+                        code="INVALID_WORKFLOW", message="workflow 必须是对象"
+                    ),
+                ),
+            )
         is_draft = bool(compiled.get("draft"))
         prompt = compiled.get("api_prompt")
         if not isinstance(prompt, dict) or not prompt:
@@ -70,16 +78,26 @@ class WorkflowValidator:
                 ),
             )
 
-        ids = list(prompt)
-        if len(ids) != len(set(ids)):
+        if any(not isinstance(node_id, str) or not node_id for node_id in prompt):
             errors.append(
-                ValidationIssue(code="DUPLICATE_NODE_ID", message="存在重复节点 ID")
+                ValidationIssue(
+                    code="INVALID_NODE_ID", message="节点 ID 必须是非空字符串"
+                )
             )
         missing_nodes: set[str] = set()
         edges: dict[str, set[str]] = {node_id: set() for node_id in prompt}
         saver_ids: set[str] = set()
 
         for node_id, node in prompt.items():
+            if not isinstance(node, dict):
+                errors.append(
+                    ValidationIssue(
+                        code="INVALID_NODE",
+                        node_id=str(node_id),
+                        message="节点必须是对象",
+                    )
+                )
+                continue
             class_name = str(node.get("class_type", ""))
             node_def = registry.nodes.get(class_name)
             if not node_def:
@@ -125,8 +143,27 @@ class WorkflowValidator:
                         )
                     )
             for name, value in inputs.items():
-                if _is_prompt_link(value):
-                    source_id, output_index = str(value[0]), int(value[1])
+                target_input = node_def.input_by_name(name)
+                if target_input is None:
+                    errors.append(
+                        ValidationIssue(
+                            code="UNKNOWN_INPUT",
+                            node_id=str(node_id),
+                            message=f"{class_name} 不包含输入 {name}；动态输入需宿主合同核验",
+                        )
+                    )
+                    continue
+                if isinstance(value, list):
+                    if not _is_prompt_link(value):
+                        errors.append(
+                            ValidationIssue(
+                                code="INVALID_LINK",
+                                node_id=str(node_id),
+                                message=f"输入 {name} 的连接结构或端口类型不合法",
+                            )
+                        )
+                        continue
+                    source_id, output_index = str(value[0]), value[1]
                     if source_id not in prompt:
                         errors.append(
                             ValidationIssue(
@@ -136,14 +173,31 @@ class WorkflowValidator:
                             )
                         )
                         continue
-                    edges[source_id].add(node_id)
-                    target_input = node_def.input_by_name(name)
-                    source_class = str(prompt[source_id].get("class_type", ""))
+                    source = prompt[source_id]
+                    if not isinstance(source, dict):
+                        errors.append(
+                            ValidationIssue(
+                                code="BROKEN_LINK",
+                                node_id=str(node_id),
+                                message=f"输入 {name} 引用了无效节点",
+                            )
+                        )
+                        continue
+                    source_class = str(source.get("class_type", ""))
                     source_def = registry.nodes.get(source_class)
+                    if source_def and not 0 <= output_index < len(source_def.outputs):
+                        errors.append(
+                            ValidationIssue(
+                                code="INVALID_OUTPUT_INDEX",
+                                node_id=str(node_id),
+                                message=f"{source_class} 输出端口 {output_index} 越界",
+                            )
+                        )
+                        continue
+                    edges[source_id].add(node_id)
                     if (
                         target_input
                         and source_def
-                        and output_index < len(source_def.outputs)
                         and not _compatible(
                             source_def.outputs[output_index], target_input.type
                         )
@@ -160,19 +214,15 @@ class WorkflowValidator:
                             )
                         )
                 else:
-                    target_input = node_def.input_by_name(name)
-                    if (
-                        target_input
-                        and target_input.choices
-                        and str(value) not in target_input.choices
-                    ):
+                    code = _scalar_error(target_input, value)
+                    if code:
                         errors.append(
                             ValidationIssue(
-                                code="INVALID_WIDGET_CHOICE",
+                                code=code,
                                 node_id=node_id,
                                 message=(
                                     f"{class_name}.{name} 的值 {value!r} "
-                                    "不在当前 ComfyUI 的有效选项中"
+                                    "不符合当前节点参数合同"
                                 ),
                             )
                         )
@@ -190,6 +240,13 @@ class WorkflowValidator:
                     )
                 )
 
+        if _has_cycle(edges):
+            errors.append(
+                ValidationIssue(
+                    code="CYCLIC_DEPENDENCY", message="workflow 包含循环依赖"
+                )
+            )
+
         if not saver_ids:
             target = warnings if is_draft else errors
             target.append(
@@ -205,11 +262,19 @@ class WorkflowValidator:
                 )
             )
 
-        metadata = (
-            compiled.get("ui_workflow", {})
-            .get("extra", {})
-            .get("workflow_architect", {})
-        )
+        metadata = compiled.get("ui_workflow", {})
+        for key in ("extra", "workflow_architect"):
+            if not isinstance(metadata, dict):
+                break
+            metadata = metadata.get(key, {})
+        if not isinstance(metadata, dict):
+            errors.append(
+                ValidationIssue(
+                    code="INVALID_WORKFLOW_METADATA",
+                    message="workflow 元数据必须是对象",
+                )
+            )
+            metadata = {}
         if not metadata.get("manual_review_required"):
             warnings.append(
                 ValidationIssue(
@@ -217,12 +282,22 @@ class WorkflowValidator:
                     message="workflow 未标记最终结果需人工检查",
                 )
             )
+        missing_models = compiled.get("missing_models", ())
+        if not isinstance(missing_models, (list, tuple)) or any(
+            not isinstance(x, str) for x in missing_models
+        ):
+            errors.append(
+                ValidationIssue(
+                    code="INVALID_WORKFLOW_METADATA", message="模型缺项必须是字符串列表"
+                )
+            )
+            missing_models = ()
         return ValidationReport(
             valid=not errors,
             errors=tuple(errors),
             warnings=tuple(warnings),
             missing_nodes=tuple(sorted(item for item in missing_nodes if item)),
-            missing_models=tuple(compiled.get("missing_models", ())),
+            missing_models=tuple(missing_models),
             draft_created=is_draft,
         )
 
@@ -231,8 +306,8 @@ def _is_prompt_link(value: Any) -> bool:
     return (
         isinstance(value, list)
         and len(value) == 2
-        and isinstance(value[0], (str, int))
-        and isinstance(value[1], int)
+        and type(value[0]) in (str, int)
+        and type(value[1]) is int
     )
 
 
@@ -242,3 +317,60 @@ def _compatible(output_type: str, input_type: str) -> bool:
 
 def _has_predecessor(target: str, edges: dict[str, set[str]]) -> bool:
     return any(target in destinations for destinations in edges.values())
+
+
+def _has_cycle(edges: dict[str, set[str]]) -> bool:
+    incoming = {node: 0 for node in edges}
+    for destinations in edges.values():
+        for node in destinations:
+            incoming[node] += 1
+    ready = deque(node for node, count in incoming.items() if count == 0)
+    visited = 0
+    while ready:
+        node = ready.popleft()
+        visited += 1
+        for destination in edges[node]:
+            incoming[destination] -= 1
+            if incoming[destination] == 0:
+                ready.append(destination)
+    return visited != len(edges)
+
+
+def _scalar_error(definition: InputDefinition, value: Any) -> str | None:
+    if definition.force_input:
+        return "INVALID_INPUT_TYPE"
+    choices = definition.enum_values or definition.choices
+    if choices:
+        if not any(
+            type(value) is type(choice) and value == choice for choice in choices
+        ):
+            return "INVALID_WIDGET_CHOICE"
+        return None
+    kind = definition.type
+    if kind == "INT":
+        valid = type(value) is int
+    elif kind == "FLOAT":
+        try:
+            valid = type(value) in (int, float) and math.isfinite(value)
+        except OverflowError:
+            valid = False
+    elif kind == "BOOLEAN":
+        valid = type(value) is bool
+    elif kind == "STRING":
+        valid = isinstance(value, str)
+    else:
+        valid = False
+    if not valid:
+        return "INVALID_INPUT_TYPE"
+    if kind in ("INT", "FLOAT"):
+        for bound in (definition.minimum, definition.maximum):
+            if bound is not None and (
+                type(bound) not in (int, float)
+                or (type(bound) is float and not math.isfinite(bound))
+            ):
+                return "INVALID_INPUT_CONTRACT"
+        if definition.minimum is not None and value < definition.minimum:
+            return "INPUT_OUT_OF_RANGE"
+        if definition.maximum is not None and value > definition.maximum:
+            return "INPUT_OUT_OF_RANGE"
+    return None

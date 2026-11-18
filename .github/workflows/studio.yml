@@ -1,0 +1,88 @@
+name: Yingxu offline acceptance
+on:
+  push:
+    branches: [main, 'codex/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: studio-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+env:
+  PYTHONUTF8: '1'
+  PROVIDER_PROFILE: offline
+  WORKFLOW_ARCHITECT_POSTER_FONT: /usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
+jobs:
+  offline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24.22.1'
+      - name: Install locked environments
+        run: |
+          test -f "$WORKFLOW_ARCHITECT_POSTER_FONT"
+          python -m pip install uv==0.13.9
+          uv sync --locked --project apps/commerce
+          uv sync --locked --extra test --project integrations/comfyui-architect
+          npm install --global pnpm@11.25.0
+          pnpm --dir apps/commerce/apps/web install --frozen-lockfile
+      - name: Run both projects through the root entry
+        run: python scripts/studio.py check --report work/offline.json
+      - name: Check formatting and both platform types
+        run: uv run --project apps/commerce python apps/commerce/scripts/static_checks.py
+      - name: Upload current check evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: studio-offline-${{ github.sha }}
+          path: work/offline*
+          if-no-files-found: error
+          retention-days: 7
+  native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24.22.1'
+      - name: Prepare isolated native suite
+        working-directory: apps/commerce
+        run: |
+          python -m pip install uv==0.13.9
+          uv sync --locked
+          npm install --global pnpm@11.25.0
+          pnpm --dir apps/web install --frozen-lockfile
+          pnpm --dir apps/web exec playwright install --with-deps chromium
+          mkdir -p work docs/evidence
+          pnpm --dir apps/web build > work/frontend-build.log 2>&1
+      - name: Real PG MQ S3 and production browsers
+        working-directory: apps/commerce
+        run: uv run python scripts/ci_native.py
+      - name: Upload native evidence without private profiles
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: studio-native-${{ github.sha }}
+          path: |
+            apps/commerce/work/ci-public/
+            apps/commerce/docs/evidence/*.json
+            apps/commerce/docs/evidence/browser-*.png
+            docs/execution/evidence/browser-current.json
+            docs/execution/evidence/browser/*.png
+          if-no-files-found: error
+          retention-days: 7

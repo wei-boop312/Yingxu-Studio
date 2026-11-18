@@ -186,6 +186,10 @@ class InputDefinition:
     default: Any = None
     choices: tuple[str, ...] = ()
     control_after_generate: bool | str | None = None
+    minimum: int | float | None = None
+    maximum: int | float | None = None
+    enum_values: tuple[Any, ...] = ()
+    force_input: bool = False
 
 
 @dataclass(frozen=True)
@@ -316,7 +320,7 @@ class ValidationReport:
     def to_dict(self) -> dict[str, Any]:
         return {
             "valid": self.valid,
-            "execution_ready": self.valid and not self.missing_nodes and not self.missing_models,
+            "execution_ready": self.valid and not self.draft_created and not self.missing_nodes and not self.missing_models,
             "draft_created": self.draft_created,
             "errors": [asdict(item) for item in self.errors],
             "warnings": [asdict(item) for item in self.warnings],

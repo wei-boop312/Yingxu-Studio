@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-11-18T18:07:53.275814+00:00",
+  "profile": "offline_protocol_mock",
+  "suppliers": "httpx.MockTransport; official Gemini SDK",
+  "postgres": "17.11 (Debian 17.11-1.pgdg12+2)",
+  "sdk_version": "3.3.0",
+  "storage": "native private S3-compatible service",
+  "paid_calls": 0,
+  "source_sha256": "96d163ecc7bc66ee6dc36aabba12b76b7a138133730c79db7a22ef12a2885ec7",
+  "final_sha256": "05f7a8e01c13ff4ff0a2cf1db173196f55d66385d46db4e3747f5d05c150ef3b",
+  "bfl_posts": 1,
+  "gemini_posts": 1,
+  "gemini_received_exact_final_png": true,
+  "protected_rgb_exact": true,
+  "report_profile": "offline_protocol_mock",
+  "report_sha_matches_final": true,
+  "cost_observation_records": 4,
+  "money_amount_and_currency": null,
+  "user_credit_charges": 1,
+  "request_digest_matches_db": true,
+  "result": "PASS"
+}
