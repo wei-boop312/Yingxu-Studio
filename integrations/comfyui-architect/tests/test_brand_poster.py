@@ -1,5 +1,6 @@
 import copy
 import json
+import os
 from pathlib import Path
 import tempfile
 import threading
@@ -13,6 +14,8 @@ from workflow_architect.poster_service import prepare,resolve,package_path,optio
 from workflow_architect.errors import InputError
 from workflow_architect.service import ArchitectService
 from test_detail_page import detail_fixture
+
+FONT_PATH=os.environ.get('WORKFLOW_ARCHITECT_POSTER_FONT','C:/Windows/Fonts/arialbd.ttf')
 
 class BrandPosterTests(unittest.TestCase):
     def setUp(self):
@@ -54,11 +57,15 @@ class BrandPosterTests(unittest.TestCase):
         self.assertEqual(image.size,(330,560));self.assertEqual(image.getpixel((0,0))[3],0)
     def test_overlay_and_text_layout(self):
         source=Image.new('RGB',(160,160),'#223344');mask=Image.new('L',(160,160),255)
-        overlay,report=create_overlay(source,mask,source,mask,DEFAULT,'C:/Windows/Fonts/arialbd.ttf')
+        overlay,report=create_overlay(source,mask,source,mask,DEFAULT,FONT_PATH)
         self.assertEqual(overlay.size,(1600,1600));self.assertFalse(report['product_redrawn_by_diffusion'])
         for key in ('product_box','remote_box'):
             x,y,r,b=report[key];self.assertTrue(0<=x<r<=1600 and 0<=y<b<=1600)
         self.assertEqual(compose(source,overlay,source).size,(1600,1600))
+    def test_missing_explicit_font_is_not_silently_replaced(self):
+        with patch.dict(os.environ,{'WORKFLOW_ARCHITECT_POSTER_FONT':str(self.root/'missing.ttf')}):
+            with self.assertRaisesRegex(InputError,'WORKFLOW_ARCHITECT_POSTER_FONT'):self.call()
+        self.assertEqual(list(self.output.iterdir()),[])
     def test_explicit_confirm(self):
         for value in (False,1,'true'):
             with self.assertRaises(InputError):self.call(confirmed=value)

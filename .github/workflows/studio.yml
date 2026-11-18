@@ -12,6 +12,7 @@ concurrency:
 env:
   PYTHONUTF8: '1'
   PROVIDER_PROFILE: offline
+  WORKFLOW_ARCHITECT_POSTER_FONT: /usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
 jobs:
   offline:
     runs-on: ubuntu-24.04
@@ -28,6 +29,7 @@ jobs:
           node-version: '24.22.1'
       - name: Install locked environments
         run: |
+          test -f "$WORKFLOW_ARCHITECT_POSTER_FONT"
           python -m pip install uv==0.13.9
           uv sync --locked --project apps/commerce
           uv sync --locked --extra test --project integrations/comfyui-architect
