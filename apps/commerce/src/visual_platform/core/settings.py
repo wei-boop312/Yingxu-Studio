@@ -21,8 +21,13 @@ class Settings:
     issuer: str = "visual-platform"
     audience: str = "visual-web"
     provider_profile: str = "offline"
+    studio_comfy_url: str | None = None
 
     def __post_init__(self):
+        if self.studio_comfy_url:
+            from visual_platform.providers.comfyui import local_url
+
+            local_url(self.studio_comfy_url)
         if self.provider_profile not in ("offline", "bailian_live"):
             raise ValueError("unsupported_provider_profile")
         object.__setattr__(self, "origin", validate_app_origin(self.origin, self.cookie_secure))
@@ -37,6 +42,7 @@ class Settings:
         if cookie_mode not in ("0", "1"):
             raise ValueError("invalid_cookie_security_mode")
         return cls(
+            studio_comfy_url=os.environ.get("STUDIO_COMFY_URL") or None,
             provider_profile=os.environ.get("PROVIDER_PROFILE", "offline"),
             api_database_url=os.environ["API_DATABASE_URL"],
             auth_database_url=os.environ["AUTH_DATABASE_URL"],

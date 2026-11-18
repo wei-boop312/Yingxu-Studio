@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-11-18T18:35:08.411596+00:00",
+  "weekly_window_minutes": 10080,
+  "weekly_used_percent": 80,
+  "weekly_remaining_percent": 20,
+  "reset_at_unix": 1795323490,
+  "user_stop_threshold_remaining_percent": 20,
+  "development_stopped": true,
+  "state": "paused_by_user",
+  "verified_business_branch": "codex/project-closure",
+  "verified_business_commit": "61c430170698552cec56900fda7879320f7f7f27",
+  "font_fix_commit": "617787c66bd82a2a3545195b6fc313c56a55fb42",
+  "work_in_progress_branch": "checkpoint/quota-20-20261119",
+  "pr": "https://github.com/wei-boop312/Yingxu-Studio/pull/1",
+  "first_pr_ci": {
+    "run_id": 44368404302,
+    "result": "FAIL",
+    "native_migration": "PASS",
+    "native_integration": "PASS",
+    "production_browser": "FAIL",
+    "restore": "NOT_RUN"
+  },
+  "font_fix_pr_ci": {
+    "run_id": 44369353830,
+    "result_at_stop": "IN_PROGRESS"
+  }
+}

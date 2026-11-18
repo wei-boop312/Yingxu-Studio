@@ -7,7 +7,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 p = argparse.ArgumentParser()
-p.add_argument("component", choices=["api", "publisher", "worker", "web", "preview", "monitor"])
+p.add_argument(
+    "component", choices=["api", "publisher", "worker", "studio-comfy", "web", "preview", "monitor"]
+)
 p.add_argument("--profile-dir", type=Path, default=ROOT / ".local")
 args = p.parse_args()
 folder = args.profile_dir.resolve()
@@ -21,6 +23,9 @@ env = {
     **json.loads(profile.read_text(encoding="utf-8")),
     "PYTHONPATH": str(ROOT / "src"),
 }
+architect = ROOT.parent.parent / "integrations/comfyui-architect"
+if (architect / "workflow_architect/studio_compile.py").is_file():
+    env["PYTHONPATH"] += os.pathsep + str(architect)
 commands = {
     "api": [
         sys.executable,
@@ -34,6 +39,7 @@ commands = {
     ],
     "publisher": [sys.executable, "-m", "visual_platform.events"],
     "worker": [sys.executable, "-m", "visual_platform.worker", "--consume"],
+    "studio-comfy": [sys.executable, "-m", "visual_platform.worker.studio_comfy"],
     "web": ["pnpm", "--dir", "apps/web", "dev"],
     "preview": ["pnpm", "--dir", "apps/web", "preview"],
     "monitor": [sys.executable, "scripts/monitor.py", "--probe-dependencies"],

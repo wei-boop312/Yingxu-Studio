@@ -307,7 +307,7 @@ def main():
         **profile,
         "PYTHONUTF8": "1",
         "PGCONNECT_TIMEOUT": "5",
-        "PYTHONPATH": str(COMMERCE / "src"),
+        "PYTHONPATH": str(COMMERCE / "src") + os.pathsep + str(ROOT / "integrations/comfyui-architect"),
     }
     python = (
         COMMERCE / ".venv" / ("Scripts/python.exe" if os.name == "nt" else "bin/python")

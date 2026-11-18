@@ -17,6 +17,7 @@ from visual_platform.api import (
     quotes,
     reviews,
     rules,
+    studio_connections,
     studio_outputs,
     studio_projects,
     tasks,
@@ -155,6 +156,7 @@ def create_app(settings: Settings | None = None):
     app.include_router(rules.router)
     app.include_router(assets.router)
     app.include_router(reviews.router)
+    app.include_router(studio_connections.router)
     app.include_router(studio_projects.router)
     app.include_router(studio_outputs.router)
     app.add_middleware(RequestTelemetry)

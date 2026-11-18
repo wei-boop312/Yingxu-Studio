@@ -105,6 +105,19 @@ class ImportOutput(StrictModel):
     source_note: str = Field(strict=True, min_length=1, max_length=2000)
 
 
+class ExecutionCreate(StrictModel):
+    expected_revision: int = Field(strict=True, gt=0)
+    plan_id: UUID
+    source_asset_version_id: UUID
+    confirmed_connection_test: bool = Field(strict=True)
+
+    @model_validator(mode="after")
+    def explicit_scope(self):
+        if self.confirmed_connection_test is not True:
+            raise ValueError("connection_test_confirmation_required")
+        return self
+
+
 CheckResult = Literal["passed", "failed", "unknown", "not_applicable"]
 
 

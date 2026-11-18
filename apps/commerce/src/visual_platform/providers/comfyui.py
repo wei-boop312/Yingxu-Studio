@@ -110,6 +110,16 @@ class LocalComfy:
             raise ValueError("source_hash_mismatch")
         filename = sha256 + ".png"
         subfolder = "yingxu/" + str(intent_id)
+        params = {"filename": filename, "subfolder": subfolder, "type": "input"}
+        existing_status, existing = await self.request(
+            "GET", "/view", limit=80 * 1024 * 1024, params=params
+        )
+        if existing_status == 200:
+            if hashlib.sha256(existing).hexdigest() != sha256:
+                raise ComfyUnavailable("comfy_existing_input_integrity_mismatch")
+            return subfolder + "/" + filename
+        if existing_status != 404:
+            raise ComfyUnavailable("comfy_input_lookup_rejected")
         status, response = await self.request(
             "POST",
             "/upload/image",
@@ -175,4 +185,16 @@ class LocalComfy:
         status, _ = await self.request("POST", "/queue", json={"delete": [str(prompt_id)]})
         if status != 200:
             raise ComfyUncertain("comfy_cancel_outcome_unknown")
-        return {"cancelled": True, "reason": "scoped_queue_delete_requested"}
+        after = await self.read_json("/queue")
+        still_present = any(
+            row[1] == str(prompt_id)
+            for key in ("queue_running", "queue_pending")
+            for row in after.get(key, [])
+        )
+        history = await self.history(prompt_id)
+        return {
+            "cancelled": not still_present and str(prompt_id) not in history,
+            "reason": "scoped_queue_delete_confirmed"
+            if not still_present and str(prompt_id) not in history
+            else "execution_moved_before_cancel",
+        }

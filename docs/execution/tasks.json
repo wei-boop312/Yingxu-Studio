@@ -26,7 +26,7 @@
     "verified": "当前提交已满足该任务验收与证据要求",
     "blocked": "明确依赖外部资料、环境或未获授权动作；不能计为完成"
   },
-  "current_phase": "M3",
+  "current_phase": "M4",
   "completed_gates": [],
   "gates": [
     {
@@ -856,16 +856,18 @@
       ],
       "actual_result": {
         "result": "NOT_RUN",
-        "note": "已实施任务仍待当前提交完整验收；工作区定向验证见证据索引。"
+        "note": "停止线触发；执行意图/连接模板/后台执行器为未完成检查点，仅0075隔离测试迁移与早期定向合同已运行，当前工作区未通过整体验收。"
       },
-      "evidence_paths": [],
+      "evidence_paths": [
+        "docs/execution/QUOTA_CHECKPOINT_2026-11-19.md"
+      ],
       "verified_commit": null
     },
     {
       "id": "T04-02",
       "phase": "M4",
       "title": "把逐图计划编译为受约束工作流",
-      "status": "planned",
+      "status": "in_progress",
       "depends_on": [
         "T04-01"
       ],
@@ -897,15 +899,20 @@
         "host-validation-comparison.json",
         "compiler-boundary-regression.json"
       ],
-      "actual_result": null,
-      "evidence_paths": [],
+      "actual_result": {
+        "result": "NOT_RUN",
+        "note": "停止线触发；执行意图/连接模板/后台执行器为未完成检查点，仅0075隔离测试迁移与早期定向合同已运行，当前工作区未通过整体验收。"
+      },
+      "evidence_paths": [
+        "docs/execution/QUOTA_CHECKPOINT_2026-11-19.md"
+      ],
       "verified_commit": null
     },
     {
       "id": "T04-03",
       "phase": "M4",
       "title": "固定输入字节和执行环境快照",
-      "status": "planned",
+      "status": "in_progress",
       "depends_on": [
         "T04-02"
       ],
@@ -931,15 +938,20 @@
         "environment-snapshot.json",
         "same-name-replacement.json"
       ],
-      "actual_result": null,
-      "evidence_paths": [],
+      "actual_result": {
+        "result": "NOT_RUN",
+        "note": "停止线触发；执行意图/连接模板/后台执行器为未完成检查点，仅0075隔离测试迁移与早期定向合同已运行，当前工作区未通过整体验收。"
+      },
+      "evidence_paths": [
+        "docs/execution/QUOTA_CHECKPOINT_2026-11-19.md"
+      ],
       "verified_commit": null
     },
     {
       "id": "T04-04",
       "phase": "M4",
       "title": "提交执行并回收真实输出",
-      "status": "planned",
+      "status": "in_progress",
       "depends_on": [
         "T04-03",
         "T01-04"
@@ -970,15 +982,20 @@
         "comfy-wire-receipts/",
         "recovered-output-hashes.json"
       ],
-      "actual_result": null,
-      "evidence_paths": [],
+      "actual_result": {
+        "result": "NOT_RUN",
+        "note": "停止线触发；执行意图/连接模板/后台执行器为未完成检查点，仅0075隔离测试迁移与早期定向合同已运行，当前工作区未通过整体验收。"
+      },
+      "evidence_paths": [
+        "docs/execution/QUOTA_CHECKPOINT_2026-11-19.md"
+      ],
       "verified_commit": null
     },
     {
       "id": "T04-05",
       "phase": "M4",
       "title": "实现恢复对账与局部取消",
-      "status": "planned",
+      "status": "in_progress",
       "depends_on": [
         "T04-04"
       ],
@@ -1005,8 +1022,13 @@
         "unknown-reconciliation.json",
         "scoped-cancel.json"
       ],
-      "actual_result": null,
-      "evidence_paths": [],
+      "actual_result": {
+        "result": "NOT_RUN",
+        "note": "停止线触发；执行意图/连接模板/后台执行器为未完成检查点，仅0075隔离测试迁移与早期定向合同已运行，当前工作区未通过整体验收。"
+      },
+      "evidence_paths": [
+        "docs/execution/QUOTA_CHECKPOINT_2026-11-19.md"
+      ],
       "verified_commit": null
     },
     {
@@ -1044,8 +1066,13 @@
         "two-session-target-test.json",
         "target-version-and-output.json"
       ],
-      "actual_result": null,
-      "evidence_paths": [],
+      "actual_result": {
+        "result": "NOT_RUN",
+        "note": "停止线触发；执行意图/连接模板/后台执行器为未完成检查点，仅0075隔离测试迁移与早期定向合同已运行，当前工作区未通过整体验收。"
+      },
+      "evidence_paths": [
+        "docs/execution/QUOTA_CHECKPOINT_2026-11-19.md"
+      ],
       "verified_commit": null
     },
     {
@@ -1701,5 +1728,13 @@
   ],
   "update_policy": "每个实际开发阶段同步更新根级 docs/STATUS.md 和任务结果；保留基线和历史证据。",
   "authorization_scope": "本文件为待执行计划，不授予付费调用、生产迁移、部署或自动发布权限；以执行时用户授权和适用工程约定为准。",
-  "updated_at": "2026-11-19"
+  "updated_at": "2026-11-19",
+  "execution_state": "paused_by_user_usage_threshold",
+  "stop_rule": {
+    "weekly_remaining_percent": 20,
+    "observed_weekly_used_percent": 80,
+    "observed_weekly_remaining_percent": 20,
+    "action": "stop development; save and upload checkpoint",
+    "resumption": "explicit user instruction required"
+  }
 }

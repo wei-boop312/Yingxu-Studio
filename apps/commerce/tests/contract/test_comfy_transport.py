@@ -92,6 +92,8 @@ class ComfyTransportTests(unittest.IsolatedAsyncioTestCase):
 
             def respond(request):
                 calls.append(request.method)
+                if calls == ["GET"]:
+                    return httpx.Response(404)
                 return (
                     httpx.Response(
                         200,
@@ -115,7 +117,7 @@ class ComfyTransportTests(unittest.IsolatedAsyncioTestCase):
                         await client.upload_exact(raw, sha, intent),
                         "yingxu/" + str(intent) + "/" + sha + ".png",
                     )
-                self.assertEqual(calls, ["POST", "GET"])
+                self.assertEqual(calls, ["GET", "POST", "GET"])
             finally:
                 await client.close()
 
@@ -123,19 +125,24 @@ class ComfyTransportTests(unittest.IsolatedAsyncioTestCase):
         own, other = uuid4(), uuid4()
         for running in (True, False):
             calls = []
+            deleted = []
 
             def respond(request):
                 calls.append(
                     (request.url.path, json.loads(request.content) if request.content else None)
                 )
+                if request.url.path.startswith("/history/"):
+                    return httpx.Response(200, json={})
                 if request.method == "GET":
                     return httpx.Response(
                         200,
                         json={
                             "queue_running": [[0, str(own)]] if running else [],
-                            "queue_pending": [[1, str(other)], [2, str(own)]],
+                            "queue_pending": [[1, str(other)]]
+                            + ([] if deleted else [[2, str(own)]]),
                         },
                     )
+                deleted.append(True)
                 return httpx.Response(200)
 
             client = LocalComfy("http://127.0.0.1:8188", httpx.MockTransport(respond))
@@ -146,7 +153,12 @@ class ComfyTransportTests(unittest.IsolatedAsyncioTestCase):
                     calls,
                     [("/queue", None)]
                     if running
-                    else [("/queue", None), ("/queue", {"delete": [str(own)]})],
+                    else [
+                        ("/queue", None),
+                        ("/queue", {"delete": [str(own)]}),
+                        ("/queue", None),
+                        ("/history/" + str(own), None),
+                    ],
                 )
             finally:
                 await client.close()

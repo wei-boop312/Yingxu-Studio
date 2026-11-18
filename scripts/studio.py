@@ -263,7 +263,7 @@ def main():
         p = sub.add_parser(action)
         p.add_argument(
             "component",
-            choices=("api", "publisher", "worker", "web", "preview", "monitor"),
+            choices=("api", "publisher", "worker", "studio-comfy", "web", "preview", "monitor"),
         )
     args = parser.parse_args()
     return (
