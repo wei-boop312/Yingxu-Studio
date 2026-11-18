@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "scope": "initial_rehearsal",
+  "source": "docs/specification/PROJECT_PLAN.md#13",
+  "source_sha256": "d74c99ebc7bae74fc7187d10e2f194967d985fe18b11fdf94e8c8910d602fabb",
+  "rpo_seconds": 86400,
+  "rto_seconds": 14400
+}

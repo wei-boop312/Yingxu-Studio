@@ -1,0 +1,9 @@
+# Preserve exact upstream license bytes and spacing; inventory verifies SHA-256.
+third_party/licenses/** -text -whitespace
+third_party/supplements/** -text
+sbom/*.json text eol=lf
+# Evidence digests bind exact archived bytes on every checkout platform.
+rules/evidence/** -text
+
+# Preserve this original failed CI log; provenance binds its artifact SHA.
+docs/evidence/ci-43722102329/native-integration.log -text -whitespace

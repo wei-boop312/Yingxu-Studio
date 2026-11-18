@@ -1,0 +1,15 @@
+[
+  {
+    "component": "packageurl-python@0.17.6",
+    "source": "https://files.pythonhosted.org/packages/f5/d6/3b5a4e3cfaef7a53869a26ceb034d1ff5e5c27c814ce77260a96d50ab7bb/packageurl_python-0.17.6.tar.gz",
+    "archive_sha256": "1252ce3a102372ca6f86eb968e16f9014c4ba511c5c37d95a7f023e2ca6e5c25",
+    "member": "packageurl_python-0.17.6/mit.LICENSE",
+    "text_sha256": "8e442c79545ac0c0a1a2cf0cf213312a45826acd6cdc6af223447dd5f708ee5d"
+  },
+  {
+    "component": "@ant-design/icons-svg@4.6.0",
+    "source": "https://raw.githubusercontent.com/ant-design/ant-design-icons/7f2516ac91226d2b41f93b35cb5197c8d94f7189/LICENSE",
+    "npm_gitHead": "7f2516ac91226d2b41f93b35cb5197c8d94f7189",
+    "text_sha256": "5d367fb0a07340571542eb4ee8eb1add62d37b71bad6786a57c2e9a86bf76c70"
+  }
+]

@@ -1,0 +1,26 @@
+# 离线质量评估
+
+`python scripts/evaluate_quality.py --manifest <私有目录/manifest.json> --output <新的私有统计JSON>`只读取已有最终PNG、原始下载报告和人工标注，零模型请求。输出QUALITY_COUNTS_ONLY，不产生“通过质量门槛”或供应商/发布授权。真实样本尚未提供，当前只验证合成夹具中的统计和输入约束。
+
+manifest的schema见`contracts/quality-dataset.schema.json`。样本必须列人工标签compliant或non_compliant、匿名标注者SHA256指纹、样本/报告相对文件名和各自原字节SHA256，平台、站点、类目、图片类型、精确规则版本及五项布尔特征。顶层区分synthetic_fixture与real_product_set，human_reviewed_attested和usage_rights_attested必须明确true；这是提供者声明，不是独立核实人工标注或素材权属。
+
+五项特征为visible_text、on_product_logo、added_watermark、dark_background、category_exception。按原文档要求分别标注实物Logo与后加水印；不把实物Logo的出现自动视为违规。人工标签须依据对应站点/类目/版本政策及人工确认的最终图片填写，无法判定的样本先复核，不强行填合规/违规。所有样本包含于总体，同时按平台和每种特征存在时给出子集统计。缺失特征覆盖单列，不声称覆盖真实分布或生产准确率。
+
+报告必须是平台下载的原始JSON，final_sha256必须等于该PNG的原字节哈希，且per_platform中站点/类目/图片类型/规则版本严格唯一匹配。新报告增加category；旧报告缺类目时拒绝，不能人为改成新报告并沿用旧SHA。报告保留provider_profile，合成数据只接受offline_fake或offline_protocol_mock。工具核验字节和对应关系，不证明报告由哪台服务器签发，原文摘要不是数字签名。
+
+混淆矩阵行是真实人工标签compliant/non_compliant，列是自动结果compliant/non_compliant/manual_review。误放率=违规样本中自动判compliant数/所有人工违规数；误拦率=合规样本中自动判non_compliant数/所有人工合规数。人工率=manual_review/总数；自动覆盖率=非manual_review/总数；自动准确率=自动结果正确数/非manual_review数。分母为零时null，人工复核不算正确自动预测。未计算模型置信度平均值来充当准确率；不设置未经要求的质量阈值。
+
+每个最终PNG限100MiB、8192边长/25MP且单帧有效PNG；报告限8MiB，manifest限16MiB/10000项。拒绝额外字段、重复JSON键、非标准数值、重复样本或同图同规则作用域、坏SHA、范围错配、越界路径和符号链接。输入均必须在manifest目录之下。输出只包含摘要及聚合数量/比率，不包含图片、原始报告、标注者、样本ID或路径；文件仅新建并在POSIX按0600创建，Windows隐私仍依赖目录ACL。不要把真实样本或私有标注提交GitHub。
+
+下一步需要人工标注的真实产品集和对应真实模型最终报告，再运行同一入口。该工具不执行供应商请求、不修改业务报告、不写数据库/用户积分/供应商费用、不授予部署资格。
+
+0043进一步在PG新报告与规则重检写入边界按冻结快照验证完整目标范围及overall一致性，覆盖人工/违规结果；历史报告不改写。该写入约束候选仍须当次真实PG回归，统计工具也继续核对实际下载JSON与图片摘要。
+
+
+视觉事实存在性统计另列visual_presence，不和平台合规混淆矩阵混用。仅比较visible_text、on_product_logo、added_watermark三类人工存在标签与原报告Facts。模型明确给出的存在主张按present计；只有analysis_complete且无uncertainties、来源不含unknown时，未检出才可计absent，否则uncertain。无Facts、schema无效或尺寸错配也保留为未知，不算正确负例。置信度只是记录内的模型自评分，不用它代替人工对错；该指标不评价OCR文本逐字准确率或bbox定位精度。
+
+视觉混淆矩阵行是人工present/absent，列是模型present/absent/uncertain。误检率=false positive/人工absent总数，漏检率=false negative/人工present总数，不确定率=uncertain/总数；可评估覆盖率和准确率只在明确present/absent的子集计算，零分母null。多平台对同图的合规结论可分别统计，但视觉存在性按唯一图片SHA只计一次；同图物理标注冲突或不同报告存在性结论冲突会拒绝，模型对照请分开数据集，不自动挑选更好的结果。
+
+深色背景与类目例外继续只作为人工分层条件；Facts的non_white不等于深色，类目例外也不是视觉模型能直接输出的事实，不编造这两种识别准确率。当前仅合成夹具验证统计，真实产品集/实际供应商质量仍NOT_RUN。CLI输出额外记录开始/结束时间、Python版本、工具/计算模块SHA和脱敏命令；不记录输入文件路径或图片内容。
+
+规则重检报告使用独立report_profiles记录rule_only_recheck，并从source_provider_profile追溯原检测模式。来源字段缺失或仍只有工作流标识时不推断供应商；真实产品集可计算统计但标unrecorded/source_lineage_complete=false，合成数据集则拒绝不能确认offline来源的报告。完整标识仅说明文件中的来源记录齐全，不证明实际供应商接通，provider_verified始终false。

@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "revision": "2026-10-14.research.1",
+  "notice": "Research recipes only, not executable templates. Node names may be display labels; confirm actual class_type/ports. No download, installation, network call or execution is authorized by this catalog.",
+  "recipes": [
+    {
+      "id": "white-background",
+      "title": "白底与透明商品图",
+      "category": "image",
+      "inputs": [
+        "product",
+        "foreground_mask"
+      ],
+      "model_profiles": [
+        "BiRefNet",
+        "core-composite"
+      ],
+      "node_examples": [
+        "LoadImage",
+        "ImageCompositeMasked",
+        "SaveImage"
+      ],
+      "source_ids": [
+        "S27",
+        "S28"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "抠图边缘必须复核；缩放合成不是原编码或原像素完全保持。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "product-scene",
+      "title": "商品场景主图",
+      "category": "image",
+      "inputs": [
+        "product",
+        "scene_reference"
+      ],
+      "model_profiles": [
+        "flux2-klein-4b",
+        "qwen-edit-2511",
+        "sdxl"
+      ],
+      "node_examples": [
+        "ReferenceLatent",
+        "SamplerCustomAdvanced",
+        "ImageCompositeMasked"
+      ],
+      "source_ids": [
+        "S03",
+        "S05"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "合成保留与生成式编辑是两种策略，不以提示词证明Logo无变化。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "detail-page",
+      "title": "详情页模块与排版",
+      "category": "image",
+      "inputs": [
+        "product",
+        "verified_product_facts"
+      ],
+      "model_profiles": [
+        "sdxl",
+        "qwen-edit-2511",
+        "layer-composite"
+      ],
+      "node_examples": [
+        "SaveImage",
+        "ImageCompositeMasked"
+      ],
+      "source_ids": [
+        "S08",
+        "S34"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "精确文字与规格走确定性排版，禁止编造功效/尺寸/认证。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "retouch",
+      "title": "局部精修与扩图",
+      "category": "image",
+      "inputs": [
+        "product",
+        "edit_mask"
+      ],
+      "model_profiles": [
+        "sdxl-inpaint",
+        "qwen-edit-2511"
+      ],
+      "node_examples": [
+        "VAEEncodeForInpaint",
+        "KSampler",
+        "VAEDecode"
+      ],
+      "source_ids": [
+        "S05",
+        "S33"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "蒙版极性和越区改动需检查，不能只写保持不变。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "relight",
+      "title": "商品重打光",
+      "category": "image",
+      "inputs": [
+        "product",
+        "lighting_reference"
+      ],
+      "model_profiles": [
+        "ic-light-sd15",
+        "qwen-edit-2511"
+      ],
+      "node_examples": [
+        "LoadImage",
+        "VAEDecode"
+      ],
+      "source_ids": [
+        "S30",
+        "S31"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "重打光必然改变像素；材质/文字可能漂移。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "style-reference",
+      "title": "参考风格与系列图",
+      "category": "image",
+      "inputs": [
+        "product",
+        "style_reference"
+      ],
+      "model_profiles": [
+        "sdxl-ipadapter",
+        "flux2-klein-4b",
+        "qwen-edit-2511"
+      ],
+      "node_examples": [
+        "IPAdapterAdvanced",
+        "ReferenceLatent"
+      ],
+      "source_ids": [
+        "S12",
+        "S03",
+        "S05"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "主体/风格/构图角色分开，不保证精确复刻，不复制竞品标识。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "identity-reference",
+      "title": "人物身份参考生成",
+      "category": "portrait",
+      "inputs": [
+        "authorized_identity",
+        "pose_reference"
+      ],
+      "model_profiles": [
+        "instantid-sdxl",
+        "pulid-flux1"
+      ],
+      "node_examples": [
+        "ApplyPulidFlux"
+      ],
+      "source_ids": [
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S18"
+      ],
+      "commercial_review": "manual-review",
+      "warning": "人像同意及InsightFace/基座/附属模型许可未确认，不商用自动启用。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "face-swap",
+      "title": "授权人物换脸",
+      "category": "portrait",
+      "inputs": [
+        "authorized_source_face",
+        "target_image"
+      ],
+      "model_profiles": [
+        "reactor-insightface"
+      ],
+      "node_examples": [
+        "ReActorFaceSwap"
+      ],
+      "source_ids": [
+        "S17",
+        "S18"
+      ],
+      "commercial_review": "manual-review",
+      "warning": "换脸权重不等于代码许可；禁止未经同意的身份冒充。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "tryon-fashn",
+      "title": "FASHN服装试穿",
+      "category": "portrait",
+      "inputs": [
+        "authorized_person",
+        "garment",
+        "garment_category"
+      ],
+      "model_profiles": [
+        "fashn-vton-1.5"
+      ],
+      "node_examples": [
+        "FASHN VTON Inference"
+      ],
+      "source_ids": [
+        "S23",
+        "S24",
+        "S25"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "专属pipeline，Human Parser/姿态依赖授权与首用下载需核验。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "tryon-research",
+      "title": "CatVTON / IDM研究对照",
+      "category": "portrait",
+      "inputs": [
+        "authorized_person",
+        "garment",
+        "garment_mask"
+      ],
+      "model_profiles": [
+        "catvton",
+        "idm-vton"
+      ],
+      "node_examples": [],
+      "source_ids": [
+        "S19",
+        "S20",
+        "S21",
+        "S22"
+      ],
+      "commercial_review": "noncommercial-only",
+      "warning": "公开版本CC BY-NC-SA 4.0，不用于商业任务规划。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "upscale",
+      "title": "商品图片超分",
+      "category": "image",
+      "inputs": [
+        "product"
+      ],
+      "model_profiles": [
+        "realesrgan",
+        "supir-profile"
+      ],
+      "node_examples": [
+        "UpscaleModelLoader",
+        "ImageUpscaleWithModel",
+        "SUPIRApply"
+      ],
+      "source_ids": [
+        "S36",
+        "S37",
+        "S38"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "生成式细节可能虚构Logo/纹理，按具体模型分别核权。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "layered-design",
+      "title": "图层提取与排版素材",
+      "category": "image",
+      "inputs": [
+        "product"
+      ],
+      "model_profiles": [
+        "qwen-layered"
+      ],
+      "node_examples": [
+        "EmptyQwenImageLayeredLatentImage",
+        "LatentCutToBatch"
+      ],
+      "source_ids": [
+        "S08",
+        "S34"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "图层预测不保证准确蒙版或自动得到生产PSD。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "product-i2v",
+      "title": "商品图生视频",
+      "category": "video",
+      "inputs": [
+        "approved_product_keyframe"
+      ],
+      "model_profiles": [
+        "wan22-5b",
+        "wan22-i2v-14b"
+      ],
+      "node_examples": [
+        "Wan22ImageToVideoLatent",
+        "WanImageToVideo",
+        "CreateVideo",
+        "SaveVideo"
+      ],
+      "source_ids": [
+        "S40",
+        "S41"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "逐帧商品形变检查；5B与14B专家/VAE分开。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "first-last-video",
+      "title": "首尾帧视频",
+      "category": "video",
+      "inputs": [
+        "approved_start_frame",
+        "approved_end_frame"
+      ],
+      "model_profiles": [
+        "wan22-i2v-14b"
+      ],
+      "node_examples": [
+        "WanFirstLastFrameToVideo"
+      ],
+      "source_ids": [
+        "S41"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "中间运动/隐藏结构不保证真实，需完整播放检查。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "motion-transfer",
+      "title": "授权人物动作迁移",
+      "category": "video",
+      "inputs": [
+        "authorized_person",
+        "authorized_driver_video"
+      ],
+      "model_profiles": [
+        "wan22-animate"
+      ],
+      "node_examples": [
+        "WanAnimateToVideo",
+        "DWPreprocessor",
+        "Sam2Segmentation"
+      ],
+      "source_ids": [
+        "S42",
+        "S43"
+      ],
+      "commercial_review": "candidate-not-approved",
+      "warning": "姿态/分割额外模型与授权，衣纹/身份可能漂移。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "audio-video",
+      "title": "联合音视频镜头",
+      "category": "video",
+      "inputs": [
+        "verified_script",
+        "approved_keyframe"
+      ],
+      "model_profiles": [
+        "ltx2",
+        "ltx2.3",
+        "ltx2.5"
+      ],
+      "node_examples": [
+        "LTXVConcatAVLatent",
+        "LTXVSeparateAVLatent",
+        "CreateVideo"
+      ],
+      "source_ids": [
+        "S44",
+        "S45",
+        "S46",
+        "S47"
+      ],
+      "commercial_review": "manual-review",
+      "warning": "Community与编码器许可逐版本核验，精确口播需人工听审。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    },
+    {
+      "id": "video-post",
+      "title": "视频补帧与超分",
+      "category": "video",
+      "inputs": [
+        "authorized_video"
+      ],
+      "model_profiles": [
+        "rife",
+        "seedvr2"
+      ],
+      "node_examples": [
+        "RIFE VFI"
+      ],
+      "source_ids": [
+        "S48",
+        "S49",
+        "S50"
+      ],
+      "commercial_review": "manual-review",
+      "warning": "模型权重许可/补帧重影/音画同步与资源需实测。",
+      "evidence": "docs-or-upstream-json-only",
+      "runtime_verified": false,
+      "executable": false
+    }
+  ]
+}

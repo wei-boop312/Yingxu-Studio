@@ -1,0 +1,217 @@
+{
+  "$defs": {
+    "Generation": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "white_background",
+            "scene",
+            "lifestyle"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "prompt": {
+          "maxLength": 4000,
+          "title": "Prompt",
+          "type": "string"
+        },
+        "output": {
+          "$ref": "#/$defs/Output"
+        },
+        "protection_mode": {
+          "enum": [
+            "pixel_exact",
+            "none"
+          ],
+          "title": "Protection Mode",
+          "type": "string"
+        },
+        "regions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Region"
+          },
+          "maxItems": 20,
+          "title": "Regions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "prompt",
+        "output",
+        "protection_mode"
+      ],
+      "title": "Generation",
+      "type": "object"
+    },
+    "Output": {
+      "additionalProperties": false,
+      "properties": {
+        "width": {
+          "maximum": 4096,
+          "minimum": 1,
+          "title": "Width",
+          "type": "integer"
+        },
+        "height": {
+          "maximum": 4096,
+          "minimum": 1,
+          "title": "Height",
+          "type": "integer"
+        },
+        "format": {
+          "const": "png",
+          "default": "png",
+          "title": "Format",
+          "type": "string"
+        }
+      },
+      "required": [
+        "width",
+        "height"
+      ],
+      "title": "Output",
+      "type": "object"
+    },
+    "Region": {
+      "additionalProperties": false,
+      "properties": {
+        "source_x": {
+          "minimum": 0,
+          "title": "Source X",
+          "type": "integer"
+        },
+        "source_y": {
+          "minimum": 0,
+          "title": "Source Y",
+          "type": "integer"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "title": "Width",
+          "type": "integer"
+        },
+        "height": {
+          "exclusiveMinimum": 0,
+          "title": "Height",
+          "type": "integer"
+        },
+        "target_x": {
+          "minimum": 0,
+          "title": "Target X",
+          "type": "integer"
+        },
+        "target_y": {
+          "minimum": 0,
+          "title": "Target Y",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source_x",
+        "source_y",
+        "width",
+        "height",
+        "target_x",
+        "target_y"
+      ],
+      "title": "Region",
+      "type": "object"
+    },
+    "Target": {
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "enum": [
+            "amazon",
+            "ebay",
+            "shopify"
+          ],
+          "title": "Platform",
+          "type": "string"
+        },
+        "marketplace": {
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Marketplace",
+          "type": "string"
+        },
+        "category": {
+          "maxLength": 255,
+          "minLength": 1,
+          "title": "Category",
+          "type": "string"
+        },
+        "image_type": {
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Image Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "marketplace",
+        "category",
+        "image_type"
+      ],
+      "title": "Target",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "product_id": {
+      "format": "uuid",
+      "title": "Product Id",
+      "type": "string"
+    },
+    "appearance_profile_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Appearance Profile Id"
+    },
+    "source_asset_version_id": {
+      "format": "uuid",
+      "title": "Source Asset Version Id",
+      "type": "string"
+    },
+    "generation": {
+      "$ref": "#/$defs/Generation"
+    },
+    "targets": {
+      "items": {
+        "$ref": "#/$defs/Target"
+      },
+      "maxItems": 3,
+      "minItems": 1,
+      "title": "Targets",
+      "type": "array"
+    },
+    "quote_id": {
+      "format": "uuid",
+      "title": "Quote Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "product_id",
+    "source_asset_version_id",
+    "generation",
+    "targets",
+    "quote_id"
+  ],
+  "title": "TaskRequest",
+  "type": "object"
+}

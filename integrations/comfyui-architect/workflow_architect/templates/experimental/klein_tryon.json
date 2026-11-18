@@ -1,0 +1,34 @@
+{
+ "kind":"concrete","template_id":"klein_dual_reference_tryon_experimental_v1","task":"image_to_image","profiles":["stable"],"verified":true,
+ "review_scope":"static-signatures-and-two-local-samples-not-product-quality",
+ "model_bindings":[
+  {"binding":"diffusion","class_type":"UNETLoader","input":"unet_name"},
+  {"binding":"encoder","class_type":"CLIPLoader","input":"clip_name"},
+  {"binding":"vae","class_type":"VAELoader","input":"vae_name"}
+ ],
+ "nodes":[
+  {"key":"model","class_type":"UNETLoader","inputs":{"unet_name":"${diffusion}","weight_dtype":"default"}},
+  {"key":"clip","class_type":"CLIPLoader","inputs":{"clip_name":"${encoder}","type":"flux2","device":"cpu"}},
+  {"key":"vae","class_type":"VAELoader","inputs":{"vae_name":"${vae}"}},
+  {"key":"text","class_type":"CLIPTextEncode","inputs":{"clip":{"link":["clip",0]},"text":"${positive_prompt}"}},
+  {"key":"zero","class_type":"ConditioningZeroOut","inputs":{"conditioning":{"link":["text",0]}}},
+  {"key":"person","class_type":"LoadImage","title":"图1 人物原图","inputs":{"image":"${person_image}"}},
+  {"key":"garment","class_type":"LoadImage","title":"图2 服装参考图","inputs":{"image":"${garment_image}"}},
+  {"key":"person_scale","class_type":"ImageScale","inputs":{"image":{"link":["person",0]},"upscale_method":"lanczos","width":"${width}","height":"${height}","crop":"disabled"}},
+  {"key":"garment_scale","class_type":"ImageScale","inputs":{"image":{"link":["garment",0]},"upscale_method":"lanczos","width":"${width}","height":"${height}","crop":"disabled"}},
+  {"key":"person_latent","class_type":"VAEEncode","inputs":{"pixels":{"link":["person_scale",0]},"vae":{"link":["vae",0]}}},
+  {"key":"garment_latent","class_type":"VAEEncode","inputs":{"pixels":{"link":["garment_scale",0]},"vae":{"link":["vae",0]}}},
+  {"key":"positive1","class_type":"ReferenceLatent","inputs":{"conditioning":{"link":["text",0]},"latent":{"link":["person_latent",0]}}},
+  {"key":"negative1","class_type":"ReferenceLatent","inputs":{"conditioning":{"link":["zero",0]},"latent":{"link":["person_latent",0]}}},
+  {"key":"positive2","class_type":"ReferenceLatent","inputs":{"conditioning":{"link":["positive1",0]},"latent":{"link":["garment_latent",0]}}},
+  {"key":"negative2","class_type":"ReferenceLatent","inputs":{"conditioning":{"link":["negative1",0]},"latent":{"link":["garment_latent",0]}}},
+  {"key":"guider","class_type":"CFGGuider","inputs":{"model":{"link":["model",0]},"positive":{"link":["positive2",0]},"negative":{"link":["negative2",0]},"cfg":1.0}},
+  {"key":"noise","class_type":"RandomNoise","inputs":{"noise_seed":"${seed}"}},
+  {"key":"sampler","class_type":"KSamplerSelect","inputs":{"sampler_name":"euler"}},
+  {"key":"sigmas","class_type":"Flux2Scheduler","inputs":{"steps":4,"width":"${width}","height":"${height}"}},
+  {"key":"latent","class_type":"EmptyFlux2LatentImage","inputs":{"width":"${width}","height":"${height}","batch_size":1}},
+  {"key":"sample","class_type":"SamplerCustomAdvanced","inputs":{"noise":{"link":["noise",0]},"guider":{"link":["guider",0]},"sampler":{"link":["sampler",0]},"sigmas":{"link":["sigmas",0]},"latent_image":{"link":["latent",0]}}},
+  {"key":"decode","class_type":"VAEDecode","inputs":{"samples":{"link":["sample",0]},"vae":{"link":["vae",0]}}},
+  {"key":"save","class_type":"SaveImage","inputs":{"images":{"link":["decode",0]},"filename_prefix":"workflow_architect/klein_tryon_experimental"}}
+ ]
+}

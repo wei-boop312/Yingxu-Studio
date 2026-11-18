@@ -1,0 +1,17 @@
+{
+  "purpose": "Small hand-curated routing regression, not general accuracy or image-quality benchmark",
+  "cases": [
+    {"text": "把图片调整尺寸为192x96", "template": "template:core_image_resize_v2"},
+    {"text": "缩放图片到512x512", "template": "template:core_image_resize_v2"},
+    {"text": "生成一张产品背景", "template": "template:core_text_to_image_v2"},
+    {"text": "画一张工作室背景", "template": "template:core_text_to_image_v2"},
+    {"text": "生成一张产品背景", "options": {"profile": "low_vram"}, "template": "template:core_text_to_image_low_vram_v2"},
+    {"text": "参考这张图片生成新的场景", "template": "template:core_image_to_image_v2"},
+    {"text": "图生图制作产品场景", "options": {"profile": "low_vram"}, "template": "template:core_image_to_image_low_vram_v2"},
+    {"text": "超分辨率放大产品图片", "template": "template:core_image_upscale_v2"},
+    {"text": "Qwen图像编辑模型资料", "template": null},
+    {"text": "Wan首尾帧视频", "template": null},
+    {"text": "视频后期与插帧资料", "template": null},
+    {"text": "请写一封邮件", "template": null}
+  ]
+}

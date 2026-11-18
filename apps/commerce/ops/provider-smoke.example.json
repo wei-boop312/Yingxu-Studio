@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "authorization_id": "00000000-0000-0000-0000-000000000001",
+  "authorized_by": "EXAMPLE ONLY: replace after actual scope review",
+  "authorized_at": "2026-01-01T00:00:00Z",
+  "expires_at": "2026-01-01T01:00:00Z",
+  "source_path": "sample.png",
+  "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "generation": {
+    "type": "scene",
+    "prompt": "Preserve the product identity.",
+    "output": {
+      "width": 1024,
+      "height": 1024,
+      "format": "png"
+    },
+    "protection_mode": "pixel_exact",
+    "regions": [
+      {
+        "source_x": 0,
+        "source_y": 0,
+        "width": 1,
+        "height": 1,
+        "target_x": 0,
+        "target_y": 0
+      }
+    ]
+  },
+  "targets": [
+    {
+      "platform": "amazon",
+      "marketplace": "US",
+      "category": "example",
+      "image_type": "MAIN"
+    }
+  ],
+  "bfl_model": "flux-3-image",
+  "gemini_model": "gemini-3.8-flash",
+  "max_generate_calls": 1,
+  "max_detect_calls": 1,
+  "currency": "USD",
+  "generate_ceiling": "0.10",
+  "detect_ceiling": "0.02",
+  "total_ceiling": "0.12",
+  "user_id": "00000000-0000-0000-0000-000000000002",
+  "product_id": "00000000-0000-0000-0000-000000000003",
+  "source_asset_version_id": "00000000-0000-0000-0000-000000000004",
+  "quote_input_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

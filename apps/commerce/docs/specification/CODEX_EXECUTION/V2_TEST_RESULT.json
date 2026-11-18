@@ -1,0 +1,10 @@
+{
+  "command": "python -B -m pytest <V2.1路径>/tests -q -p no:cacheprovider",
+  "exit_code": 0,
+  "passed": 156,
+  "failed": 0,
+  "duration_seconds": 0.72,
+  "environment": "Windows / Python 3.14.6 / 本机已有pytest、Pillow、aiohttp；无asyncpg",
+  "limit": "schema/模型测试以文本、常量和源码检查为主；不是原生PG、真实网络或真实计费验收",
+  "source_evidence": "本次命令实际输出已核对；未重跑Workbench和畅想全部套件"
+}

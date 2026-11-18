@@ -1,0 +1,26 @@
+{
+  "platform": "ozon",
+  "marketplace": "RU",
+  "category": "DRAFT-OTHER-CATEGORIES-REVIEW-MAPPING",
+  "image_type": "MAIN",
+  "version": "draft-observed-20261114-other",
+  "evidence_status": "unverified",
+  "source_urls": [
+    "https://global-help.ozon.com/en/products/requirements/media/image-requirements?__rr=1&region=CHN"
+  ],
+  "retrieved_at": "2026-11-13T22:33:01.197168+00:00",
+  "evidence_sha256": "f9ec933509dd904fadf75bbd8fc46c4193c1623849071eaf1c3785d05a61aa90",
+  "config": {
+    "min_width": 200,
+    "min_height": 200,
+    "max_width": 4320,
+    "max_height": 7680,
+    "required_aspect_ratio": {
+      "width": 3,
+      "height": 4
+    },
+    "max_bytes": null,
+    "complete_rule_set": false,
+    "require_identity_review": true
+  }
+}

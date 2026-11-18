@@ -1,0 +1,29 @@
+{
+  "baseline_date": "2026-11-18",
+  "state": "source-import-only",
+  "sources": [
+    {
+      "repository": "wei-boop312/-AI-",
+      "commit": "f6f46ca0fbc8b94fa625b041d221efce8826846f",
+      "prefix": "apps/commerce",
+      "role": "跨境电商 AI 视觉生产平台"
+    },
+    {
+      "repository": "wei-boop312/Comfyui-",
+      "commit": "7c34503bfd3927b8ae0b7d873754b9ef92787927",
+      "prefix": "integrations/comfyui-architect",
+      "role": "ComfyUI 架构师"
+    },
+    {
+      "repository": "wei-boop312/Cross-border-e-commerce-database",
+      "commit": "d9dba1b526267120317f1d02975bb9c36d33b45e",
+      "prefix": "docs/sop",
+      "role": "SOP 参考材料"
+    }
+  ],
+  "included_source_files": 971,
+  "excluded_source_files": 766,
+  "excluded_prefix": "wei-boop312/-AI-:docs/evidence/",
+  "excluded_reason": "原工程历史 CI / 运行日志、截图与执行证据；非本次项目测试结果",
+  "history_migrated": false
+}

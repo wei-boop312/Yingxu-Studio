@@ -1,0 +1,32 @@
+{
+  "schema_version": "2.0",
+  "capabilities": {
+    "image_loader": {"required": true, "candidates": ["LoadImage"], "search_terms": ["Load Image"]},
+    "image_saver": {"required": true, "candidates": ["SaveImage"], "search_terms": ["Save Image"]},
+    "image_scale": {"required": false, "candidates": ["ImageScale"], "search_terms": ["Image Scale"]},
+    "mask_resize": {"required": false, "candidates": ["ResizeMask"], "search_terms": ["Resize Mask", "KJNodes"]},
+    "background_removal_loader": {"required": false, "candidates": ["LoadBackgroundRemovalModel"], "search_terms": ["Load Background Removal Model", "BiRefNet"]},
+    "background_removal": {"required": false, "candidates": ["RemoveBackground"], "search_terms": ["Remove Background", "BiRefNet"]},
+    "checkpoint_loader": {"required": false, "candidates": ["CheckpointLoaderSimple"], "search_terms": ["Checkpoint Loader"]},
+    "text_encoder": {"required": false, "candidates": ["CLIPTextEncode"], "search_terms": ["CLIP Text Encode"]},
+    "empty_latent": {"required": false, "candidates": ["EmptyLatentImage"], "search_terms": ["Empty Latent Image"]},
+    "sampler": {"required": false, "candidates": ["KSampler"], "search_terms": ["KSampler"]},
+    "vae_decode": {"required": false, "candidates": ["VAEDecode"], "search_terms": ["VAE Decode"]},
+    "vae_decode_tiled": {"required": false, "candidates": ["VAEDecodeTiled"], "search_terms": ["VAE Decode Tiled"]},
+    "vae_encode": {"required": false, "candidates": ["VAEEncode"], "search_terms": ["VAE Encode"]},
+    "vae_encode_tiled": {"required": false, "candidates": ["VAEEncodeTiled"], "search_terms": ["VAE Encode Tiled"]},
+    "vae_inpaint": {"required": false, "candidates": ["VAEEncodeForInpaint"], "search_terms": ["VAE Encode For Inpaint"]},
+    "upscale_model_loader": {"required": false, "candidates": ["UpscaleModelLoader"], "search_terms": ["Upscale Model Loader"]},
+    "image_upscale_model": {"required": false, "candidates": ["ImageUpscaleWithModel"], "search_terms": ["Image Upscale With Model"]},
+    "image_composite": {"required": false, "candidates": ["ImageCompositeMasked"], "search_terms": ["Image Composite Masked"]},
+    "mask_invert": {"required": false, "candidates": ["InvertMask"], "search_terms": ["Invert Mask"]},
+    "mask_grow": {"required": false, "candidates": ["GrowMask"], "search_terms": ["Grow Mask"]},
+    "person_segmentation": {"required": false, "candidates": ["HumanSegmentation", "GroundingDinoSAMSegment"], "search_terms": ["human segmentation", "GroundingDINO SAM"]},
+    "garment_mask": {"required": false, "candidates": ["GarmentMask", "ClothesSegment"], "search_terms": ["garment mask", "clothes segmentation"]},
+    "protected_region_mask": {"required": false, "candidates": ["ProtectedRegionMask", "FaceAndHandsMask"], "search_terms": ["face hands mask", "protected region mask"]},
+    "virtual_tryon": {"required": false, "candidates": ["CatVTONWrapper", "IDM_VTON"], "search_terms": ["CatVTON", "IDM-VTON", "virtual try-on"]},
+    "edge_blend": {"required": false, "candidates": ["MaskBlur", "FeatherMask"], "search_terms": ["Mask Blur", "Feather Mask"]},
+    "face_identity": {"required": false, "candidates": ["IPAdapterFaceID"], "search_terms": ["IPAdapter FaceID"]},
+    "pose_control": {"required": false, "candidates": ["OpenposePreprocessor", "ControlNetApplyAdvanced"], "search_terms": ["OpenPose", "ControlNet"]}
+  }
+}

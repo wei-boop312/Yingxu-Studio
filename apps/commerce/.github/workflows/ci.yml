@@ -1,0 +1,94 @@
+name: Offline native acceptance
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: offline-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  offline-native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      PYTHONPATH: src
+      UV_PYTHON: '3.13'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.22.1'
+      - name: Install locked toolchain and dependencies
+        run: |
+          python -m pip install uv==0.13.7
+          uv sync --locked
+          npm install --global pnpm@11.25.0
+          pnpm --dir apps/web install --frozen-lockfile
+          uv pip check
+          uv lock --check --offline
+      - name: Python format lint and Linux Windows type checks
+        run: uv run python scripts/static_checks.py
+      - name: Unit and offline supplier HTTP contracts
+        run: |
+          mkdir -p work/ci-public
+          uv run python scripts/check.py task P0-01 > work/ci-public/source-provenance.log 2>&1
+          uv run python scripts/check.py unit > work/ci-public/unit.log 2>&1
+          uv run python -m unittest discover -s tests/contract -v > work/ci-public/contracts.log 2>&1
+      - name: Dependency advisories SBOM and actual legal texts
+        run: |
+          uv run python scripts/dependency_audit.py
+          uv run python scripts/dependency_artifacts.py
+      - name: Scan committed history for secrets
+        run: docker run --rm -v "$PWD:/repo:ro" -v "$PWD/work/ci-public:/out" ghcr.io/gitleaks/gitleaks:v8.30.1@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f git --redact --config /repo/.gitleaks.toml --log-opts="--all" --report-format json --report-path /out/gitleaks.json /repo
+      - name: Build production frontend and install browser
+        run: |
+          node --test apps/web/tests/eventCursor.test.mjs apps/web/tests/upload.test.mjs apps/web/tests/api.test.mjs
+          pnpm --dir apps/web build
+          pnpm --dir apps/web exec playwright install --with-deps chromium
+      - name: Native PG MQ S3 and production browser acceptance
+        run: uv run python scripts/ci_native.py
+      - name: Compose fresh bootstrap and volume persistence
+        run: uv run python scripts/check.py task P0-02
+      - name: Build runtime images without publishing
+        run: |
+          docker build --no-cache --build-arg VCS_REF="$GITHUB_SHA" -t visual-api:ci .
+          docker build --no-cache --build-arg VCS_REF="$GITHUB_SHA" -f apps/web/Dockerfile -t visual-web:ci .
+          docker run --rm visual-api:ci python -c "import os,visual_platform.api.main,visual_platform.worker.runner; assert os.getuid()==10001; print('Non-root backend imports OK')"
+          docker run --rm --add-host api:127.0.0.1 visual-web:ci -t
+          docker image inspect visual-api:ci visual-web:ci --format '{{json .}}' > work/ci-public/docker-images.jsonl
+      - name: Exercise complete application Compose and persistent receipts
+        run: uv run python scripts/container_smoke.py
+      - name: Verify current P5-01 build evidence
+        run: uv run python scripts/check.py task P5-01
+      - name: Verify complete offline task evidence
+        run: uv run python scripts/check.py all --profile offline
+      - name: Build and verify offline handoff archive without publishing
+        run: uv run python scripts/handoff.py
+      - name: Upload public evidence and static production assets
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: offline-${{ github.sha }}
+          retention-days: 3
+          if-no-files-found: error
+          path: |
+            work/ci-public/
+            apps/web/dist/
+            docs/evidence/browser-*.png
+            docs/evidence/browser-controlled-faults.json
+            docs/evidence/browser-pixel-verification.json
+            docs/evidence/performance-production.json
+            docs/evidence/protocol-pipeline.json
+            docs/evidence/compose-smoke.json
+            docs/evidence/bootstrap-health-readonly.json
+            sbom/
+            third_party/

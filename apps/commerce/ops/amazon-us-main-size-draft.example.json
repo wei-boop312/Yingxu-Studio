@@ -1,0 +1,17 @@
+{
+  "platform": "amazon",
+  "marketplace": "US",
+  "category": "ELECTRONICS-DRAFT-CATEGORY-MAPPING-REQUIRED",
+  "image_type": "MAIN",
+  "version": "EXAMPLE-SIZE-ONLY-20261115",
+  "evidence_status": "unverified",
+  "source_urls": ["https://sell.amazon.com/blog/product-photos"],
+  "retrieved_at": "2026-11-14T21:22:41Z",
+  "evidence_sha256": null,
+  "config": {
+    "min_longest_edge": 500,
+    "max_longest_edge": 10000,
+    "complete_rule_set": false,
+    "require_identity_review": true
+  }
+}

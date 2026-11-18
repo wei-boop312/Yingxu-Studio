@@ -1,0 +1,1381 @@
+{
+  "version": "4.0",
+  "verified_date_local": "2026-11-12",
+  "timezone": "Asia/Shanghai",
+  "scope": "只读资源调查、计划修订和文档交付；未开发应用、推送或计费",
+  "original_plan": {
+    "path": "D:\\Desktop\\运营材料\\商业无限画布\\PROJECT_PLAN.md",
+    "bytes": 64870,
+    "sha256": "c61ded03fdf86a6cce571a761989312c1f6132bec116bf60b692619019100c49",
+    "backup": "PROJECT_PLAN.V3_ORIGINAL.20261112.md"
+  },
+  "scan_summary": [
+    {
+      "root": "D:\\Desktop\\运营材料",
+      "files_listed": 2252,
+      "matched_paths": 4,
+      "exit_code": 0
+    },
+    {
+      "root": "C:\\Users\\MECHREVO\\WorkBuddy AI",
+      "files_listed": 1009,
+      "matched_paths": 694,
+      "exit_code": 0
+    },
+    {
+      "root": "C:\\Users\\MECHREVO\\Documents\\Codex",
+      "files_listed": 6674,
+      "matched_paths": 318,
+      "exit_code": 0
+    },
+    {
+      "root": "D:\\codex",
+      "files_listed": 40362,
+      "matched_paths": 34,
+      "exit_code": 0
+    },
+    {
+      "root": "D:\\workbuddy",
+      "files_listed": 8611,
+      "matched_paths": 2,
+      "exit_code": 0
+    }
+  ],
+  "local_files": [
+    {
+      "id": "L01",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\migrations\\001_schema_baseline.sql",
+      "exists": true,
+      "reuse_mode": "改造后移植",
+      "note": "11表而非10表；补状态CHECK、复合FK、钱包/outbox/events；原SQL不能直接作为最终基线",
+      "bytes": 12433,
+      "sha256": "22ecc940b1b7a4044223bcf2adc7cf814b7217f4666143a57d28dcd8db947ae7"
+    },
+    {
+      "id": "L02",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\migrations\\002_roles_permissions.sql",
+      "exists": true,
+      "reuse_mode": "改造后移植",
+      "note": "撤销账本UPDATE及广泛默认授权；修readonly列授权、认证和owner边界",
+      "bytes": 5731,
+      "sha256": "c5fa436cef63585b059bce0fa04a39f13abfc6d429c934884cb1f6af1a0cdd52"
+    },
+    {
+      "id": "L03",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\database\\db_pool.py",
+      "exists": true,
+      "reuse_mode": "设计参考并重写",
+      "note": "AST失败line111；不属于可直接运行模块，补取消/超时/真实PG回收验证",
+      "bytes": 10747,
+      "sha256": "bff3d19da075cce8ef4bf8c74c11d87347b637bab3c56fc1a2ae8ec6ba7d2241"
+    },
+    {
+      "id": "L04",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\models\\bfl_adapter.py",
+      "exists": true,
+      "reuse_mode": "重写协议",
+      "note": "当前官方endpoint/x-key/images/polling_url及状态字段与旧文件不符",
+      "bytes": 8828,
+      "sha256": "ecf9c73f8f3b31dd185de94d43459495e658a1d08d9a2af4e3708df1d1996700"
+    },
+    {
+      "id": "L05",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\models\\gemini_adapter.py",
+      "exists": true,
+      "reuse_mode": "改造后移植",
+      "note": "严格schema、事实识别、SDK封装、费用与超时处理；非真实调用证据",
+      "bytes": 8071,
+      "sha256": "afe8669c36f42b0624349f2eb9a3bf5e3365aa030259c095d13ff43a673be767"
+    },
+    {
+      "id": "L06",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\pixel_protection\\pixel_paste.py",
+      "exists": true,
+      "reuse_mode": "优先移植并补约束",
+      "note": "保留EXIF和回贴思路；补canonical RGB、坐标、尺寸及输出像素验证",
+      "bytes": 6732,
+      "sha256": "9d716f8e540379f3886d13858222d2abfee80f1494473d506b0a1731a1e03c82"
+    },
+    {
+      "id": "L07",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\platform_rules\\rules.json",
+      "exists": true,
+      "reuse_mode": "历史种子",
+      "note": "全部按来源重新验证；MAIN allowed与通用尺寸不得直接自动放行",
+      "bytes": 7799,
+      "sha256": "37b6b346ca4f69f96c1eb0fb0cb7c46d882fe31ea00221f6240ca567f7a4bcbd"
+    },
+    {
+      "id": "L08",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\config\\models.json",
+      "exists": true,
+      "reuse_mode": "配置参考",
+      "note": "不能照搬端点、单价、速率限制及client request_id假设",
+      "bytes": 1527,
+      "sha256": "f162f96605fdc425fd448a58fe168e7a0354ed4876112eeef45043b2c2a3bcc6"
+    },
+    {
+      "id": "L09",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\IDEMPOTENCY_DESIGN.md",
+      "exists": true,
+      "reuse_mode": "设计参考",
+      "note": "保留unknown原则；修冻结/扣费语义与提交前意图",
+      "bytes": 10413,
+      "sha256": "306faf352c251d69ed72213c11ea1bc37b50dbd8508207e9eaf1b62f3c3a7b46"
+    },
+    {
+      "id": "L10",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\tests\\test_schema_rls.py",
+      "exists": true,
+      "reuse_mode": "历史回归参考",
+      "note": "67项，主要读SQL/源码字符串，不能证明真实角色权限",
+      "bytes": 17779,
+      "sha256": "9ef28d994346ebb73d3cba8727d54e8d4f3a471d1cae768ae1d77b6546d8cf6d"
+    },
+    {
+      "id": "L11",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\tests\\test_model_adapters.py",
+      "exists": true,
+      "reuse_mode": "历史回归参考",
+      "note": "16项，主要检查常量/源码，不证明供应商可用",
+      "bytes": 5628,
+      "sha256": "82dfa854df9805be7a0f535ed33628e0fc2361febb87393728945adeadc95f6b"
+    },
+    {
+      "id": "L12",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\tests\\test_platform_rules.py",
+      "exists": true,
+      "reuse_mode": "历史回归参考",
+      "note": "45项配置检查，不能证明商城规则是最新或完整",
+      "bytes": 11636,
+      "sha256": "b6786203329ed08fed34eb664bc75918143120fc99edd55a67b4f9199cf7e883"
+    },
+    {
+      "id": "L13",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\tests\\test_pixel_protection.py",
+      "exists": true,
+      "reuse_mode": "优先移植测试",
+      "note": "28项；含真实内存图像测试和源码检查，补全精确模式边界",
+      "bytes": 12274,
+      "sha256": "7fbbaa93fb61039edf282a22bec5688e42b18df0218f2c78dd859e2d58665dda"
+    },
+    {
+      "id": "L14",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\implementation\\db\\migrations\\001_workspace.sql",
+      "exists": true,
+      "reuse_mode": "移植设计模式",
+      "note": "FORCE RLS、复合FK、budgets/runs/outbox，非整套搬入电商数据模型",
+      "bytes": 9695,
+      "sha256": "6de7beaf3d1f59b71e334f48b3531216c2ef39d41a860c9c1266d42aaf9d6305"
+    },
+    {
+      "id": "L15",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\implementation\\apps\\api\\src\\imageProviderContract.ts",
+      "exists": true,
+      "reuse_mode": "移植契约模式",
+      "note": "canonical hash、严格输入和快照确认；TS逻辑需独立Python实现",
+      "bytes": 13007,
+      "sha256": "eee96bcd126ea3f16b846ce94d29bcbda905d43463487d3e8b81ff5dc7a81c90"
+    },
+    {
+      "id": "L16",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\implementation\\apps\\api\\src\\imageProviders.ts",
+      "exists": true,
+      "reuse_mode": "接口参考",
+      "note": "网络/错误归一；原提供者不等于BFL已支持",
+      "bytes": 23905,
+      "sha256": "c9df1d86da5e8939ac7fd924506f76faa3a2a8e6d504fa9dd6d47ee831e4b001"
+    },
+    {
+      "id": "L17",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\implementation\\apps\\api\\src\\localBoundRuns.ts",
+      "exists": true,
+      "reuse_mode": "优先参考事务边界",
+      "note": "固定快照、预算、run/outbox同事务；检查源实现存储和身份假设",
+      "bytes": 11228,
+      "sha256": "81e65dfdef2c7b060af794908cf24211686662b8739eec794e07da954f0c188a"
+    },
+    {
+      "id": "L18",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\implementation\\apps\\worker\\src\\localRunDispatcher.ts",
+      "exists": true,
+      "reuse_mode": "优先参考恢复边界",
+      "note": "持久claim/outbox及submitted不重发；原CPU/本地适配器不是云模型验收",
+      "bytes": 1603,
+      "sha256": "657ec63731c7e4b397a8c8ec4ba25eee4c684ac473557a7e9987ebcc1217870f"
+    },
+    {
+      "id": "L19",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\implementation\\apps\\api\\src\\imageTaskLeases.ts",
+      "exists": true,
+      "reuse_mode": "优先参考付费意图",
+      "note": "write-ahead意图、租约、已存在意图不可再次transport",
+      "bytes": 5131,
+      "sha256": "d2ec112f747cfb2788c7fccae4aa11c94222bbaed566d716107b7f13b5550d32"
+    },
+    {
+      "id": "L20",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\implementation\\apps\\api\\src\\runKernel.ts",
+      "exists": true,
+      "reuse_mode": "成本状态机参考",
+      "note": "请求幂等、运行和预算核对；不可混入原SQLite会话/数据库",
+      "bytes": 206532,
+      "sha256": "fdf70c565abbd264c7b5ee83e60089fdd2da635ed4de6a08f77abf78b9f7014a"
+    },
+    {
+      "id": "L21",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\implementation\\apps\\api\\src\\objectStorageGateway.ts",
+      "exists": true,
+      "reuse_mode": "存储边界参考",
+      "note": "核实字节与元数据/授权；改为当前S3实现",
+      "bytes": 12924,
+      "sha256": "7538bb25e4fe55ab5c6b45e30d789f821819a1c993f1f95a31b35845143bccf1"
+    },
+    {
+      "id": "L22",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\implementation\\apps\\api\\src\\staticImageDecoder.ts",
+      "exists": true,
+      "reuse_mode": "安全解码参考",
+      "note": "PNG/JPEG/WebP格式与解码边界，Python仍需独立真实字节负例",
+      "bytes": 5231,
+      "sha256": "cf951a2aa558a66e19f28cfb0b6ce6b82fc0938234fac6b8de25c21a8aa60573"
+    },
+    {
+      "id": "L23",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\implementation\\docs\\IMPLEMENTATION_STATUS.md",
+      "exists": true,
+      "reuse_mode": "证据索引",
+      "note": "历史记录最后含3002项阶段结果；本次不复跑、不映射到HEAD",
+      "bytes": 83181,
+      "sha256": "66c0b0a441df3dd52952c84feacc7a0dcc555e4bae465cde1e74fd7f5e8fdb19"
+    },
+    {
+      "id": "L24",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\04_DEVELOPMENT\\TEST_PLAN.md",
+      "exists": true,
+      "reuse_mode": "测试策略复用",
+      "note": "T01-T20证据结构，按电商MVP删减，不要求本期实现Agent/全画布",
+      "bytes": 5602,
+      "sha256": "4c0a564b5a601909529cf94866ed7951d50ca1acff59ee9a6613538343afe128"
+    },
+    {
+      "id": "L25",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\04_DEVELOPMENT\\PROJECT_RULES.md",
+      "exists": true,
+      "reuse_mode": "流程参考",
+      "note": "来源规则不继承旧预算/自动任务授权；新任务以用户当前要求为准",
+      "bytes": 2896,
+      "sha256": "89dcbc247b7eff6e6acfcd1dcecdfdf3ac519872a359d4972f89a11ff7d70f9a"
+    },
+    {
+      "id": "L26",
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench\\03_TECHNICAL\\DATABASE_SCHEMA.md",
+      "exists": true,
+      "reuse_mode": "逻辑设计参考",
+      "note": "不能用逻辑schema替代实际迁移与角色执行验证",
+      "bytes": 7622,
+      "sha256": "f6eb2e788bd009d4a294a3204472550565a2855963bf7b06a229a1cf3b4f7bff"
+    },
+    {
+      "id": "L27",
+      "path": "C:\\Users\\MECHREVO\\Documents\\Codex\\2026-09-26\\xian-z\\work\\ai-commerce-canvas\\docs\\run-batch-cost-kernel.md",
+      "exists": true,
+      "reuse_mode": "历史设计参考",
+      "note": "原幂等/成本冻结脉络；不改旧仓库、不引入旧自动接手约定",
+      "bytes": 13001,
+      "sha256": "f8e91f573490d794a0f31f62799e9b5516359982cf6916d8be14171bf025356a"
+    },
+    {
+      "id": "L28",
+      "path": "D:\\Desktop\\运营材料\\changxiang\\app\\infinite-canvas.tsx",
+      "exists": true,
+      "reuse_mode": "UI/交互参考",
+      "note": "选区、拖动、参数隔离及结果节点；不是可直接复用的FastAPI后端",
+      "bytes": 73088,
+      "sha256": "73a76559e3eec9da3cb5047649996f704032ec2659fe218f07013acbffa507cf"
+    },
+    {
+      "id": "L29",
+      "path": "D:\\Desktop\\运营材料\\changxiang\\lib\\canvas-document.ts",
+      "exists": true,
+      "reuse_mode": "UI数据模式参考",
+      "note": "保存恢复和局部参数类型；保留原线上兼容标识，不修改原项目",
+      "bytes": 7150,
+      "sha256": "72d109be7ea0a4cdd5fcfbbd0d2ec13b2a1560a49f2f8e02a942cec7c2e6cc7a"
+    },
+    {
+      "id": "L30",
+      "path": "D:\\Desktop\\运营材料\\changxiang\\lib\\generation-batch.ts",
+      "exists": true,
+      "reuse_mode": "恢复/调度参考",
+      "note": "一次请求和批量停调度原则；本期仍是单图",
+      "bytes": 6637,
+      "sha256": "69d2f4ed7e20336d0be8f814ece7d2ba71189650e1adcbd1febfb0ef833cbaef"
+    },
+    {
+      "id": "L31",
+      "path": "D:\\Desktop\\运营材料\\changxiang\\lib\\tool-executors.ts",
+      "exists": true,
+      "reuse_mode": "参数规划参考",
+      "note": "将工具参数与执行请求分开，不新增本期未要求的13工具",
+      "bytes": 15567,
+      "sha256": "ff12c1e7b903d50ad2f1fade75f28069694936e0c55fe2ee4f5cdbd02b042e3a"
+    },
+    {
+      "id": "L32",
+      "path": "D:\\Desktop\\运营材料\\changxiang\\scripts\\phase5-e2e.mjs",
+      "exists": true,
+      "reuse_mode": "浏览器测试参考",
+      "note": "真实指针交互；生成接口是拦截假结果，不代表真实API验证",
+      "bytes": 16065,
+      "sha256": "abf18ffa65990cc199ebc0ecc03c1d52d018306e4e6fde2553d572197c2fdc61"
+    },
+    {
+      "id": "L33",
+      "path": "D:\\Desktop\\运营材料\\changxiang\\PHASE5-QA.md",
+      "exists": true,
+      "reuse_mode": "限定证据",
+      "note": "明确mock生图与零真实费用边界",
+      "bytes": 2368,
+      "sha256": "7076996bd0bfb25c29eed72fcd4626f824f98a81f2e9a06a81017e64873df429"
+    },
+    {
+      "id": "L34",
+      "path": "C:\\Users\\MECHREVO\\Documents\\Codex\\2026-07-29\\yi\\outputs\\ComfyUI-WorkflowArchitect-2.2.2-package\\ComfyUI-WorkflowArchitect\\workflow_architect\\ecommerce.py",
+      "exists": true,
+      "reuse_mode": "后续模板参考",
+      "note": "仅参数/分类思路；ComfyUI与模型权重不进当前MVP",
+      "bytes": 5260,
+      "sha256": "be34ad2193a6c962c84f7dd992d754876b40beb4ef6daea41e7f20d88fe6cd3f"
+    },
+    {
+      "id": "L35",
+      "path": "D:\\Desktop\\运营材料\\商业无限画布\\商业无限画布工作台.docx",
+      "exists": true,
+      "reuse_mode": "产品愿景参考",
+      "note": "406段、提取4827字符；保留双层/Agent长期愿景",
+      "bytes": 29538,
+      "sha256": "7ad8b079d75f68933afdc9bb67abdfafe18778095d03bc513a262d0baeff7657"
+    },
+    {
+      "id": "L36",
+      "path": "D:\\Desktop\\运营材料\\商业无限画布\\商业无限画布工作台完整项目实施方案_V1.0.docx",
+      "exists": true,
+      "reuse_mode": "范围对照",
+      "note": "633段、提取25048字符；更宽五场景不能替代本次点名图片MVP",
+      "bytes": 410012,
+      "sha256": "7cca85a1f11d555593a377b655ba863e39991dca9ab513a9e1f4da0bbc6eadaf"
+    }
+  ],
+  "local_git": [
+    {
+      "root": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-02-59-04\\Infinite-workbench",
+      "head": "1d8142fdc7d522bfb3daaaa1f88db2f68e9fd549",
+      "worktree_at_read": "clean",
+      "remote_read": "404 via web and connector",
+      "remote_url": "https://github.com/wei-boop312/Infinite-workbench",
+      "credentials_redacted": true
+    },
+    {
+      "root": "C:\\Users\\MECHREVO\\Documents\\Codex\\2026-09-26\\xian-z\\work\\ai-commerce-canvas",
+      "head": "19499e7693378f8cccedab9ac9bb6c8afa3e2e76",
+      "remote_inspected": false
+    }
+  ],
+  "test_result": {
+    "command": "python -B -m pytest <V2.1路径>/tests -q -p no:cacheprovider",
+    "exit_code": 0,
+    "passed": 156,
+    "failed": 0,
+    "duration_seconds": 0.72,
+    "environment": "Windows / Python 3.14.6 / 本机已有pytest、Pillow、aiohttp；无asyncpg",
+    "limit": "schema/模型测试以文本、常量和源码检查为主；不是原生PG、真实网络或真实计费验收",
+    "source_evidence": "本次命令实际输出已核对；未重跑Workbench和畅想全部套件"
+  },
+  "static_test_inventory": [
+    {
+      "file": "tests\\test_model_adapters.py",
+      "test_functions": 16,
+      "uses": []
+    },
+    {
+      "file": "tests\\test_pixel_protection.py",
+      "test_functions": 28,
+      "uses": []
+    },
+    {
+      "file": "tests\\test_platform_rules.py",
+      "test_functions": 45,
+      "uses": []
+    },
+    {
+      "file": "tests\\test_schema_rls.py",
+      "test_functions": 67,
+      "uses": []
+    }
+  ],
+  "python_parse_results": [
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\__init__.py",
+      "result": "parse_ok",
+      "sha256": "e6a27ec054b494a67083a755337da3152701180ca8492ef1ca17d7653424d7fd"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\database\\__init__.py",
+      "result": "parse_ok",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\database\\db_pool.py",
+      "result": "SyntaxError line 111: unmatched '}'",
+      "sha256": "bff3d19da075cce8ef4bf8c74c11d87347b637bab3c56fc1a2ae8ec6ba7d2241"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\models\\__init__.py",
+      "result": "parse_ok",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\models\\bfl_adapter.py",
+      "result": "parse_ok",
+      "sha256": "ecf9c73f8f3b31dd185de94d43459495e658a1d08d9a2af4e3708df1d1996700"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\models\\gemini_adapter.py",
+      "result": "parse_ok",
+      "sha256": "afe8669c36f42b0624349f2eb9a3bf5e3365aa030259c095d13ff43a673be767"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\pixel_protection\\__init__.py",
+      "result": "parse_ok",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\pixel_protection\\pixel_paste.py",
+      "result": "parse_ok",
+      "sha256": "9d716f8e540379f3886d13858222d2abfee80f1494473d506b0a1731a1e03c82"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\src\\platform_rules\\__init__.py",
+      "result": "parse_ok",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\tests\\__init__.py",
+      "result": "parse_ok",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\tests\\test_model_adapters.py",
+      "result": "parse_ok",
+      "sha256": "82dfa854df9805be7a0f535ed33628e0fc2361febb87393728945adeadc95f6b"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\tests\\test_pixel_protection.py",
+      "result": "parse_ok",
+      "sha256": "7fbbaa93fb61039edf282a22bec5688e42b18df0218f2c78dd859e2d58665dda"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\tests\\test_platform_rules.py",
+      "result": "parse_ok",
+      "sha256": "b6786203329ed08fed34eb664bc75918143120fc99edd55a67b4f9199cf7e883"
+    },
+    {
+      "path": "C:\\Users\\MECHREVO\\WorkBuddy AI\\2026-11-11-20-21-09\\v2.1-project\\tests\\test_schema_rls.py",
+      "result": "parse_ok",
+      "sha256": "9ef28d994346ebb73d3cba8727d54e8d4f3a471d1cae768ae1d77b6546d8cf6d"
+    }
+  ],
+  "github_repositories": [
+    {
+      "repo": "fastapi/fastapi",
+      "url": "https://github.com/fastapi/fastapi",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-11T11:08:08Z",
+      "stars": 104591,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:32.216702+00:00",
+      "status": "verified_metadata",
+      "decision": "默认Web API依赖",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "encode/starlette",
+      "url": "https://github.com/Kludex/starlette",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-06T12:31:17Z",
+      "stars": 12724,
+      "license": "BSD-3-Clause",
+      "checked_at": "2026-11-11T16:34:34.757500+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "sanic-org/sanic",
+      "url": "https://github.com/sanic-org/sanic",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-07-29T03:09:51Z",
+      "stars": 18631,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:32.577003+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "MagicStack/asyncpg",
+      "url": "https://github.com/MagicStack/asyncpg",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-10-08T23:28:49Z",
+      "stars": 8118,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:34.377826+00:00",
+      "status": "verified_metadata",
+      "decision": "默认运行时PG驱动",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "psycopg/psycopg",
+      "url": "https://github.com/psycopg/psycopg",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-11T15:54:46Z",
+      "stars": 2529,
+      "license": "LGPL-3.0",
+      "checked_at": "2026-11-11T16:34:33.688365+00:00",
+      "status": "verified_metadata",
+      "decision": "迁移连接驱动备选/默认工具链",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "sqlalchemy/sqlalchemy",
+      "url": "https://github.com/sqlalchemy/sqlalchemy",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-10T19:42:10Z",
+      "stars": 12275,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:33.482584+00:00",
+      "status": "verified_metadata",
+      "decision": "仅迁移工具链",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "celery/celery",
+      "url": "https://github.com/celery/celery",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T03:25:06Z",
+      "stars": 29173,
+      "license": "NOASSERTION",
+      "checked_at": "2026-11-11T16:34:34.189397+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "Bogdanp/dramatiq",
+      "url": "https://github.com/Bogdanp/dramatiq",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-10T12:25:57Z",
+      "stars": 5339,
+      "license": "LGPL-3.0",
+      "checked_at": "2026-11-11T16:34:35.842880+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "python-arq/arq",
+      "url": "https://github.com/python-arq/arq",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-04-16T10:43:57Z",
+      "stars": 3027,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:35.335144+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "taskiq-python/taskiq",
+      "url": "https://github.com/taskiq-python/taskiq",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-07T11:56:25Z",
+      "stars": 2375,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:37.092712+00:00",
+      "status": "verified_metadata",
+      "decision": "队列框架备选",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "taskiq-python/taskiq-aio-pika",
+      "url": "https://github.com/taskiq-python/taskiq-aio-pika",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-09-18T20:34:26Z",
+      "stars": 48,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:37.564307+00:00",
+      "status": "verified_metadata",
+      "decision": "队列框架broker备选",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "mosquito/aio-pika",
+      "url": "https://github.com/mosquito/aio-pika",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-08T19:00:11Z",
+      "stars": 1487,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:39.429921+00:00",
+      "status": "verified_metadata",
+      "decision": "默认MQ异步客户端",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "boto/boto3",
+      "url": "https://github.com/boto/boto3",
+      "default_branch": "develop",
+      "archived": false,
+      "pushed_at": "2026-11-10T20:20:48Z",
+      "stars": 9936,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:36.936895+00:00",
+      "status": "verified_metadata",
+      "decision": "默认S3 SDK，同步放线程池",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "minio/minio",
+      "url": "https://github.com/minio/minio",
+      "default_branch": "master",
+      "archived": true,
+      "pushed_at": "2026-04-24T17:54:39Z",
+      "stars": 61260,
+      "license": "AGPL-3.0",
+      "checked_at": "2026-11-11T16:34:38.520432+00:00",
+      "status": "verified_metadata",
+      "decision": "不作新项目默认：服务端已归档",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "minio/minio-py",
+      "url": "https://github.com/minio/minio-py",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-09-28T08:08:04Z",
+      "stars": 1077,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:39.309399+00:00",
+      "status": "verified_metadata",
+      "decision": "S3 SDK备选；SDK独立于服务端归档",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "seaweedfs/seaweedfs",
+      "url": "https://github.com/seaweedfs/seaweedfs",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-11T14:23:14Z",
+      "stars": 36025,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:38.914496+00:00",
+      "status": "verified_metadata",
+      "decision": "默认本地S3服务",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "jpadilla/pyjwt",
+      "url": "https://github.com/jpadilla/pyjwt",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-09T22:14:59Z",
+      "stars": 5722,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:39.907375+00:00",
+      "status": "verified_metadata",
+      "decision": "默认JWT库",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "mpdavis/python-jose",
+      "url": "https://github.com/mpdavis/python-jose",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-04-14T00:39:48Z",
+      "stars": 1757,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:40.105804+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "authlib/authlib",
+      "url": "https://github.com/authlib/authlib",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T16:25:54Z",
+      "stars": 5454,
+      "license": "BSD-3-Clause",
+      "checked_at": "2026-11-11T16:34:42.217947+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "konvajs/react-konva",
+      "url": "https://github.com/konvajs/react-konva",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-10-15T01:08:23Z",
+      "stars": 6446,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:41.427009+00:00",
+      "status": "verified_metadata",
+      "decision": "默认React图像选区",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "konvajs/konva",
+      "url": "https://github.com/konvajs/konva",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-10T15:20:40Z",
+      "stars": 14938,
+      "license": "NOASSERTION",
+      "checked_at": "2026-11-11T16:34:41.044130+00:00",
+      "status": "verified_metadata",
+      "decision": "默认Canvas底层",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计",
+      "license_detail": "MIT",
+      "license_note": "实际LICENSE文本已取回并计算hash"
+    },
+    {
+      "repo": "xyflow/xyflow",
+      "url": "https://github.com/xyflow/xyflow",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-10T12:58:42Z",
+      "stars": 38971,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:42.247981+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "fabricjs/fabric.js",
+      "url": "https://github.com/fabricjs/fabric.js",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-10T19:53:00Z",
+      "stars": 31557,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:43.785322+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "ant-design/ant-design",
+      "url": "https://github.com/ant-design/ant-design",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-11T14:38:51Z",
+      "stars": 100156,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:42.463869+00:00",
+      "status": "verified_metadata",
+      "decision": "默认UI组件",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "mui/material-ui",
+      "url": "https://github.com/mui/material-ui",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-11T15:58:22Z",
+      "stars": 99323,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:42.784755+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "shadcn-ui/ui",
+      "url": "https://github.com/shadcn-ui/ui",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T09:04:16Z",
+      "stars": 127910,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:43.811249+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "pmndrs/zustand",
+      "url": "https://github.com/pmndrs/zustand",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-06T13:35:06Z",
+      "stars": 58920,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:44.489680+00:00",
+      "status": "verified_metadata",
+      "decision": "默认局部状态",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "pmndrs/jotai",
+      "url": "https://github.com/pmndrs/jotai",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-09T03:01:40Z",
+      "stars": 21317,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:43.790284+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "reduxjs/redux-toolkit",
+      "url": "https://github.com/reduxjs/redux-toolkit",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-08T17:14:04Z",
+      "stars": 11248,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:44.394627+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "Donaldcwl/browser-image-compression",
+      "url": "https://github.com/Donaldcwl/browser-image-compression",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2024-03-08T18:16:16Z",
+      "stars": 1721,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:45.784081+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "dominictobias/react-image-crop",
+      "url": "https://github.com/dominictobias/react-image-crop",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-06-21T18:33:47Z",
+      "stars": 4108,
+      "license": "ISC",
+      "checked_at": "2026-11-11T16:34:45.350628+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "sqlalchemy/alembic",
+      "url": "https://github.com/sqlalchemy/alembic",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-30T14:10:03Z",
+      "stars": 4473,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:46.069334+00:00",
+      "status": "verified_metadata",
+      "decision": "默认迁移工具",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "marcan/yoyo-migrations",
+      "url": "https://github.com/marcan/yoyo-migrations",
+      "status": "unverified",
+      "error": "HTTP Error 404: Not Found",
+      "decision": "此次GitHub路径404，不能作为已核实可用依赖",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "sqitchers/sqitch",
+      "url": "https://github.com/sqitchers/sqitch",
+      "default_branch": "develop",
+      "archived": false,
+      "pushed_at": "2026-09-26T17:34:51Z",
+      "stars": 3177,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:46.251775+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "hynek/structlog",
+      "url": "https://github.com/hynek/structlog",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-02T19:56:07Z",
+      "stars": 4997,
+      "license": "NOASSERTION",
+      "checked_at": "2026-11-11T16:34:47.641142+00:00",
+      "status": "verified_metadata",
+      "decision": "默认结构化日志",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计",
+      "license_detail": "MIT",
+      "license_note": "实际LICENSE-MIT已打开；保留对应版本的全部许可文件"
+    },
+    {
+      "repo": "Delgan/loguru",
+      "url": "https://github.com/Delgan/loguru",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-11T10:12:25Z",
+      "stars": 24159,
+      "license": "MIT",
+      "checked_at": "2026-11-11T16:34:47.044308+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "open-telemetry/opentelemetry-python",
+      "url": "https://github.com/open-telemetry/opentelemetry-python",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T16:29:58Z",
+      "stars": 2706,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:47.234816+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "prometheus/client_python",
+      "url": "https://github.com/prometheus/client_python",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-10-30T18:56:39Z",
+      "stars": 4385,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:47.837007+00:00",
+      "status": "verified_metadata",
+      "decision": "默认指标",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "grafana/grafana",
+      "url": "https://github.com/grafana/grafana",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T16:31:08Z",
+      "stars": 77835,
+      "license": "AGPL-3.0",
+      "checked_at": "2026-11-11T16:34:48.014271+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "docker/compose",
+      "url": "https://github.com/docker/compose",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T09:10:10Z",
+      "stars": 38742,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:48.481533+00:00",
+      "status": "verified_metadata",
+      "decision": "默认单机编排",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "googleapis/python-genai",
+      "url": "https://github.com/googleapis/python-genai",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T16:29:12Z",
+      "stars": 4061,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:48.692218+00:00",
+      "status": "verified_metadata",
+      "decision": "默认Gemini SDK",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "python-pillow/Pillow",
+      "url": "https://github.com/python-pillow/Pillow",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T11:02:47Z",
+      "stars": 13977,
+      "license": "NOASSERTION",
+      "checked_at": "2026-11-11T16:34:49.155392+00:00",
+      "status": "verified_metadata",
+      "decision": "默认图像处理",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计",
+      "license_detail": "MIT-CMU",
+      "license_note": "实际LICENSE说明MIT-CMU；API返回NOASSERTION不能写成无许可"
+    },
+    {
+      "repo": "ageitgey/imagehash",
+      "url": "https://github.com/ageitgey/imagehash",
+      "status": "unverified",
+      "error": "HTTP Error 404: Not Found",
+      "decision": "此次路径404，正确候选另列JohannesBuchner/imagehash",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "opencv/opencv",
+      "url": "https://github.com/opencv/opencv",
+      "default_branch": "5.x",
+      "archived": false,
+      "pushed_at": "2026-11-11T13:55:53Z",
+      "stars": 91531,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:51.335603+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "tesseract-ocr/tesseract",
+      "url": "https://github.com/tesseract-ocr/tesseract",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T11:29:16Z",
+      "stars": 77465,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:50.411624+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "PaddlePaddle/PaddleOCR",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-09-16T03:31:50Z",
+      "stars": 92580,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:50.866762+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "exiftool/exiftool",
+      "url": "https://github.com/exiftool/exiftool",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-11-10T21:04:28Z",
+      "stars": 5253,
+      "license": "GPL-3.0",
+      "checked_at": "2026-11-11T16:34:50.879796+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "fal-ai/fal",
+      "url": "https://github.com/fal-ai/fal",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T07:03:57Z",
+      "stars": 979,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:50.814010+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "Invoke-ai/InvokeAI",
+      "url": "https://github.com/invoke-ai/InvokeAI",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-11-11T06:27:39Z",
+      "stars": 29068,
+      "license": "Apache-2.0",
+      "checked_at": "2026-11-11T16:34:52.332973+00:00",
+      "status": "verified_metadata",
+      "decision": "比较候选，当前不引入",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "aws-powertools/powertools-lambda-python",
+      "url": "https://github.com/aws-powertools/powertools-lambda-python",
+      "default_branch": "develop",
+      "archived": false,
+      "pushed_at": "2026-11-10T12:10:35Z",
+      "stars": 3305,
+      "license": "MIT-0",
+      "checked_at": "2026-11-11T16:34:52.653604+00:00",
+      "status": "verified_metadata",
+      "decision": "参考幂等的in-progress/过期恢复设计，不引入Lambda/DynamoDB依赖",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "JohannesBuchner/imagehash",
+      "url": "https://github.com/JohannesBuchner/imagehash",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-10-12T15:06:42Z",
+      "license": "BSD-2-Clause",
+      "status": "verified_metadata",
+      "decision": "可选感知去重，不证明像素相等",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "kdpisda/fastapi-rls",
+      "url": "https://github.com/kdpisda/fastapi-rls",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-08-01T10:22:16Z",
+      "license": "BSD-3-Clause",
+      "status": "verified_metadata",
+      "decision": "参考RLS/上下文/负例测试，不直接引入SQLAlchemy集成",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "kapoorkanav/python-ledger",
+      "url": "https://github.com/kapoorkanav/python-ledger",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-08-20T07:20:11Z",
+      "license": null,
+      "status": "verified_metadata",
+      "decision": "只参考账务不变量；未发现明确许可，暂不复制",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "Canlah-AI/ecom-image-benchmark",
+      "url": "https://github.com/Canlah-AI/ecom-image-benchmark",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-04-23T04:10:08Z",
+      "license": null,
+      "status": "verified_metadata",
+      "decision": "参考8类图片/5品类评估维度；缺完整LICENSE，暂不复制数据/代码",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计",
+      "license_detail": "README声明MIT，未核到完整LICENSE",
+      "license_note": "仓库API license=null，根LICENSE404；只参考维度不复制"
+    },
+    {
+      "repo": "rogerjeasy/originshot",
+      "url": "https://github.com/rogerjeasy/originshot",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-08-03T05:52:23Z",
+      "license": "MIT",
+      "status": "verified_metadata",
+      "decision": "产品图原件/产物hash、来源manifest与报告参考，不引入其自动再生成",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    },
+    {
+      "repo": "photoshootapp/product-photoshoot-prompts",
+      "url": "https://github.com/photoshootapp/product-photoshoot-prompts",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-07-20T03:49:23Z",
+      "license": "NOASSERTION",
+      "status": "verified_metadata",
+      "decision": "可参考提示词结构；README声明CC BY 4.0，复用原文需署名和标改",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计",
+      "license_detail": "README声明CC-BY-4.0",
+      "license_note": "提示词/文档与图片、商标素材权利分开"
+    },
+    {
+      "repo": "lorena-bordonaba-pau/product-studio",
+      "url": "https://github.com/lorena-bordonaba-pau/product-studio",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-07-10T15:50:57Z",
+      "license": "MIT",
+      "status": "verified_metadata",
+      "decision": "参考产品保真复核流程；不安装插件、不执行付费步骤",
+      "version_pinned": false,
+      "license_assurance": "GitHub元数据线索，非完整传递依赖或发布许可审计"
+    }
+  ],
+  "license_file_checks": [
+    {
+      "url": "https://raw.githubusercontent.com/konvajs/konva/master/LICENSE",
+      "status": "fetched",
+      "sha256": "7190132c82df30243dc2ba512c9509ea3b629329b4266e9f2c3b5dbd04029613"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/hynek/structlog/main/LICENSE",
+      "status": "unverified",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/python-pillow/Pillow/main/LICENSE",
+      "status": "fetched",
+      "sha256": "15181e7363dca9aed78b79bebebc7fde7f1814b8bd311ea3b87ae8ccadfc185b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/seaweedfs/seaweedfs/master/LICENSE",
+      "status": "fetched",
+      "sha256": "d789d433cc11da163273d1e39be2e8fa67642f9a58ef220d3f258fa9c14ef613"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/rogerjeasy/originshot/main/LICENSE",
+      "status": "fetched",
+      "sha256": "748cdec074f3a1c9547ca6b81ff04ceefd8c9a19de2c9571960557eb3b414408"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Canlah-AI/ecom-image-benchmark/main/LICENSE",
+      "status": "unverified",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kdpisda/fastapi-rls/main/LICENSE",
+      "status": "fetched",
+      "sha256": "1a7ce5d09ccb0c5e3ce7245c519cf4c2b2e35542e19112ac83b62db71201a535"
+    }
+  ],
+  "official_sources": [
+    {
+      "title": "BFL生成",
+      "url": "https://docs.bfl.ai/flux_3/flux3_image_generate",
+      "verification": "已读官方页面；/v1/flux-3-image、x-key、polling_url、Ready/result.sample；非账户调用验证",
+      "checked_date": "2026-11-12"
+    },
+    {
+      "title": "BFL编辑",
+      "url": "https://docs.bfl.ai/flux_3/flux3_image_layout",
+      "verification": "已读；images和match_input示例；不保证输出像素不变",
+      "checked_date": "2026-11-12"
+    },
+    {
+      "title": "BFL价格",
+      "url": "https://docs.bfl.ai/quick_start/pricing",
+      "verification": "已读；按分辨率计费，cost返回；提取页面单价为空，人民币单价未验证",
+      "checked_date": "2026-11-12"
+    },
+    {
+      "title": "Gemini模型",
+      "url": "https://aistudio.google.com/docs/models/gemini-3.8-flash",
+      "verification": "已读；指定型号支持图片与结构化输出，账户权限未知",
+      "checked_date": "2026-11-12"
+    },
+    {
+      "title": "Gemini结构化输出",
+      "url": "https://aistudio.google.com/docs/structured-output",
+      "verification": "已读；JSON Schema/Pydantic路线；实现仍需锁定SDK契约",
+      "checked_date": "2026-11-12"
+    },
+    {
+      "title": "PG RLS",
+      "url": "https://www.postgresql.org/docs/current/ddl-rowsecurity.html",
+      "verification": "已读；owner默认可绕过，FORCE以及超级用户/BYPASSRLS边界",
+      "checked_date": "2026-11-12"
+    },
+    {
+      "title": "aio-pika confirm",
+      "url": "https://docs.aio-pika.com/rabbitmq-tutorial/7-publisher-confirms.html",
+      "verification": "已读；确认不替代应用outbox和幂等",
+      "checked_date": "2026-11-12"
+    },
+    {
+      "title": "Amazon G1881",
+      "url": "https://sellercentral.amazon.com/gp/help/external/G1881?language=en_US",
+      "verification": "直读只有JS/login壳；搜索索引有条文，未完整核实，不标verified",
+      "checked_date": "2026-11-12"
+    },
+    {
+      "title": "Ozon media",
+      "url": "https://docs.ozon.ru/global/en/products/requirements/media/",
+      "verification": "请求重定向读取失败，不标verified",
+      "checked_date": "2026-11-12"
+    },
+    {
+      "title": "Temu",
+      "url": "https://seller.kuajingmaihuo.com/",
+      "verification": "检索未获可核适用类目完整规则，未登录或抓取私人后台",
+      "checked_date": "2026-11-12"
+    }
+  ],
+  "limitations": [
+    "未读密钥文件或用户原图",
+    "GitHub默认分支元数据不是锁版本快照",
+    "只核实部分LICENSE文本，未作完整传递依赖审计",
+    "没有复跑历史TS项目完整测试",
+    "没有验证目标GitHub远端内容或权限"
+  ]
+}

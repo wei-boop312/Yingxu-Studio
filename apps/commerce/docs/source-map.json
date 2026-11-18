@@ -1,0 +1,66 @@
+{
+  "implementation": "original; no legacy source copied",
+  "specification_files": [
+    {
+      "path": "docs\\specification\\PROJECT_PLAN.md",
+      "sha256": "d74c99ebc7bae74fc7187d10e2f194967d985fe18b11fdf94e8c8910d602fabb",
+      "git_blob_sha256": "d74c99ebc7bae74fc7187d10e2f194967d985fe18b11fdf94e8c8910d602fabb"
+    },
+    {
+      "path": "docs\\specification\\PROJECT_PLAN.V3_ORIGINAL.20261112.md",
+      "sha256": "c61ded03fdf86a6cce571a761989312c1f6132bec116bf60b692619019100c49",
+      "git_blob_sha256": "c61ded03fdf86a6cce571a761989312c1f6132bec116bf60b692619019100c49"
+    },
+    {
+      "path": "docs\\specification\\README_FIRST.md",
+      "sha256": "6eaf3dfcb8f9c59fb7cad791af2cdce25490e126106dd9fe5529429eb5b6b5e1",
+      "git_blob_sha256": "6eaf3dfcb8f9c59fb7cad791af2cdce25490e126106dd9fe5529429eb5b6b5e1"
+    },
+    {
+      "path": "docs\\specification\\CODEX_EXECUTION\\CODEX_START.md",
+      "sha256": "ddf9a4e79ae2dd888ed17312f21b2ec026a0a1328d71e60fe50ed2488ec4ed67",
+      "git_blob_sha256": "ddf9a4e79ae2dd888ed17312f21b2ec026a0a1328d71e60fe50ed2488ec4ed67"
+    },
+    {
+      "path": "docs\\specification\\CODEX_EXECUTION\\ENGINEERING_CONTRACTS.md",
+      "sha256": "a8b0cf140715dba36c87dd84493e5abd5775b0d2940c5adbc8fa7a0aca0d00ad",
+      "git_blob_sha256": "a8b0cf140715dba36c87dd84493e5abd5775b0d2940c5adbc8fa7a0aca0d00ad"
+    },
+    {
+      "path": "docs\\specification\\CODEX_EXECUTION\\PACKAGE_CHECK.json",
+      "sha256": "b3b57f667ab0aa13796133381f5730fc30d7214128d37ff31b667284c7ff8b0e",
+      "git_blob_sha256": "140334055abaf4b7fd60fc12f45d639241cb45b783761e3976c7affb92f9179f"
+    },
+    {
+      "path": "docs\\specification\\CODEX_EXECUTION\\RESOURCE_AUDIT.md",
+      "sha256": "7e2c3b18676705e3b14fec1cb3b4990969e8eb37f35ff058862aed029957fb19",
+      "git_blob_sha256": "00d82b21fb73ef307d608e88926edd6332578bd032dc5b66bd1158670bb8191b"
+    },
+    {
+      "path": "docs\\specification\\CODEX_EXECUTION\\resource_manifest.json",
+      "sha256": "6077bc0729ad20f2dee4a91c30e736adcc4afd666c8e3ee25de923a25013263d",
+      "git_blob_sha256": "5d8e361d1b4263d43c232c7ddf03d45cd6d3b7774bc13201e01fbd92ae55c171"
+    },
+    {
+      "path": "docs\\specification\\CODEX_EXECUTION\\task-create.schema.json",
+      "sha256": "7b9b133455f88392bcb57a41835b4f0952cc66dad379b82ca9aa4d75cecad66a",
+      "git_blob_sha256": "7b9b133455f88392bcb57a41835b4f0952cc66dad379b82ca9aa4d75cecad66a"
+    },
+    {
+      "path": "docs\\specification\\CODEX_EXECUTION\\tasks.json",
+      "sha256": "e94394f49a95ff338e47acabfbb79d5aaca023bcfd1ef5cc2e6281938495f837",
+      "git_blob_sha256": "e94394f49a95ff338e47acabfbb79d5aaca023bcfd1ef5cc2e6281938495f837"
+    },
+    {
+      "path": "docs\\specification\\CODEX_EXECUTION\\TASKS.md",
+      "sha256": "706a8fad774a0e56dced50ed4368e2cbf53442cf81484caeadd140c506409f0c",
+      "git_blob_sha256": "3ef9a0a3c6c99c76e52ef935ae48def9372f433f0f27d7795f213599966d98fe"
+    },
+    {
+      "path": "docs\\specification\\CODEX_EXECUTION\\V2_TEST_RESULT.json",
+      "sha256": "8362fe7ec5ab8e87e84e1a82cf8c05b476a6885c070468c3a8bdb3e004a49b7a",
+      "git_blob_sha256": "c08792682473ec40e97d997bd8a3b0048f43242d2a63277661a4592b7267b047"
+    }
+  ],
+  "hash_policy": "sha256 preserves original imported bytes; git_blob_sha256 records repository LF normalization, not content edits"
+}

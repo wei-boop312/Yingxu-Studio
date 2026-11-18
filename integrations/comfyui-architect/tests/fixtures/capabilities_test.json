@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "capabilities": {
+    "image_loader": {"required": true, "candidates": ["LoadImage"]},
+    "image_saver": {"required": true, "candidates": ["SaveImage"]},
+    "image_composite": {"required": true, "candidates": ["ImageCompositeMasked"]},
+    "person_segmentation": {"required": true, "candidates": ["FixturePersonSegmentation"]},
+    "garment_mask": {"required": true, "candidates": ["FixtureGarmentMask"]},
+    "protected_region_mask": {"required": true, "candidates": ["FixtureProtectedRegionMask"]},
+    "virtual_tryon": {"required": true, "candidates": ["FixtureVirtualTryOn"]},
+    "edge_blend": {"required": true, "candidates": ["FixtureEdgeBlend"]},
+    "mask_grow": {"required": false, "candidates": ["GrowMask"]},
+    "face_identity": {"required": false, "candidates": []},
+    "pose_control": {"required": false, "candidates": []}
+  }
+}

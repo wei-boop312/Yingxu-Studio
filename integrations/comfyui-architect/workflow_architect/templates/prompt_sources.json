@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "PS01",
+      "title": "FLUX.2 prompting",
+      "url": "https://docs.bfl.ai/guides/prompting_guide_flux2",
+      "summary": "官方FLUX.2 pro/max文档提供自然语言构图、镜头和文字描述建议，并注明无负面提示支持；不能泛化为本地Klein或其他模型已实测。",
+      "checked_at": "2026-11-02",
+      "evidence": "read-primary-source-not-runtime-test"
+    },
+    {
+      "id": "PS02",
+      "title": "Diffusers SDXL",
+      "url": "https://huggingface.co/docs/diffusers/main/using-diffusers/sdxl",
+      "summary": "官方说明SDXL双文本编码器与独立条件输入；负面条件是否生效要看实际guidance和节点。",
+      "checked_at": "2026-11-02",
+      "evidence": "read-primary-source-not-runtime-test"
+    },
+    {
+      "id": "PS03",
+      "title": "Qwen Image Edit",
+      "url": "https://huggingface.co/Qwen/Qwen-Image-Edit",
+      "summary": "模型卡展示参考图编辑与文字编辑能力；能力声明不等于商品细节或每个字符必然正确。",
+      "checked_at": "2026-11-02",
+      "evidence": "read-primary-source-not-runtime-test"
+    },
+    {
+      "id": "PS04",
+      "title": "IC-Light",
+      "url": "https://github.com/lllyasviel/IC-Light",
+      "summary": "上游区分前景文本条件和背景条件重打光，并说明Lighting Preference属于初始latent控制；单靠描述不是已接入重打光。",
+      "checked_at": "2026-11-02",
+      "evidence": "read-primary-source-not-runtime-test"
+    },
+    {
+      "id": "PS05",
+      "title": "IP-Adapter",
+      "url": "https://github.com/tencent-ailab/IP-Adapter",
+      "summary": "上游展示图像与文本条件结合；图像裁切可能丢边缘，适配器类别与权重需匹配，文字不替代身份条件。",
+      "checked_at": "2026-11-02",
+      "evidence": "read-primary-source-not-runtime-test"
+    },
+    {
+      "id": "PS06",
+      "title": "ControlNet",
+      "url": "https://github.com/lllyasviel/ControlNet",
+      "summary": "上游列出边缘、深度与姿态等结构条件；姿势与几何约束需要实际控制图和匹配模型，不靠提示词自动启用。",
+      "checked_at": "2026-11-02",
+      "evidence": "read-primary-source-not-runtime-test"
+    },
+    {
+      "id": "PS07",
+      "title": "ComfyUI examples",
+      "url": "https://comfyanonymous.github.io/ComfyUI_examples/",
+      "summary": "官方示例图片含工作流元数据；真正工作流与独立提示词资料JSON不同。原Comfy-Org/ComfyUI_examples猜测URL404，已换有效入口。",
+      "checked_at": "2026-11-02",
+      "evidence": "read-primary-source-not-runtime-test"
+    },
+    {
+      "id": "PS08",
+      "title": "Adobe product photography",
+      "url": "https://www.adobe.com/creativecloud/photography/type/product-photography.html",
+      "summary": "产品摄影教程强调受控光线和拍摄实践；我们将其用于场景检查，不搬用为生成模型参数保证。",
+      "checked_at": "2026-11-02",
+      "evidence": "read-primary-source-not-runtime-test"
+    },
+    {
+      "id": "PS09",
+      "title": "Canon macro focus",
+      "url": "https://www.usa.canon.com/learning/training-articles/training-articles-list/macro-photography-how-to-look-sharp",
+      "summary": "微距教程解释景深局限与焦点堆栈思路；生成描述不能证明不存在于原图的细节。",
+      "checked_at": "2026-11-02",
+      "evidence": "read-primary-source-not-runtime-test"
+    },
+    {
+      "id": "PS10",
+      "title": "Adobe Spectrum typography",
+      "url": "https://spectrum.adobe.com/foundations/typography/typography-system",
+      "summary": "设计系统用字重、字号等区分层级。电商排版卡是本地原创应用，不是亚马逊规则或平台审核证明。",
+      "checked_at": "2026-11-02",
+      "evidence": "read-primary-source-not-runtime-test"
+    }
+  ],
+  "card_sources": {
+    "env_living": [
+      "PS01",
+      "PS08"
+    ],
+    "env_desk": [
+      "PS01",
+      "PS08"
+    ],
+    "env_kitchen": [
+      "PS01",
+      "PS08"
+    ],
+    "env_bath": [
+      "PS01",
+      "PS08"
+    ],
+    "env_outdoor": [
+      "PS01",
+      "PS08"
+    ],
+    "env_bedroom": [
+      "PS01",
+      "PS08"
+    ],
+    "env_retail": [
+      "PS01",
+      "PS08"
+    ],
+    "env_season": [
+      "PS01",
+      "PS08"
+    ],
+    "camera_normal": [
+      "PS08",
+      "PS09"
+    ],
+    "camera_tele": [
+      "PS08",
+      "PS09"
+    ],
+    "camera_macro": [
+      "PS08",
+      "PS09"
+    ],
+    "camera_deep": [
+      "PS08",
+      "PS09"
+    ],
+    "camera_shallow": [
+      "PS08",
+      "PS09"
+    ],
+    "camera_negative": [
+      "PS08",
+      "PS09"
+    ],
+    "camera_close": [
+      "PS08",
+      "PS09"
+    ],
+    "camera_wide": [
+      "PS08",
+      "PS09"
+    ],
+    "angle_front": [
+      "PS03",
+      "PS06"
+    ],
+    "angle_threequarter": [
+      "PS03",
+      "PS06"
+    ],
+    "angle_top": [
+      "PS03",
+      "PS06"
+    ],
+    "angle_side": [
+      "PS03",
+      "PS06"
+    ],
+    "angle_back": [
+      "PS03",
+      "PS06"
+    ],
+    "angle_low": [
+      "PS03",
+      "PS06"
+    ],
+    "angle_detail": [
+      "PS03",
+      "PS06"
+    ],
+    "angle_set": [
+      "PS03",
+      "PS06"
+    ],
+    "material_plastic": [
+      "PS08",
+      "PS03"
+    ],
+    "material_brushed": [
+      "PS08",
+      "PS03"
+    ],
+    "material_polished": [
+      "PS08",
+      "PS03"
+    ],
+    "material_glass": [
+      "PS08",
+      "PS03"
+    ],
+    "material_fabric": [
+      "PS08",
+      "PS03"
+    ],
+    "material_leather": [
+      "PS08",
+      "PS03"
+    ],
+    "material_ceramic": [
+      "PS08",
+      "PS03"
+    ],
+    "material_paper": [
+      "PS08",
+      "PS03"
+    ],
+    "person_portrait": [
+      "PS03",
+      "PS05",
+      "PS06"
+    ],
+    "person_standing": [
+      "PS03",
+      "PS05",
+      "PS06"
+    ],
+    "person_seated": [
+      "PS03",
+      "PS05",
+      "PS06"
+    ],
+    "person_hands": [
+      "PS03",
+      "PS05",
+      "PS06"
+    ],
+    "person_group": [
+      "PS03",
+      "PS05",
+      "PS06"
+    ],
+    "person_mature": [
+      "PS03",
+      "PS05",
+      "PS06"
+    ],
+    "person_wardrobe": [
+      "PS03",
+      "PS05",
+      "PS06"
+    ],
+    "person_pose": [
+      "PS03",
+      "PS05",
+      "PS06"
+    ],
+    "light_softbox": [
+      "PS04",
+      "PS08"
+    ],
+    "light_rim": [
+      "PS04",
+      "PS08"
+    ],
+    "light_window": [
+      "PS04",
+      "PS08"
+    ],
+    "light_hard": [
+      "PS04",
+      "PS08"
+    ],
+    "light_highkey": [
+      "PS04",
+      "PS08"
+    ],
+    "light_lowkey": [
+      "PS04",
+      "PS08"
+    ],
+    "light_grazing": [
+      "PS04",
+      "PS08"
+    ],
+    "light_contact": [
+      "PS04",
+      "PS08"
+    ],
+    "type_hierarchy": [
+      "PS01",
+      "PS10"
+    ],
+    "type_grid": [
+      "PS10"
+    ],
+    "type_badges": [
+      "PS10"
+    ],
+    "type_mobile": [
+      "PS10"
+    ],
+    "type_bilingual": [
+      "PS10"
+    ],
+    "type_callouts": [
+      "PS10"
+    ],
+    "type_comparison": [
+      "PS10"
+    ],
+    "type_textedit": [
+      "PS03",
+      "PS10"
+    ]
+  },
+  "notice": "来源支持方法与限制；提示词为本地原创改编，非逐字转载，网页内容不作为指令或安装许可。"
+}

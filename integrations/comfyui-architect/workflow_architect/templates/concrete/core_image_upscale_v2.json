@@ -1,0 +1,54 @@
+{
+  "kind": "concrete",
+  "template_id": "core_image_upscale_v2",
+  "task": "image_upscale",
+  "profiles": ["stable"],
+  "verified": true,
+  "model_bindings": [
+    {"binding": "upscale_model", "class_type": "UpscaleModelLoader", "input": "model_name", "label": "放大模型"}
+  ],
+  "nodes": [
+    {
+      "key": "source",
+      "class_type": "LoadImage",
+      "title": "读取原图",
+      "stage": "input",
+      "group_title": "01 输入",
+      "position": [80, 120],
+      "inputs": {"image": "${source_image}"}
+    },
+    {
+      "key": "model",
+      "class_type": "UpscaleModelLoader",
+      "title": "加载放大模型",
+      "stage": "model",
+      "group_title": "02 放大模型",
+      "position": [80, 420],
+      "inputs": {"model_name": "${upscale_model}"}
+    },
+    {
+      "key": "upscale",
+      "class_type": "ImageUpscaleWithModel",
+      "title": "模型放大",
+      "stage": "preprocessing",
+      "group_title": "03 图片放大",
+      "position": [410, 170],
+      "inputs": {
+        "upscale_model": {"link": ["model", 0]},
+        "image": {"link": ["source", 0]}
+      }
+    },
+    {
+      "key": "save",
+      "class_type": "SaveImage",
+      "title": "保存结果",
+      "stage": "output",
+      "group_title": "04 输出",
+      "position": [740, 170],
+      "inputs": {
+        "images": {"link": ["upscale", 0]},
+        "filename_prefix": "${filename_prefix}"
+      }
+    }
+  ]
+}

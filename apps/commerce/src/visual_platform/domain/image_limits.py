@@ -1,0 +1,7 @@
+"""API edge contract and bounded canonical image processing budgets."""
+
+MIN_OUTPUT_EDGE = 256
+MAX_IMAGE_EDGE = 8192
+MAX_OUTPUT_EDGE = MAX_IMAGE_EDGE
+MAX_CANONICAL_PIXELS = 25_000_000
+MAX_PROTECTED_PIXELS = 4_000_000

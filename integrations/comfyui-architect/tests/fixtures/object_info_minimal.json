@@ -1,0 +1,56 @@
+{
+  "LoadImage": {
+    "input": {"required": {"image": [["person.png", "garment.png"], {"image_upload": true}]}},
+    "output": ["IMAGE", "MASK"],
+    "output_name": ["IMAGE", "MASK"],
+    "category": "image"
+  },
+  "SaveImage": {
+    "input": {"required": {"images": ["IMAGE"], "filename_prefix": ["STRING", {"default": "ComfyUI"}]}},
+    "output": [],
+    "category": "image"
+  },
+  "ImageCompositeMasked": {
+    "input": {
+      "required": {
+        "destination": ["IMAGE"],
+        "source": ["IMAGE"],
+        "x": ["INT", {"default": 0}],
+        "y": ["INT", {"default": 0}],
+        "resize_source": ["BOOLEAN", {"default": false}]
+      },
+      "optional": {"mask": ["MASK"]}
+    },
+    "output": ["IMAGE"],
+    "category": "image"
+  },
+  "FixturePersonSegmentation": {
+    "input": {"required": {"image": ["IMAGE"]}},
+    "output": ["MASK"]
+  },
+  "FixtureGarmentMask": {
+    "input": {"required": {"image": ["IMAGE"]}},
+    "output": ["MASK"]
+  },
+  "FixtureProtectedRegionMask": {
+    "input": {"required": {"image": ["IMAGE"]}},
+    "output": ["MASK"]
+  },
+  "FixtureVirtualTryOn": {
+    "input": {
+      "required": {
+        "person": ["IMAGE"],
+        "garment": ["IMAGE"],
+        "garment_mask": ["MASK"],
+        "protected_mask": ["MASK"],
+        "width": ["INT"],
+        "height": ["INT"]
+      }
+    },
+    "output": ["IMAGE"]
+  },
+  "FixtureEdgeBlend": {
+    "input": {"required": {"image": ["IMAGE"], "mask": ["MASK"]}},
+    "output": ["IMAGE"]
+  }
+}

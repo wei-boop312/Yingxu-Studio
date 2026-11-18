@@ -1,0 +1,94 @@
+{
+  "schema_version": "2.0",
+  "tasks": {
+    "text_to_image": {
+      "template_id": "core_text_to_image_v2",
+      "stages": [
+        {"id": "model", "title": "01 加载基础模型", "capabilities": ["checkpoint_loader"]},
+        {"id": "conditioning", "title": "02 编码正负提示词", "capabilities": ["text_encoder"]},
+        {"id": "latent", "title": "03 创建潜空间画布", "capabilities": ["empty_latent"]},
+        {"id": "sampling", "title": "04 采样生成", "capabilities": ["sampler"]},
+        {"id": "decode", "title": "05 解码图像", "capabilities": ["vae_decode"], "profile_capabilities": {"low_vram": ["vae_decode_tiled"]}},
+        {"id": "output", "title": "06 保存结果", "capabilities": ["image_saver"]}
+      ],
+      "warnings": ["生成结果受基础模型、提示词和随机种子影响，请在执行前检查模型选择。"]
+    },
+    "image_to_image": {
+      "template_id": "core_image_to_image_v2",
+      "stages": [
+        {"id": "input", "title": "01 读取参考图", "capabilities": ["image_loader"]},
+        {"id": "model", "title": "02 加载基础模型", "capabilities": ["checkpoint_loader"]},
+        {"id": "conditioning", "title": "03 编码提示词", "capabilities": ["text_encoder"]},
+        {"id": "latent", "title": "04 编码参考图", "capabilities": ["vae_encode"], "profile_capabilities": {"low_vram": ["vae_encode_tiled"]}},
+        {"id": "sampling", "title": "05 重绘采样", "capabilities": ["sampler"]},
+        {"id": "decode", "title": "06 解码图像", "capabilities": ["vae_decode"], "profile_capabilities": {"low_vram": ["vae_decode_tiled"]}},
+        {"id": "output", "title": "07 保存结果", "capabilities": ["image_saver"]}
+      ],
+      "warnings": ["重绘强度越高，结果与原图差异越大。"]
+    },
+    "ecommerce_detail": {
+      "template_id": "core_ecommerce_detail_hybrid_v1",
+      "stages": [
+        {"id": "input", "title": "01 读取商品图", "capabilities": ["image_loader"]},
+        {"id": "model", "title": "02 加载基础模型", "capabilities": ["checkpoint_loader"]},
+        {"id": "preprocessing", "title": "03 自动抠图与等比适配", "capabilities": ["background_removal_loader", "background_removal", "image_scale", "mask_resize"]},
+        {"id": "conditioning", "title": "04 分离背景与商品提示词", "capabilities": ["text_encoder"]},
+        {"id": "latent", "title": "05 准备文生图与图生图潜空间", "capabilities": ["empty_latent", "vae_encode"]},
+        {"id": "sampling", "title": "06 双分支采样", "capabilities": ["sampler"]},
+        {"id": "decode", "title": "07 解码双分支", "capabilities": ["vae_decode"]},
+        {"id": "identity_restore", "title": "08 复原商品原始像素", "capabilities": ["image_composite"]},
+        {"id": "generation", "title": "09 商品居中合成", "capabilities": ["image_composite"]},
+        {"id": "output", "title": "10 保存详情页底图", "capabilities": ["image_saver"]}
+      ],
+      "warnings": [
+        "会自动为 PNG/JPG 商品图生成前景蒙版；请在执行前核对抠图边缘、商品结构、Logo 和文字安全区。",
+        "中文需求会转换为适配当前英文向 SDXL 的背景提示，并与商品保真提示分开编码。"
+      ]
+    },
+    "inpaint": {
+      "template_id": "core_inpaint_v2",
+      "stages": [
+        {"id": "input", "title": "01 读取图片与蒙版", "capabilities": ["image_loader"]},
+        {"id": "model", "title": "02 加载基础模型", "capabilities": ["checkpoint_loader"]},
+        {"id": "conditioning", "title": "03 编码提示词", "capabilities": ["text_encoder"]},
+        {"id": "latent", "title": "04 蒙版区域编码", "capabilities": ["vae_inpaint"]},
+        {"id": "sampling", "title": "05 局部重绘", "capabilities": ["sampler"]},
+        {"id": "decode", "title": "06 解码图像", "capabilities": ["vae_decode"], "profile_capabilities": {"low_vram": ["vae_decode_tiled"]}},
+        {"id": "output", "title": "07 保存结果", "capabilities": ["image_saver"]}
+      ],
+      "warnings": ["蒙版来自图片的 Alpha/蒙版通道；执行前请检查蒙版方向。"]
+    },
+    "image_resize": {
+      "template_id": "core_image_resize_v2",
+      "stages": [
+        {"id": "input", "title": "01 读取图片", "capabilities": ["image_loader"]},
+        {"id": "preprocessing", "title": "02 调整尺寸", "capabilities": ["image_scale"]},
+        {"id": "output", "title": "03 保存结果", "capabilities": ["image_saver"]}
+      ],
+      "warnings": ["调整尺寸不会补充真实细节；需要增强细节时请选择图片放大。"]
+    },
+    "image_upscale": {
+      "template_id": "core_image_upscale_v2",
+      "stages": [
+        {"id": "input", "title": "01 读取图片", "capabilities": ["image_loader"]},
+        {"id": "model", "title": "02 加载放大模型", "capabilities": ["upscale_model_loader"], "profile_capabilities": {"low_vram": []}},
+        {"id": "preprocessing", "title": "03 模型放大", "capabilities": ["image_upscale_model"], "profile_capabilities": {"low_vram": ["image_scale"]}},
+        {"id": "output", "title": "04 保存结果", "capabilities": ["image_saver"]}
+      ],
+      "warnings": ["模型放大会增加显存占用；低显存模式会改用 Lanczos 安全缩放。"]
+    },
+    "virtual_tryon": {
+      "template_id": "virtual_tryon_strict_identity_v2",
+      "stages": [
+        {"id": "inputs", "title": "01 人物与服装输入", "capabilities": ["image_loader.person", "image_loader.garment"]},
+        {"id": "preprocessing", "title": "02 人体和服装预处理", "capabilities": ["person_segmentation", "garment_mask"]},
+        {"id": "protected_regions", "title": "03 受保护区域", "capabilities": ["protected_region_mask"]},
+        {"id": "generation", "title": "04 虚拟换装", "capabilities": ["virtual_tryon"]},
+        {"id": "identity_restore", "title": "05 原始头部恢复", "capabilities": ["image_composite"]},
+        {"id": "edge_blend", "title": "06 边缘融合", "capabilities": ["edge_blend"]},
+        {"id": "output", "title": "07 输出", "capabilities": ["image_saver"]}
+      ],
+      "warnings": ["换装结果需人工检查脸部、头发、手部、衣物边缘和背景完整性。"]
+    }
+  }
+}

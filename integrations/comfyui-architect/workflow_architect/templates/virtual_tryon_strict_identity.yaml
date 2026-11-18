@@ -1,0 +1,43 @@
+{
+  "kind": "abstract",
+  "template_id": "virtual_tryon_strict_identity_v1",
+  "task": "virtual_tryon",
+  "garment_category": "upper_body",
+  "stages": [
+    {
+      "id": "inputs",
+      "title": "01 人物与服装输入",
+      "capabilities": ["image_loader.person", "image_loader.garment"]
+    },
+    {
+      "id": "preprocessing",
+      "title": "02 人体和服装预处理",
+      "capabilities": ["person_segmentation", "garment_mask"]
+    },
+    {
+      "id": "protected_regions",
+      "title": "03 受保护区域",
+      "capabilities": ["protected_region_mask"]
+    },
+    {
+      "id": "generation",
+      "title": "04 虚拟换装",
+      "capabilities": ["virtual_tryon"]
+    },
+    {
+      "id": "identity_restore",
+      "title": "05 原始头部恢复",
+      "capabilities": ["image_composite"]
+    },
+    {
+      "id": "edge_blend",
+      "title": "06 边缘融合",
+      "capabilities": ["edge_blend"]
+    },
+    {
+      "id": "output",
+      "title": "07 输出",
+      "capabilities": ["image_saver"]
+    }
+  ]
+}

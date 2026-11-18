@@ -1,0 +1,12 @@
+{
+  "platform": "amazon",
+  "marketplace": "US",
+  "category": "generic",
+  "image_type": "MAIN",
+  "version": "draft-20261112",
+  "evidence_status": "unverified",
+  "source_urls": [],
+  "retrieved_at": null,
+  "evidence_sha256": null,
+  "config": {}
+}

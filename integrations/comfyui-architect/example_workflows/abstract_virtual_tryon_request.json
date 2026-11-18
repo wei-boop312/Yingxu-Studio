@@ -1,0 +1,38 @@
+{
+  "schema_version": "2.0",
+  "task": "virtual_tryon",
+  "garment_category": "upper_body",
+  "inputs": {
+    "person_image": true,
+    "garment_image": true,
+    "source_image": false,
+    "mask_image": false
+  },
+  "prompt": {
+    "positive": "",
+    "negative": "低质量，模糊，畸形，多余肢体，文字，水印",
+    "seed": 0,
+    "steps": 24,
+    "cfg": 7.0,
+    "denoise": 1.0
+  },
+  "constraints": {
+    "identity_preservation": "strict",
+    "hair_preservation": true,
+    "pose_preservation": "high",
+    "garment_fidelity": "high",
+    "background_preservation": true,
+    "protect_hands": true
+  },
+  "output": {
+    "width": 1024,
+    "height": 1536,
+    "format": "png",
+    "upscale": false
+  },
+  "execution": {
+    "profile": "stable",
+    "allow_optional_nodes": true,
+    "low_vram": false
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "concrete",
+  "template_id": "core_image_upscale_low_vram_v2",
+  "task": "image_upscale",
+  "profiles": ["low_vram"],
+  "verified": true,
+  "nodes": [
+    {
+      "key": "source",
+      "class_type": "LoadImage",
+      "title": "读取原图",
+      "stage": "input",
+      "group_title": "01 输入",
+      "position": [80, 120],
+      "inputs": {"image": "${source_image}"}
+    },
+    {
+      "key": "upscale",
+      "class_type": "ImageScale",
+      "title": "低显存 Lanczos 放大",
+      "stage": "preprocessing",
+      "group_title": "02 低显存放大",
+      "position": [390, 120],
+      "inputs": {
+        "image": {"link": ["source", 0]},
+        "upscale_method": "lanczos",
+        "width": "${width}",
+        "height": "${height}",
+        "crop": "disabled"
+      }
+    },
+    {
+      "key": "save",
+      "class_type": "SaveImage",
+      "title": "保存结果",
+      "stage": "output",
+      "group_title": "03 输出",
+      "position": [710, 120],
+      "inputs": {
+        "images": {"link": ["upscale", 0]},
+        "filename_prefix": "${filename_prefix}"
+      }
+    }
+  ]
+}

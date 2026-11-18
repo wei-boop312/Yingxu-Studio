@@ -1,0 +1,22 @@
+{
+  "kind": "concrete", "template_id": "photomaker_v1_reference_static_v1", "task": "text_to_image",
+  "profiles": ["stable"], "verified": true, "runtime_verified": false,
+  "review_scope": "static-node-signatures-only-not-generation-or-identity-quality",
+  "model_bindings": [
+    {"binding": "checkpoint", "class_type": "CheckpointLoaderSimple", "input": "ckpt_name", "label": "SDXL基础模型"},
+    {"binding": "photomaker", "class_type": "PhotoMakerLoader", "input": "photomaker_model_name", "label": "PhotoMaker v1身份编码权重"},
+    {"binding": "identity_lora", "class_type": "LoraLoaderModelOnly", "input": "lora_name", "label": "同一官方权重提取的PhotoMaker LoRA"}
+  ],
+  "nodes": [
+    {"key":"reference","class_type":"LoadImage","title":"经授权的身份参考图","stage":"input","inputs":{"image":"${source_image}"}},
+    {"key":"checkpoint","class_type":"CheckpointLoaderSimple","title":"SDXL基础模型","stage":"model","inputs":{"ckpt_name":"${checkpoint}"}},
+    {"key":"identity_lora","class_type":"LoraLoaderModelOnly","title":"PhotoMaker官方LoRA权重（本地提取）","stage":"model","inputs":{"model":{"link":["checkpoint",0]},"lora_name":"${identity_lora}","strength_model":1.0}},
+    {"key":"photomaker","class_type":"PhotoMakerLoader","title":"PhotoMaker v1身份编码器","stage":"model","inputs":{"photomaker_model_name":"${photomaker}"}},
+    {"key":"positive","class_type":"PhotoMakerEncode","title":"参考身份条件（内置photomaker触发词）","stage":"conditioning","inputs":{"photomaker":{"link":["photomaker",0]},"image":{"link":["reference",0]},"clip":{"link":["checkpoint",1]},"text":"${positive_prompt}"}},
+    {"key":"negative","class_type":"CLIPTextEncode","title":"负向条件","stage":"conditioning","inputs":{"clip":{"link":["checkpoint",1]},"text":"${negative_prompt}"}},
+    {"key":"latent","class_type":"EmptyLatentImage","title":"单张有限画布","stage":"latent","inputs":{"width":"${width}","height":"${height}","batch_size":1}},
+    {"key":"sampler","class_type":"KSampler","title":"身份参考候选采样","stage":"sampling","inputs":{"model":{"link":["identity_lora",0]},"positive":{"link":["positive",0]},"negative":{"link":["negative",0]},"latent_image":{"link":["latent",0]},"seed":"${seed}","steps":"${steps}","cfg":"${cfg}","sampler_name":"${sampler_name}","scheduler":"${scheduler}","denoise":1.0}},
+    {"key":"decode","class_type":"VAEDecode","title":"解码","stage":"decode","inputs":{"samples":{"link":["sampler",0]},"vae":{"link":["checkpoint",2]}}},
+    {"key":"save","class_type":"SaveImage","title":"身份参考候选输出","stage":"output","inputs":{"images":{"link":["decode",0]},"filename_prefix":"workflow_architect/photomaker_reference"}}
+  ]
+}

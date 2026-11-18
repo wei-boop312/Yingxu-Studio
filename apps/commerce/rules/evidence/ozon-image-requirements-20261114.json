@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "platform": "ozon",
+  "retrieved_at": "2026-11-13T22:33:01.197168+00:00",
+  "source_url": "https://global-help.ozon.com/en/products/requirements/media/image-requirements?__rr=1&region=CHN",
+  "source_title": "Image Requirements",
+  "observed_seller_region": "CHN",
+  "observed_language": "en",
+  "redirect_from": "https://docs.ozon.ru/global/en/products/requirements/media/",
+  "retrieval_method": "public browser DOM; no sign-in",
+  "official_publication_date": null,
+  "evidence_kind": "excerpt_and_review_notes",
+  "full_official_page_archived": false,
+  "excerpts": [
+    "Vertical 3 : 4 for all categories.",
+    "No more than 10 MB."
+  ],
+  "technical_facts": {
+    "accepted_formats": [
+      "JPEG",
+      "JPG",
+      "PNG",
+      "HEIC",
+      "WEBP"
+    ],
+    "clothing_footwear_accessories_min_pixels": {
+      "width": 900,
+      "height": 1200
+    },
+    "other_categories_min_pixels": {
+      "width": 200,
+      "height": 200
+    },
+    "other_categories_max_pixels": {
+      "width": 4320,
+      "height": 7680
+    },
+    "aspect_ratio": {
+      "width": 3,
+      "height": 4
+    },
+    "displayed_max_file_size": "10 MB",
+    "exact_max_bytes": null
+  },
+  "review_notes": [
+    "Observed region is China seller help, not an assertion for every seller region.",
+    "Resolve actual Ozon category IDs before publishing any category rule.",
+    "The page does not define MB in bytes here; no exact byte cap is inferred.",
+    "Main images with other ratios may be reformatted by Ozon; operator must review upload and final-display scope.",
+    "Infographics can be permitted; this packet does not impose a universal text ban.",
+    "Quality, product identity, rights and category exceptions still require review."
+  ],
+  "complete_rule_set": false,
+  "automatically_published": false
+}

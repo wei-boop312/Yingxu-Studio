@@ -1,0 +1,2944 @@
+{
+  "generated_at": "2026-11-13T11:45:39.986649+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "components": [
+    {
+      "ecosystem": "python",
+      "name": "aio-pika",
+      "version": "10.2.3",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/aio-pika-10.2.3/f597f46bb7c1-COPYING",
+          "sha256": "f597f46bb7c16287b809e80c197e74ecb273c2a5fafc137b496095a168f5aa54",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "aiormq",
+      "version": "7.2.5",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/aiormq-7.2.5/f597f46bb7c1-COPYING",
+          "sha256": "f597f46bb7c16287b809e80c197e74ecb273c2a5fafc137b496095a168f5aa54",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "alembic",
+      "version": "1.20.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/alembic-1.20.1/6e68d94a03a0-LICENSE",
+          "sha256": "6e68d94a03a0e3e327ddf3e86d1ebedc14eece3922022618fc246a36296fd0cc",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "annotated-doc",
+      "version": "0.0.6",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/annotated-doc-0.0.6/fff170779a6a-LICENSE",
+          "sha256": "fff170779a6acbf65abdb405c087f1cee1786691e4a96a4034517e4a504a0cdf",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/annotated-types-0.8.0/fe1049884b1a-LICENSE",
+          "sha256": "fe1049884b1a0d9342901e88e07f32925d24b3121d9972b6a6805fb9824b095d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "anyio",
+      "version": "4.16.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/anyio-4.16.0/5361ac9dc58f-LICENSE",
+          "sha256": "5361ac9dc58f2ef5fd2e9b09c68297c17f04950909bbc8023bdb82eacf22c2b0",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "argon2-cffi",
+      "version": "25.1.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/argon2-cffi-25.1.0/b6944d386e87-LICENSE",
+          "sha256": "b6944d386e87ccf49d9632da083685a4b7624733e686a7fe283dd2d428341d77",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "argon2-cffi-bindings",
+      "version": "26.1.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/argon2-cffi-bindings-26.1.0/966998dc3707-LICENSE",
+          "sha256": "966998dc37070a83cc0507bed5e3241d31782c078d0d24870090dead7c471e36",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "ast_serialize",
+      "version": "0.13.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/ast_serialize-0.13.1/f798046f335b-LICENSE",
+          "sha256": "f798046f335b4c84dc851224aeeb8a96b6a1eb70f02f058e860bb00d9d7551cc",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/ast_serialize-0.13.1/91e174916565-LICENSE",
+          "sha256": "91e1749165651f2ad405f1533a921fc8d5cb0de2fd88a4b82090a8b571b5598d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "asyncpg",
+      "version": "0.32.0",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/asyncpg-0.32.0/0aac57098229-LICENSE",
+          "sha256": "0aac570982296ad9e97bc32708479e40cf7b60d5787c8ac187d86c1583e92ec0",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "attrs",
+      "version": "26.1.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/attrs-26.1.0/882115c95dfc-LICENSE",
+          "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "boolean.py",
+      "version": "5.0",
+      "declared_license": "BSD-2-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/boolean.py-5.0/5ea0cdf8cfc8-LICENSE.txt",
+          "sha256": "5ea0cdf8cfc824b446cccf597ff6518c3607a659e9804bc75f1261f9c6ac4ada",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "boto3",
+      "version": "1.44.1",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/boto3-1.44.1/0d542e0c8804-LICENSE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/boto3-1.44.1/04fb1e61484a-NOTICE",
+          "sha256": "04fb1e61484a7810f1ba09bb42bc01ca58c9af33927d7c5a21556e4c4d1c7fa4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "botocore",
+      "version": "1.44.1",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/botocore-1.44.1/0d542e0c8804-LICENSE.txt",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/botocore-1.44.1/1d1c5a6f3d68-NOTICE",
+          "sha256": "1d1c5a6f3d68cb11f4fad1afa86a7450d0286f15c176ef0ea048f255b46d95b0",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "CacheControl",
+      "version": "0.14.4",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/CacheControl-0.14.4/86eeee87be2a-LICENSE.txt",
+          "sha256": "86eeee87be2a43f3ff1f56496f451f69243926f025fedbb033666c304c4c161b",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "certifi",
+      "version": "2026.10.23",
+      "declared_license": "MPL-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/certifi-2026.10.23/e93716da6b9c-LICENSE",
+          "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "cffi",
+      "version": "2.1.1",
+      "declared_license": "MIT-0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/cffi-2.1.1/5ba24ddc5706-LICENSE",
+          "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/charset-normalizer-3.5.2/18577485d370-LICENSE",
+          "sha256": "18577485d3704f1a479ded8e573c0976cfed315fd2fd17983fa988da4c2f70d1",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "click",
+      "version": "8.5.1",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/click-8.5.1/9a8ad106a394-LICENSE.txt",
+          "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "cryptography",
+      "version": "50.0.2",
+      "declared_license": "Apache-2.0 OR BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/cryptography-50.0.2/3e0c7c091a94-LICENSE",
+          "sha256": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/cryptography-50.0.2/aac73b3148f6-LICENSE.APACHE",
+          "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/cryptography-50.0.2/602c4c7482de-LICENSE.BSD",
+          "sha256": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "cyclonedx-python-lib",
+      "version": "11.12.0",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/cyclonedx-python-lib-11.12.0/c71d239df917-LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/cyclonedx-python-lib-11.12.0/1c3bd67b9688-NOTICE",
+          "sha256": "1c3bd67b96888a4ca25f3a94683d929b3f66d7e4cdfe6c04d24f16501a9375c3",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "declared_license": "PSFL",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/defusedxml-0.7.1/b80ce9da8c42-LICENSE",
+          "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "distro",
+      "version": "1.9.0",
+      "declared_license": "Apache License, Version 2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/distro-1.9.0/cb5e8e7e5f4a-LICENSE",
+          "sha256": "cb5e8e7e5f4a3988e1063c142c60dc2df75605f4c46515e776e3aca6df976e14",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "fastapi",
+      "version": "0.162.5",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/fastapi-0.162.5/4ec89ffc8148-LICENSE",
+          "sha256": "4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "filelock",
+      "version": "4.2.10",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/filelock-4.2.10/608c89d5060a-LICENSE",
+          "sha256": "608c89d5060ae9921adccf3236695bc654a9946e12323ef6c021dfa04e294d48",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "google-auth",
+      "version": "2.62.2",
+      "declared_license": "Apache 2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/google-auth-2.62.2/c71d239df917-LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "google-genai",
+      "version": "3.3.0",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/google-genai-3.3.0/cfc7749b96f6-LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "h11",
+      "version": "0.16.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/h11-0.16.0/37db5bb85926-LICENSE.txt",
+          "sha256": "37db5bb85926db28a427a25867f10b1232003aea1be69ccb851138adb8e6f361",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "httpcore",
+      "version": "1.0.9",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/httpcore-1.0.9/fdcb59154c74-LICENSE.md",
+          "sha256": "fdcb59154c74cbaba16a11242f7740bea9f23d6feb5547917d8c5f94a80392a5",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "httpcore2",
+      "version": "2.16.0",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/httpcore2-2.16.0/c4df125c807b-LICENSE.md",
+          "sha256": "c4df125c807b0613501e943a5c92496dd11d2c16604ce396097a8dde396304d9",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "httpx",
+      "version": "0.28.1",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/httpx-0.28.1/4ec59d544f12-LICENSE.md",
+          "sha256": "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "httpx2",
+      "version": "2.16.0",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/httpx2-2.16.0/7e7d6dbaf7fe-LICENSE.md",
+          "sha256": "7e7d6dbaf7fe160d39fd6e84fd02c33cab96bcbea34d36998d545bceb4a19c30",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "idna",
+      "version": "3.20",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/idna-3.20/1a9a4f0e3d47-LICENSE.md",
+          "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "jmespath",
+      "version": "1.1.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/jmespath-1.1.0/6eefacfa4d71-LICENSE",
+          "sha256": "6eefacfa4d71b82d08408c751470ac8d9854538da2142cb27be0287fb13d0ab9",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/jsonschema-4.26.0/4f92a015a13c-COPYING",
+          "sha256": "4f92a015a13c4d1a040bef018aa13430b4f1bc73b41b16bb846c346766de7439",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/jsonschema-specifications-2025.9.1/42dcd63495f8-COPYING",
+          "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "librt",
+      "version": "0.16.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/librt-0.16.0/81b7ac7e5dc9-LICENSE",
+          "sha256": "81b7ac7e5dc9410dd4aa4c8f8c5884b43cb821137904dc247b381132389b6aa8",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "license-expression",
+      "version": "30.4.4",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/license-expression-30.4.4/2a82ac9bbc3e-cc-by-4.0.LICENSE",
+          "sha256": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/license-expression-30.4.4/c71d239df917-apache-2.0.LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/license-expression-30.4.4/ef97db07e32f-NOTICE",
+          "sha256": "ef97db07e32f6e5d34363461acf5acc7d72db924533bce3d9f3b87046313363c",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "Mako",
+      "version": "1.4.3",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/Mako-1.4.3/8c1d171bc5d3-LICENSE",
+          "sha256": "8c1d171bc5d341ad9cd33d5e2c39b96a82c7bd49b3ae89a470c37e5822232054",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "markdown-it-py",
+      "version": "4.3.0",
+      "declared_license": "License :: OSI Approved :: MIT License",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/markdown-it-py-4.3.0/4a2260d6e2cd-LICENSE",
+          "sha256": "4a2260d6e2cd0f5a151a1e86dbfe7d3ed552b1e2beabf9941c1ba5c49cbce484",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "MarkupSafe",
+      "version": "3.0.4",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/MarkupSafe-3.0.4/4631ec0db5fd-LICENSE.txt",
+          "sha256": "4631ec0db5fd90a547e336817264c6798214338146f8ac94b4a57f96ee8c9ec4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "mdurl",
+      "version": "0.1.2",
+      "declared_license": "License :: OSI Approved :: MIT License",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/mdurl-0.1.2/7c605df6e286-LICENSE",
+          "sha256": "7c605df6e28667a9603118e98274f64a49ce3eed0d26fccce9534a345e0ef955",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "msgpack",
+      "version": "1.2.4",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/msgpack-1.2.4/4fbdff42eba4-COPYING",
+          "sha256": "4fbdff42eba4593c16f7a7ea7078883b2b734870a1e2b636284ce2dce62bf4f7",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "multidict",
+      "version": "7.2.1",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/multidict-7.2.1/2e4be5fc6c4c-LICENSE",
+          "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "mypy",
+      "version": "2.4.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/mypy-2.4.1/13c71e096283-LICENSE",
+          "sha256": "13c71e0962836d8850762bda0f6234ff213034871fa66b6c42962549d73517a4",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/mypy-2.4.1/1cdee80ea936-LICENSE",
+          "sha256": "1cdee80ea9363fbe69582df40fa64e1853d7647fb4978c2b376f5854d88142be",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/mypy-2.4.1/13c71e096283-LICENSE",
+          "sha256": "13c71e0962836d8850762bda0f6234ff213034871fa66b6c42962549d73517a4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "mypy_extensions",
+      "version": "1.2.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/mypy_extensions-1.2.0/a50450da1d53-LICENSE",
+          "sha256": "a50450da1d53cd777b80ced77c58ff96abe0ccd879706bd142c3ec20e245f0b4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "opentelemetry-api",
+      "version": "1.45.2",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/opentelemetry-api-1.45.2/c71d239df917-LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "packageurl-python",
+      "version": "0.17.6",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/packageurl-python-0.17.6/8e442c79545a-mit.LICENSE",
+          "sha256": "8e442c79545ac0c0a1a2cf0cf213312a45826acd6cdc6af223447dd5f708ee5d",
+          "origin": "version-pinned supplement; see third_party/supplements/sources.json"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "packaging",
+      "version": "26.3",
+      "declared_license": "Apache-2.0 OR BSD-2-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/packaging-26.3/cad1ef5bd340-LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/packaging-26.3/0d542e0c8804-LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/packaging-26.3/b70e7e9b742f-LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pamqp",
+      "version": "5.0.0",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pamqp-5.0.0/987fa2d6c1e5-LICENSE",
+          "sha256": "987fa2d6c1e58c2ec08a4f32bf7f6eaa243756a6506728a05efded2cf26f5f8c",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pathspec",
+      "version": "1.1.1",
+      "declared_license": "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pathspec-1.1.1/fab3dd6bdab2-LICENSE",
+          "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pillow",
+      "version": "13.0.0",
+      "declared_license": "MIT-CMU",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pillow-13.0.0/988ffe8ab348-LICENSE",
+          "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pip",
+      "version": "26.3",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pip-26.3/86eeee87be2a-LICENSE.txt",
+          "sha256": "86eeee87be2a43f3ff1f56496f451f69243926f025fedbb033666c304c4c161b",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/e93716da6b9c-LICENSE",
+          "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/808e10c8a6ab-LICENSE.txt",
+          "sha256": "808e10c8a6ab8deb149ff9b3fb19f447a808094606d712a9ca57fead3552599d",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/cb5e8e7e5f4a-LICENSE",
+          "sha256": "cb5e8e7e5f4a3988e1063c142c60dc2df75605f4c46515e776e3aca6df976e14",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/1a9a4f0e3d47-LICENSE.md",
+          "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/492dedba85da-COPYING",
+          "sha256": "492dedba85da5872f78e6091bcd1fea474d660d35acb4dee964b8aab3f007427",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/cad1ef5bd340-LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/0d542e0c8804-LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/b70e7e9b742f-LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/86da0f01aeae-LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/29e0fd62e929-LICENSE",
+          "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/a9d66f1d526d-LICENSE",
+          "sha256": "a9d66f1d526df02e29dce73436d34e56e8632f46c275bbdffc70569e882f9f17",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/1b22b049b526-LICENSE",
+          "sha256": "1b22b049b5267d6dfc23a67bf4a84d8ec04b9fdfb1a51d360e42b4342c8b4154",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/09e8a9bcec80-LICENSE",
+          "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/f388fd38cad1-LICENSE",
+          "sha256": "f388fd38cad13112c1dc0f669bbe80e7f84541edbafb72f3030d2ca7642c3c9d",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/deed7c17a431-LICENSE",
+          "sha256": "deed7c17a4318158190a3ea239cc879a5a50271cebb98ae7025f48fbe58dca15",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/b80816b0d530-LICENSE",
+          "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/b80816b0d530-LICENSE",
+          "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/33be7b7e8fa4-LICENSE",
+          "sha256": "33be7b7e8fa4fd19b1760e1a8ed8a668bdab852c91b692dd41424bcb725a9fca",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/130e3a64d5fd-LICENSE.txt",
+          "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/634300a669d4-LICENSE.txt",
+          "sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/86eeee87be2a-LICENSE.txt",
+          "sha256": "86eeee87be2a43f3ff1f56496f451f69243926f025fedbb033666c304c4c161b",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/e93716da6b9c-LICENSE",
+          "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/808e10c8a6ab-LICENSE.txt",
+          "sha256": "808e10c8a6ab8deb149ff9b3fb19f447a808094606d712a9ca57fead3552599d",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/cb5e8e7e5f4a-LICENSE",
+          "sha256": "cb5e8e7e5f4a3988e1063c142c60dc2df75605f4c46515e776e3aca6df976e14",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/1a9a4f0e3d47-LICENSE.md",
+          "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/492dedba85da-COPYING",
+          "sha256": "492dedba85da5872f78e6091bcd1fea474d660d35acb4dee964b8aab3f007427",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/cad1ef5bd340-LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/0d542e0c8804-LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/b70e7e9b742f-LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/86da0f01aeae-LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/29e0fd62e929-LICENSE",
+          "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/a9d66f1d526d-LICENSE",
+          "sha256": "a9d66f1d526df02e29dce73436d34e56e8632f46c275bbdffc70569e882f9f17",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/1b22b049b526-LICENSE",
+          "sha256": "1b22b049b5267d6dfc23a67bf4a84d8ec04b9fdfb1a51d360e42b4342c8b4154",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/09e8a9bcec80-LICENSE",
+          "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/f388fd38cad1-LICENSE",
+          "sha256": "f388fd38cad13112c1dc0f669bbe80e7f84541edbafb72f3030d2ca7642c3c9d",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/deed7c17a431-LICENSE",
+          "sha256": "deed7c17a4318158190a3ea239cc879a5a50271cebb98ae7025f48fbe58dca15",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/b80816b0d530-LICENSE",
+          "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/b80816b0d530-LICENSE",
+          "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/33be7b7e8fa4-LICENSE",
+          "sha256": "33be7b7e8fa4fd19b1760e1a8ed8a668bdab852c91b692dd41424bcb725a9fca",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/pip-26.3/130e3a64d5fd-LICENSE.txt",
+          "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pip-requirements-parser",
+      "version": "32.0.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pip-requirements-parser-32.0.1/18081c2c8277-mit.LICENSE",
+          "sha256": "18081c2c82771ca09d99d08cdac405924309e09fd19b16f1eea59cbc6ab809ed",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pip_api",
+      "version": "0.0.35",
+      "declared_license": "Apache License\n                        Version 2.0, January 2004\n                     https://www.apache.org/licenses/\n\nTERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n1. Definitions.\n\n   \"License\" shall mean the terms and conditions for use, reproduction,\n   and distribution as defined by Sections 1 through 9 of this document.\n\n   \"Licensor\" shall mean the copyright owner or entity authorized by\n   the copyright owner that is granting the License.\n\n   \"Legal Entity\" shall mean the union of the acting entity and all\n   other entities that control, are controlled by, or are under common\n   control with that entity. For the purposes of this definition,\n   \"control\" means (i) the power, direct or indirect, to cause the\n   direction or management of such entity, whether by contract or\n   otherwise, or (ii) ownership of fifty percent (50%) or more of the\n   outstanding shares, or (iii) beneficial ownership of such entity.\n\n   \"You\" (or \"Your\") shall mean an individual or Legal Entity\n   exercising permissions granted by this License.\n\n   \"Source\" form shall mean the preferred form for making modifications,\n   including but not limited to software source code, documentation\n   source, and configuration files.\n\n   \"Object\" form shall mean any form resulting from mechanical\n   transformation or translation of a Source form, including but\n   not limited to compiled object code, generated documentation,\n   and conversions to other media types.\n\n   \"Work\" shall mean the work of authorship, whether in Source or\n   Object form, made available under the License, as indicated by a\n   copyright notice that is included in or attached to the work\n   (an example is provided in the Appendix below).\n\n   \"Derivative Works\" shall mean any work, whether in Source or Object\n   form, that is based on (or derived from) the Work and for which the\n   editorial revisions, annotations, elaborations, or other modifications\n   represent, as a whole, an original work of authorship. For the purposes\n   of this License, Derivative Works shall not include works that remain\n   separable from, or merely link (or bind by name) to the interfaces of,\n   the Work and Derivative Works thereof.\n\n   \"Contribution\" shall mean any work of authorship, including\n   the original version of the Work and any modifications or additions\n   to that Work or Derivative Works thereof, that is intentionally\n   submitted to Licensor for inclusion in the Work by the copyright owner\n   or by an individual or Legal Entity authorized to submit on behalf of\n   the copyright owner. For the purposes of this definition, \"submitted\"\n   means any form of electronic, verbal, or written communication sent\n   to the Licensor or its representatives, including but not limited to\n   communication on electronic mailing lists, source code control systems,\n   and issue tracking systems that are managed by, or on behalf of, the\n   Licensor for the purpose of discussing and improving the Work, but\n   excluding communication that is conspicuously marked or otherwise\n   designated in writing by the copyright owner as \"Not a Contribution.\"\n\n   \"Contributor\" shall mean Licensor and any individual or Legal Entity\n   on behalf of whom a Contribution has been received by Licensor and\n   subsequently incorporated within the Work.\n\n2. Grant of Copyright License. Subject to the terms and conditions of\n   this License, each Contributor hereby grants to You a perpetual,\n   worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n   copyright license to reproduce, prepare Derivative Works of,\n   publicly display, publicly perform, sublicense, and distribute the\n   Work and such Derivative Works in Source or Object form.\n\n3. Grant of Patent License. Subject to the terms and conditions of\n   this License, each Contributor hereby grants to You a perpetual,\n   worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n   (except as stated in this section) patent license to make, have made,\n   use, offer to sell, sell, import, and otherwise transfer the Work,\n   where such license applies only to those patent claims licensable\n   by such Contributor that are necessarily infringed by their\n   Contribution(s) alone or by combination of their Contribution(s)\n   with the Work to which such Contribution(s) was submitted. If You\n   institute patent litigation against any entity (including a\n   cross-claim or counterclaim in a lawsuit) alleging that the Work\n   or a Contribution incorporated within the Work constitutes direct\n   or contributory patent infringement, then any patent licenses\n   granted to You under this License for that Work shall terminate\n   as of the date such litigation is filed.\n\n4. Redistribution. You may reproduce and distribute copies of the\n   Work or Derivative Works thereof in any medium, with or without\n   modifications, and in Source or Object form, provided that You\n   meet the following conditions:\n\n   (a) You must give any other recipients of the Work or\n       Derivative Works a copy of this License; and\n\n   (b) You must cause any modified files to carry prominent notices\n       stating that You changed the files; and\n\n   (c) You must retain, in the Source form of any Derivative Works\n       that You distribute, all copyright, patent, trademark, and\n       attribution notices from the Source form of the Work,\n       excluding those notices that do not pertain to any part of\n       the Derivative Works; and\n\n   (d) If the Work includes a \"NOTICE\" text file as part of its\n       distribution, then any Derivative Works that You distribute must\n       include a readable copy of the attribution notices contained\n       within such NOTICE file, excluding those notices that do not\n       pertain to any part of the Derivative Works, in at least one\n       of the following places: within a NOTICE text file distributed\n       as part of the Derivative Works; within the Source form or\n       documentation, if provided along with the Derivative Works; or,\n       within a display generated by the Derivative Works, if and\n       wherever such third-party notices normally appear. The contents\n       of the NOTICE file are for informational purposes only and\n       do not modify the License. You may add Your own attribution\n       notices within Derivative Works that You distribute, alongside\n       or as an addendum to the NOTICE text from the Work, provided\n       that such additional attribution notices cannot be construed\n       as modifying the License.\n\n   You may add Your own copyright statement to Your modifications and\n   may provide additional or different license terms and conditions\n   for use, reproduction, or distribution of Your modifications, or\n   for any such Derivative Works as a whole, provided Your use,\n   reproduction, and distribution of the Work otherwise complies with\n   the conditions stated in this License.\n\n5. Submission of Contributions. Unless You explicitly state otherwise,\n   any Contribution intentionally submitted for inclusion in the Work\n   by You to the Licensor shall be under the terms and conditions of\n   this License, without any additional terms or conditions.\n   Notwithstanding the above, nothing herein shall supersede or modify\n   the terms of any separate license agreement you may have executed\n   with Licensor regarding such Contributions.\n\n6. Trademarks. This License does not grant permission to use the trade\n   names, trademarks, service marks, or product names of the Licensor,\n   except as required for reasonable and customary use in describing the\n   origin of the Work and reproducing the content of the NOTICE file.\n\n7. Disclaimer of Warranty. Unless required by applicable law or\n   agreed to in writing, Licensor provides the Work (and each\n   Contributor provides its Contributions) on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n   implied, including, without limitation, any warranties or conditions\n   of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n   PARTICULAR PURPOSE. You are solely responsible for determining the\n   appropriateness of using or redistributing the Work and assume any\n   risks associated with Your exercise of permissions under this License.\n\n8. Limitation of Liability. In no event and under no legal theory,\n   whether in tort (including negligence), contract, or otherwise,\n   unless required by applicable law (such as deliberate and grossly\n   negligent acts) or agreed to in writing, shall any Contributor be\n   liable to You for damages, including any direct, indirect, special,\n   incidental, or consequential damages of any character arising as a\n   result of this License or out of the use or inability to use the\n   Work (including but not limited to damages for loss of goodwill,\n   work stoppage, computer failure or malfunction, or any and all\n   other commercial damages or losses), even if such Contributor\n   has been advised of the possibility of such damages.\n\n9. Accepting Warranty or Additional Liability. While redistributing\n   the Work or Derivative Works thereof, You may choose to offer,\n   and charge a fee for, acceptance of support, warranty, indemnity,\n   or other liability obligations and/or rights consistent with this\n   License. However, in accepting such obligations, You may act only\n   on Your own behalf and on Your sole responsibility, not on behalf\n   of any other Contributor, and only if You agree to indemnify,\n   defend, and hold each Contributor harmless for any liability\n   incurred by, or claims asserted against, such Contributor by reason\n   of your accepting any such warranty or additional liability.\n",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pip_api-0.0.35/14ed54990120-LICENSE",
+          "sha256": "14ed54990120efea26042269885df36e1b53db858bf04b40c8cfc8c5e12f6fb1",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pip_audit",
+      "version": "2.10.1",
+      "declared_license": "License :: OSI Approved :: Apache Software License",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pip_audit-2.10.1/0d542e0c8804-LICENSE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "platformdirs",
+      "version": "4.14.5",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/platformdirs-4.14.5/29e0fd62e929-LICENSE",
+          "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "propcache",
+      "version": "0.5.4",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/propcache-0.5.4/cfc7749b96f6-LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/propcache-0.5.4/56d6ac6c8105-NOTICE",
+          "sha256": "56d6ac6c8105c0a51304c21db060e361af9a8ea0af9a75c239c28b5d13693838",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "psycopg",
+      "version": "3.3.9",
+      "declared_license": "LGPL-3.0-only",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/psycopg-3.3.9/e3a994d82e64-LICENSE.txt",
+          "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "psycopg-binary",
+      "version": "3.3.9",
+      "declared_license": "LGPL-3.0-only",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/psycopg-binary-3.3.9/7d3a95e5e069-LICENSE.txt",
+          "sha256": "7d3a95e5e06978064ed3f8e2b7c8f845e7fd8a405294727cc708f94cb83b8059",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "py-serializable",
+      "version": "2.2.0",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/py-serializable-2.2.0/c71d239df917-LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyasn1",
+      "version": "0.6.5",
+      "declared_license": "BSD-2-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pyasn1-0.6.5/2aad5fc00f70-LICENSE.rst",
+          "sha256": "2aad5fc00f705c4a1addb83eed10a6a75d286a3779f0cf8519d87e62bc4735fd",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyasn1_modules",
+      "version": "0.4.2",
+      "declared_license": "BSD",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pyasn1_modules-0.4.2/2aad5fc00f70-LICENSE.txt",
+          "sha256": "2aad5fc00f705c4a1addb83eed10a6a75d286a3779f0cf8519d87e62bc4735fd",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pycparser",
+      "version": "3.12",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pycparser-3.12/0a9e78156ae8-LICENSE",
+          "sha256": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pydantic",
+      "version": "2.14.3",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pydantic-2.14.3/a9e186f3ca16-LICENSE",
+          "sha256": "a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pydantic_core",
+      "version": "2.50.4",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pydantic_core-2.50.4/fbe7f615f18d-LICENSE",
+          "sha256": "fbe7f615f18d135c07000e5a86325db27f42c7729699ef166ac1f7a3f4586bf4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "Pygments",
+      "version": "2.21.0",
+      "declared_license": "BSD-2-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/Pygments-2.21.0/a9d66f1d526d-LICENSE",
+          "sha256": "a9d66f1d526df02e29dce73436d34e56e8632f46c275bbdffc70569e882f9f17",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "PyJWT",
+      "version": "2.15.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/PyJWT-2.15.1/797a7a20231d-LICENSE",
+          "sha256": "797a7a20231d4c433e9f1911db1731d06b5828b98f499819a034f7c0f56f5ce5",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/pyparsing-3.3.3/a5425f9dc14a-LICENSE",
+          "sha256": "a5425f9dc14ac74d4c5f0b679e941f2442e32cca7452a4418d5b1a49893ebe4e",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "declared_license": "Dual License",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/python-dateutil-2.9.0.post0/ba00f51a0d92-LICENSE",
+          "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/PyYAML-6.0.3/8d3928f9dc44-LICENSE",
+          "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "referencing",
+      "version": "0.37.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/referencing-0.37.0/42dcd63495f8-COPYING",
+          "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "requests",
+      "version": "2.34.2",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/requests-2.34.2/09e8a9bcec80-LICENSE",
+          "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/requests-2.34.2/f5110972deda-NOTICE",
+          "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "rich",
+      "version": "15.0.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/rich-15.0.0/deed7c17a431-LICENSE",
+          "sha256": "deed7c17a4318158190a3ea239cc879a5a50271cebb98ae7025f48fbe58dca15",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "rpds-py",
+      "version": "2026.9.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/rpds-py-2026.9.1/8bcb72c82ea8-LICENSE",
+          "sha256": "8bcb72c82ea8ae74802293c41d93ad7d51434001b0ae45a603a5af0f507aee0a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "ruff",
+      "version": "0.17.5",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/ruff-0.17.5/2597d854122b-LICENSE",
+          "sha256": "2597d854122b77ddc71971564ca2350a37608575ce324adc5650a2b2051c8f18",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "s3transfer",
+      "version": "0.19.3",
+      "declared_license": "Apache License 2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/s3transfer-0.19.3/cfc7749b96f6-LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/s3transfer-0.19.3/d8354e0fa7fb-NOTICE.txt",
+          "sha256": "d8354e0fa7fb762da7bc054a8a6774a0b310dfbbc78006393ee573a0e57612b5",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "six",
+      "version": "1.17.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/six-1.17.0/4375ba20e2b9-LICENSE",
+          "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "sniffio",
+      "version": "1.3.1",
+      "declared_license": "MIT OR Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/sniffio-1.3.1/652c878488d1-LICENSE",
+          "sha256": "652c878488d1456361e08c3f8607fd7ba59892a14103d15cce4ff93c85b5cc8b",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "sortedcontainers",
+      "version": "2.4.0",
+      "declared_license": "Apache 2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/sortedcontainers-2.4.0/1db7cae7fce6-LICENSE",
+          "sha256": "1db7cae7fce6452e2e608e401a0f953e0133e4c2d75db69fb8ae851d2086f5b6",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "SQLAlchemy",
+      "version": "2.1.8",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/SQLAlchemy-2.1.8/9bb754071e71-LICENSE",
+          "sha256": "9bb754071e711cf75728b9051b170bfb8f9e3b879c08386c96a36989c42cd5f1",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "starlette",
+      "version": "1.10.0",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/starlette-1.10.0/dcb95677a022-LICENSE.md",
+          "sha256": "dcb95677a02240243187e964f941847d19b17821cf99e5afae684fab328c19bf",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "tenacity",
+      "version": "9.1.4",
+      "declared_license": "Apache 2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/tenacity-9.1.4/58d1e17ffe51-LICENSE",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "tomli",
+      "version": "2.5.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/tomli-2.5.0/34b59b39e7ba-LICENSE",
+          "sha256": "34b59b39e7ba577a1d86924218c71229b163d3bf3903aec784299f725c89d324",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "tomli_w",
+      "version": "1.2.0",
+      "declared_license": "License :: OSI Approved :: MIT License",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/tomli_w-1.2.0/b80816b0d530-LICENSE",
+          "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "truststore",
+      "version": "0.10.5",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/truststore-0.10.5/33be7b7e8fa4-LICENSE",
+          "sha256": "33be7b7e8fa4fd19b1760e1a8ed8a668bdab852c91b692dd41424bcb725a9fca",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/typing-inspection-0.4.5/804b59b25f2c-LICENSE",
+          "sha256": "804b59b25f2c31bd278f9202a19ae49a3945aa2664387e2d0a128c7cacc61ec3",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "declared_license": "PSF-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/typing_extensions-4.16.0/3b2f81fe21d1-LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "tzdata",
+      "version": "2026.6",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/tzdata-2026.6/df58f69ea886-LICENSE",
+          "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/tzdata-2026.6/c71d239df917-LICENSE_APACHE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "urllib3",
+      "version": "2.8.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/urllib3-2.8.0/130e3a64d5fd-LICENSE.txt",
+          "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "uv",
+      "version": "0.13.7",
+      "declared_license": "MIT OR Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/uv-0.13.7/c71d239df917-LICENSE-APACHE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/uv-0.13.7/860e3d7a86b8-LICENSE-MIT",
+          "sha256": "860e3d7a86b84e6a7012c7a635fc64df475cebc6cce34dfeb73a5982ec58176c",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/uvicorn-0.54.0/efe1acf3e62f-LICENSE.md",
+          "sha256": "efe1acf3e62fb99c288b0ec73e5a773b7268ef4320fe757ea994214e4b63c371",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "websockets",
+      "version": "17.4",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/websockets-17.4/0f44514998ac-LICENSE",
+          "sha256": "0f44514998aca209d3482d10204a8adf2aa4296ff157a36a5c0922f2280632d3",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "name": "yarl",
+      "version": "1.25.1",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/python/yarl-1.25.1/cfc7749b96f6-LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/python/yarl-1.25.1/56d6ac6c8105-NOTICE",
+          "sha256": "56d6ac6c8105c0a51304c21db060e361af9a8ea0af9a75c239c28b5d13693838",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@ant-design/colors",
+      "version": "8.0.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_ant-design_colors-8.0.1/5d367fb0a073-LICENSE",
+          "sha256": "5d367fb0a07340571542eb4ee8eb1add62d37b71bad6786a57c2e9a86bf76c70",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@ant-design/cssinjs",
+      "version": "2.1.2",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_ant-design_cssinjs-2.1.2/2481b61123d4-LICENSE.md",
+          "sha256": "2481b61123d4f8be84e11847d4bc9684f2aa073d1d2a3275e36fdb7f1cff019a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@ant-design/cssinjs-utils",
+      "version": "2.1.2",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_ant-design_cssinjs-utils-2.1.2/4973f756e858-LICENSE",
+          "sha256": "4973f756e858531bdae451f98054278dabd2ef50fc4d3dbccc084ee35964ad3d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@ant-design/fast-color",
+      "version": "3.0.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_ant-design_fast-color-3.0.1/4973f756e858-LICENSE",
+          "sha256": "4973f756e858531bdae451f98054278dabd2ef50fc4d3dbccc084ee35964ad3d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@ant-design/icons",
+      "version": "6.3.4",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_ant-design_icons-6.3.4/5d367fb0a073-LICENSE",
+          "sha256": "5d367fb0a07340571542eb4ee8eb1add62d37b71bad6786a57c2e9a86bf76c70",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@ant-design/icons-svg",
+      "version": "4.6.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_ant-design_icons-svg-4.6.0/5d367fb0a073-LICENSE",
+          "sha256": "5d367fb0a07340571542eb4ee8eb1add62d37b71bad6786a57c2e9a86bf76c70",
+          "origin": "version-pinned supplement; see third_party/supplements/sources.json"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@ant-design/react-slick",
+      "version": "2.0.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_ant-design_react-slick-2.0.0/95d848d55392-LICENSE",
+          "sha256": "95d848d55392bb8239b53cb7a6405bf3914bdab56d1a0d26f3af5f7aced776eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@babel/runtime",
+      "version": "7.29.13",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_babel_runtime-7.29.13/117da2af0d4c-LICENSE",
+          "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@babel/runtime",
+      "version": "8.1.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_babel_runtime-8.1.0/117da2af0d4c-LICENSE",
+          "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@emotion/hash",
+      "version": "0.8.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_emotion_hash-0.8.0/6e8d23763cf7-LICENSE",
+          "sha256": "6e8d23763cf7cb707ad8f6677aa502ebeca1dda447e6d6e57f6549c1625b9c4a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@emotion/unitless",
+      "version": "0.7.5",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_emotion_unitless-0.7.5/6e8d23763cf7-LICENSE",
+          "sha256": "6e8d23763cf7cb707ad8f6677aa502ebeca1dda447e6d6e57f6549c1625b9c4a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@oxc-project/types",
+      "version": "0.156.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_oxc-project_types-0.156.0/95ced5ecf113-LICENSE",
+          "sha256": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/async-validator",
+      "version": "6.0.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_async-validator-6.0.0/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/cascader",
+      "version": "1.26.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_cascader-1.26.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_cascader-1.26.0/4b34f19e8c9e-LICENSE.md",
+          "sha256": "4b34f19e8c9e5c66aaf2dd07b7c15a5c3cf24a0095a760dca8473320ffde6b99",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/checkbox",
+      "version": "2.0.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_checkbox-2.0.0/212a6f81849c-LICENSE.md",
+          "sha256": "212a6f81849cae76de28ce0c35286ae750488cdc2ed25b19d4f144da21125521",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/collapse",
+      "version": "1.3.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_collapse-1.3.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_collapse-1.3.0/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/color-picker",
+      "version": "3.1.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_color-picker-3.1.1/8a894af015d3-LICENSE.md",
+          "sha256": "8a894af015d320e0d534a14d6ae1895e07cb072678050d34b66be7e579c36a67",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/context",
+      "version": "2.0.2",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_context-2.0.2/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/dialog",
+      "version": "1.10.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_dialog-1.10.0/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/drawer",
+      "version": "1.4.2",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_drawer-1.4.2/6db0a962e589-LICENSE",
+          "sha256": "6db0a962e5898831124a7e7465d4cf3ad849d121f97a618046b7a7f41fd2b031",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/dropdown",
+      "version": "2.0.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_dropdown-2.0.1/4973f756e858-LICENSE",
+          "sha256": "4973f756e858531bdae451f98054278dabd2ef50fc4d3dbccc084ee35964ad3d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/form",
+      "version": "1.8.6",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_form-1.8.6/8781f0ca1920-LICENSE",
+          "sha256": "8781f0ca192057330d7fbab763f8bcd3c8e671032f98e9cf1f8c82d6748e5654",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/image",
+      "version": "1.10.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_image-1.10.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_image-1.10.0/416bff691c83-LICENSE.md",
+          "sha256": "416bff691c8396d61bc16127f6271f133ca9094a34f7c3d5496ff1a3abc45766",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/input",
+      "version": "1.4.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_input-1.4.1/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_input-1.4.1/2481b61123d4-LICENSE.md",
+          "sha256": "2481b61123d4f8be84e11847d4bc9684f2aa073d1d2a3275e36fdb7f1cff019a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/input-number",
+      "version": "1.8.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_input-number-1.8.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_input-number-1.8.0/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/listy",
+      "version": "1.4.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_listy-1.4.0/4973f756e858-LICENSE",
+          "sha256": "4973f756e858531bdae451f98054278dabd2ef50fc4d3dbccc084ee35964ad3d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/mentions",
+      "version": "1.14.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_mentions-1.14.1/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_mentions-1.14.1/8a894af015d3-LICENSE.md",
+          "sha256": "8a894af015d320e0d534a14d6ae1895e07cb072678050d34b66be7e579c36a67",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/menu",
+      "version": "1.6.2",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_menu-1.6.2/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_menu-1.6.2/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/mini-decimal",
+      "version": "1.1.4",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_mini-decimal-1.1.4/8781f0ca1920-LICENSE",
+          "sha256": "8781f0ca192057330d7fbab763f8bcd3c8e671032f98e9cf1f8c82d6748e5654",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/motion",
+      "version": "1.3.3",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_motion-1.3.3/2481b61123d4-LICENSE.md",
+          "sha256": "2481b61123d4f8be84e11847d4bc9684f2aa073d1d2a3275e36fdb7f1cff019a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/mutate-observer",
+      "version": "2.0.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_mutate-observer-2.0.1/8781f0ca1920-LICENSE",
+          "sha256": "8781f0ca192057330d7fbab763f8bcd3c8e671032f98e9cf1f8c82d6748e5654",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/notification",
+      "version": "2.1.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_notification-2.1.1/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_notification-2.1.1/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/overflow",
+      "version": "1.0.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_overflow-1.0.1/2481b61123d4-LICENSE.md",
+          "sha256": "2481b61123d4f8be84e11847d4bc9684f2aa073d1d2a3275e36fdb7f1cff019a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/pagination",
+      "version": "1.7.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_pagination-1.7.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_pagination-1.7.0/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/picker",
+      "version": "1.17.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_picker-1.17.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_picker-1.17.0/2481b61123d4-LICENSE.md",
+          "sha256": "2481b61123d4f8be84e11847d4bc9684f2aa073d1d2a3275e36fdb7f1cff019a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/portal",
+      "version": "2.2.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_portal-2.2.1/8781f0ca1920-LICENSE",
+          "sha256": "8781f0ca192057330d7fbab763f8bcd3c8e671032f98e9cf1f8c82d6748e5654",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/progress",
+      "version": "1.1.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_progress-1.1.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_progress-1.1.0/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/qrcode",
+      "version": "2.0.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_qrcode-2.0.0/4973f756e858-LICENSE",
+          "sha256": "4973f756e858531bdae451f98054278dabd2ef50fc4d3dbccc084ee35964ad3d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/rate",
+      "version": "1.0.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_rate-1.0.1/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/resize-observer",
+      "version": "1.1.2",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_resize-observer-1.1.2/2481b61123d4-LICENSE.md",
+          "sha256": "2481b61123d4f8be84e11847d4bc9684f2aa073d1d2a3275e36fdb7f1cff019a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/segmented",
+      "version": "1.4.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_segmented-1.4.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_segmented-1.4.0/2481b61123d4-LICENSE.md",
+          "sha256": "2481b61123d4f8be84e11847d4bc9684f2aa073d1d2a3275e36fdb7f1cff019a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/select",
+      "version": "1.12.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_select-1.12.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_select-1.12.0/4b34f19e8c9e-LICENSE.md",
+          "sha256": "4b34f19e8c9e5c66aaf2dd07b7c15a5c3cf24a0095a760dca8473320ffde6b99",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/slider",
+      "version": "1.2.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_slider-1.2.1/4973f756e858-LICENSE",
+          "sha256": "4973f756e858531bdae451f98054278dabd2ef50fc4d3dbccc084ee35964ad3d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/steps",
+      "version": "1.2.3",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_steps-1.2.3/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_steps-1.2.3/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/switch",
+      "version": "1.0.3",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_switch-1.0.3/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/table",
+      "version": "1.12.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_table-1.12.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_table-1.12.0/416bff691c83-LICENSE.md",
+          "sha256": "416bff691c8396d61bc16127f6271f133ca9094a34f7c3d5496ff1a3abc45766",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/tabs",
+      "version": "2.0.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_tabs-2.0.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_tabs-2.0.0/5d0427088e37-LICENSE.md",
+          "sha256": "5d0427088e37071c4b942de990f6365d5c2d195f3e957ce925322d184784e2eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/tooltip",
+      "version": "1.5.2",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_tooltip-1.5.2/59d606be3d68-LICENSE",
+          "sha256": "59d606be3d687e4dfcaecb9aebcebeb048c940ee613a4a820b759e0345d31e8d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/tour",
+      "version": "2.4.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_tour-2.4.0/8781f0ca1920-LICENSE",
+          "sha256": "8781f0ca192057330d7fbab763f8bcd3c8e671032f98e9cf1f8c82d6748e5654",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/tree",
+      "version": "1.5.3",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_tree-1.5.3/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_tree-1.5.3/6db0a962e589-LICENSE.md",
+          "sha256": "6db0a962e5898831124a7e7465d4cf3ad849d121f97a618046b7a7f41fd2b031",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/tree-select",
+      "version": "1.19.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_tree-select-1.19.0/53eb8e75d955-LICENSE",
+          "sha256": "53eb8e75d95517110e08f54e1c4007e2204f2de512cca6ca0ac2f9aeb4e6e0f8",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rc-component_tree-select-1.19.0/6db0a962e589-LICENSE.md",
+          "sha256": "6db0a962e5898831124a7e7465d4cf3ad849d121f97a618046b7a7f41fd2b031",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/trigger",
+      "version": "3.10.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_trigger-3.10.1/4973f756e858-LICENSE",
+          "sha256": "4973f756e858531bdae451f98054278dabd2ef50fc4d3dbccc084ee35964ad3d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/upload",
+      "version": "1.1.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_upload-1.1.1/883dc1623d63-LICENSE",
+          "sha256": "883dc1623d6382c603f2b66f6a04eff69f835d61b638a67923156b4ac772fda6",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/util",
+      "version": "1.14.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_util-1.14.1/f3ae1f96cf22-LICENSE",
+          "sha256": "f3ae1f96cf22ff7028a4a908b2bf099968391fe06785e4d830926b07e5125ea6",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rc-component/virtual-list",
+      "version": "1.6.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rc-component_virtual-list-1.6.0/59d606be3d68-LICENSE",
+          "sha256": "59d606be3d687e4dfcaecb9aebcebeb048c940ee613a4a820b759e0345d31e8d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rolldown/binding-win32-x64-msvc",
+      "version": "1.2.19",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rolldown_binding-win32-x64-msvc-1.2.19/23ecfff35a5a-LICENSE",
+          "sha256": "23ecfff35a5a2e80d92142f75228912c3b1abc4b5a8337a821ff4397e2f9f734",
+          "origin": "same-version parent rolldown package legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_rolldown_binding-win32-x64-msvc-1.2.19/a877291d800e-THIRD-PARTY-LICENSE",
+          "sha256": "a877291d800ed43692f3f9ae09d8e01cc6f7293ad39d43896059c188ffbb8b7c",
+          "origin": "same-version parent rolldown package legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@rolldown/pluginutils",
+      "version": "1.1.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_rolldown_pluginutils-1.1.0/e1919b3b98b8-LICENSE",
+          "sha256": "e1919b3b98b8bf6c1b99fcc60a0ed46027c97ac947432e1278446c9606f50161",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@types/node",
+      "version": "26.6.6",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_types_node-26.6.6/c2cfccb812fe-LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@types/react",
+      "version": "19.3.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_types_react-19.3.0/c2cfccb812fe-LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@types/react-dom",
+      "version": "19.3.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_types_react-dom-19.3.0/c2cfccb812fe-LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@types/react-reconciler",
+      "version": "0.28.9",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_types_react-reconciler-0.28.9/c2cfccb812fe-LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@types/react-reconciler",
+      "version": "0.34.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_types_react-reconciler-0.34.0/c2cfccb812fe-LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "antd",
+      "version": "6.7.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/antd-6.7.0/3c82654bb472-LICENSE",
+          "sha256": "3c82654bb472ebbcacc4c1ff00f94aa8c60c4b7ee011b16bafcbacecc3703458",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "clsx",
+      "version": "2.1.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/clsx-2.1.1/9a9edad7baae-license",
+          "sha256": "9a9edad7baae52622bddf3c15b2ef8a33d2c89f2d25408ad13e8a7481c6b0c97",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "compute-scroll-into-view",
+      "version": "3.2.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/compute-scroll-into-view-3.2.0/dfe2b2d612c7-LICENSE",
+          "sha256": "dfe2b2d612c7c1de1f32dcab5969bd68ecac0022a7582ca8cd4594729b9c8664",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "csstype",
+      "version": "3.2.3",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/csstype-3.2.3/11d55bd4541c-LICENSE",
+          "sha256": "11d55bd4541c75ee7879547ac49089c489163dae49551389713c3d026cab383e",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "dayjs",
+      "version": "1.11.23",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/dayjs-1.11.23/5faab7526d05-LICENSE",
+          "sha256": "5faab7526d055651be3aab769d58897be6bd91f3d39d137f25f12dba1b31d5dc",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "fdir",
+      "version": "6.5.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/fdir-6.5.0/9a39f2aadab1-LICENSE",
+          "sha256": "9a39f2aadab11a3697edd668ff2d8ad885b649737b7ab4d3bf12b34e5ada0c86",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "is-mobile",
+      "version": "5.0.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/is-mobile-5.0.0/1f1f35b6a103-README.md",
+          "sha256": "1f1f35b6a103d7b010f51a6d7d61e3e47dbc71db2c69cbb7c0ffd40c641b04e2",
+          "origin": "full legal section in published package README"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "its-fine",
+      "version": "2.1.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/its-fine-2.1.1/643123eeb38f-LICENSE",
+          "sha256": "643123eeb38f154d93cb8323e1289a648d3f343b411a9340453c010e325d0c82",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "json2mq",
+      "version": "0.2.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/json2mq-0.2.0/95d848d55392-LICENSE",
+          "sha256": "95d848d55392bb8239b53cb7a6405bf3914bdab56d1a0d26f3af5f7aced776eb",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "konva",
+      "version": "10.9.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/konva-10.9.1/7190132c82df-LICENSE",
+          "sha256": "7190132c82df30243dc2ba512c9509ea3b629329b4266e9f2c3b5dbd04029613",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "nanoid",
+      "version": "3.3.20",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/nanoid-3.3.20/da4db1480d9b-LICENSE",
+          "sha256": "da4db1480d9beea3483a2eda5c53b22238d0827d57da162b48f122e04d2d9987",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "picomatch",
+      "version": "4.0.7",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/picomatch-4.0.7/d0cd141b0c32-LICENSE",
+          "sha256": "d0cd141b0c322fded5dfad1d4645bb2fedfc05b7321fe1009469638190d59ef9",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "postcss",
+      "version": "8.5.32",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/postcss-8.5.32/5be1f3465bba-LICENSE",
+          "sha256": "5be1f3465bba68a626777f984878814aaf35e7ef8e9fd314d469bcf887050fb8",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "react",
+      "version": "19.3.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/react-19.3.1/da6d3703ed11-LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "react-dom",
+      "version": "19.3.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/react-dom-19.3.1/da6d3703ed11-LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "react-is",
+      "version": "19.3.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/react-is-19.3.1/da6d3703ed11-LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "react-konva",
+      "version": "19.3.2",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/react-konva-19.3.2/0874c25d40dc-LICENSE",
+          "sha256": "0874c25d40dcf71ff12256d30e15e59fd3e21a163c53448ea8bcbe6c03b663e4",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "react-reconciler",
+      "version": "0.34.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/react-reconciler-0.34.0/da6d3703ed11-LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "rolldown",
+      "version": "1.2.19",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/rolldown-1.2.19/23ecfff35a5a-LICENSE",
+          "sha256": "23ecfff35a5a2e80d92142f75228912c3b1abc4b5a8337a821ff4397e2f9f734",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/rolldown-1.2.19/a877291d800e-THIRD-PARTY-LICENSE",
+          "sha256": "a877291d800ed43692f3f9ae09d8e01cc6f7293ad39d43896059c188ffbb8b7c",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "scheduler",
+      "version": "0.28.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/scheduler-0.28.0/da6d3703ed11-LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "scroll-into-view-if-needed",
+      "version": "3.2.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/scroll-into-view-if-needed-3.2.0/62b9f69bb4cc-LICENSE",
+          "sha256": "62b9f69bb4ccf131e7e4cc8ce6ec5b4acf3d9848f0ac73c3c2f285d716ff1b5c",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "string-convert",
+      "version": "0.2.1",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/string-convert-0.2.1/8e7a0e17a14c-LICENSE",
+          "sha256": "8e7a0e17a14c91d325c22a8ade50da3aaa5a97e321beebbdce77d63fc719a1c2",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "stylis",
+      "version": "4.4.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/stylis-4.4.0/88c579c6ee44-LICENSE",
+          "sha256": "88c579c6ee44b41137a21321190d177982e5b17d4fa1b83a4a2e3ea325a8fc9a",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "throttle-debounce",
+      "version": "5.0.2",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/throttle-debounce-5.0.2/b07649c79823-LICENSE.md",
+          "sha256": "b07649c798231a321f90abbb329c15e41a8b5ec5e814dde3e60cd4a470e3b012",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "tinyglobby",
+      "version": "0.2.17",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/tinyglobby-0.2.17/22c68811e174-LICENSE",
+          "sha256": "22c68811e174cbbfb3813d4135918df4f540959c14d872e601d9abe83d3cde8f",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "undici-types",
+      "version": "8.9.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/undici-types-8.9.0/a6db8096b270-LICENSE",
+          "sha256": "a6db8096b2707bc0102d256917d4d33f298ba36d8c3f25de067a2b5bb379db27",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "vite",
+      "version": "8.3.8",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/vite-8.3.8/a22152baa1ae-LICENSE.md",
+          "sha256": "a22152baa1aef74402443008e767e7c689a524c0909d19b0431d97f5ab066a13",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "zustand",
+      "version": "5.1.0",
+      "declared_license": "MIT",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/zustand-5.1.0/c1e6e2665635-LICENSE",
+          "sha256": "c1e6e266563517467b1bf874817d23e426f3149252bd7d42758cd697514b8417",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@playwright/test",
+      "version": "1.65.0",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_playwright_test-1.65.0/45873d00a0dd-LICENSE",
+          "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_playwright_test-1.65.0/6d602191187b-NOTICE",
+          "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@typescript/typescript-win32-x64",
+      "version": "7.0.2",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/_typescript_typescript-win32-x64-7.0.2/a7d00bfd5452-LICENSE",
+          "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/_typescript_typescript-win32-x64-7.0.2/f5c708b59114-NOTICE.txt",
+          "sha256": "f5c708b59114507b8b27b48181b6883d106bbca0c1634bbee45b5e344237b66b",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "detect-libc",
+      "version": "2.1.2",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/detect-libc-2.1.2/b40930bbcf80-LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "playwright",
+      "version": "1.65.0",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/playwright-1.65.0/45873d00a0dd-LICENSE",
+          "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/playwright-1.65.0/6d602191187b-NOTICE",
+          "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "playwright-core",
+      "version": "1.65.0",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/playwright-core-1.65.0/45873d00a0dd-LICENSE",
+          "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/playwright-core-1.65.0/6d602191187b-NOTICE",
+          "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "typescript",
+      "version": "7.0.2",
+      "declared_license": "Apache-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/typescript-7.0.2/a7d00bfd5452-LICENSE",
+          "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47",
+          "origin": "installed distribution legal text"
+        },
+        {
+          "file": "third_party/licenses/npm/typescript-7.0.2/f5c708b59114-NOTICE.txt",
+          "sha256": "f5c708b59114507b8b27b48181b6883d106bbca0c1634bbee45b5e344237b66b",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "lightningcss",
+      "version": "1.33.0",
+      "declared_license": "MPL-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/lightningcss-1.33.0/5eba353fe507-LICENSE",
+          "sha256": "5eba353fe5076ac3432177f8ab1cf75e3afcd0584251e37c3bfead5f447d040e",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "lightningcss-win32-x64-msvc",
+      "version": "1.33.0",
+      "declared_license": "MPL-2.0",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/lightningcss-win32-x64-msvc-1.33.0/5eba353fe507-LICENSE",
+          "sha256": "5eba353fe5076ac3432177f8ab1cf75e3afcd0584251e37c3bfead5f447d040e",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "picocolors",
+      "version": "1.1.1",
+      "declared_license": "ISC",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/picocolors-1.1.1/6582629e2979-LICENSE",
+          "sha256": "6582629e2979466878f6014313dcc2f3756c9616148682227ce3063dde310750",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "source-map-js",
+      "version": "1.2.2",
+      "declared_license": "BSD-3-Clause",
+      "texts": [
+        {
+          "file": "third_party/licenses/npm/source-map-js-1.2.2/6cb0631f71c7-LICENSE",
+          "sha256": "6cb0631f71c7749763fd3dd1d5bee52dd1070ec17f2edc1710079ad070bd2fbd",
+          "origin": "installed distribution legal text"
+        }
+      ]
+    }
+  ],
+  "missing_packaged_texts": []
+}

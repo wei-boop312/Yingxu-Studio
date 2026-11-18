@@ -1,0 +1,274 @@
+{
+  "kind": "concrete",
+  "template_id": "core_ecommerce_detail_hybrid_v1",
+  "task": "ecommerce_detail",
+  "profiles": ["stable", "low_vram"],
+  "verified": true,
+  "model_bindings": [
+    {
+      "binding": "checkpoint",
+      "class_type": "CheckpointLoaderSimple",
+      "input": "ckpt_name",
+      "label": "基础模型"
+    },
+    {
+      "binding": "background_removal_model",
+      "class_type": "LoadBackgroundRemovalModel",
+      "input": "bg_removal_name",
+      "label": "商品抠图模型"
+    }
+  ],
+  "nodes": [
+    {
+      "key": "source",
+      "class_type": "LoadImage",
+      "title": "商品图",
+      "stage": "input",
+      "group_title": "01 商品图输入",
+      "position": [40, 80],
+      "inputs": {"image": "${source_image}"}
+    },
+    {
+      "key": "checkpoint",
+      "class_type": "CheckpointLoaderSimple",
+      "title": "加载基础模型",
+      "stage": "model",
+      "group_title": "02 基础模型",
+      "position": [40, 430],
+      "inputs": {"ckpt_name": "${checkpoint}"}
+    },
+    {
+      "key": "background_removal_model",
+      "class_type": "LoadBackgroundRemovalModel",
+      "title": "加载商品抠图模型",
+      "stage": "preprocessing",
+      "group_title": "03 自动抠图与等比适配",
+      "position": [360, 40],
+      "inputs": {"bg_removal_name": "${background_removal_model}"}
+    },
+    {
+      "key": "foreground_mask",
+      "class_type": "RemoveBackground",
+      "title": "生成商品前景蒙版",
+      "stage": "preprocessing",
+      "group_title": "03 自动抠图与等比适配",
+      "position": [670, 40],
+      "inputs": {
+        "bg_removal_model": {"link": ["background_removal_model", 0]},
+        "image": {"link": ["source", 0]}
+      }
+    },
+    {
+      "key": "product_scale",
+      "class_type": "ImageScale",
+      "title": "商品图等比缩放",
+      "stage": "preprocessing",
+      "group_title": "03 自动抠图与等比适配",
+      "position": [670, 270],
+      "inputs": {
+        "image": {"link": ["source", 0]},
+        "upscale_method": "lanczos",
+        "width": "${product_width}",
+        "height": "${product_height}",
+        "crop": "disabled"
+      }
+    },
+    {
+      "key": "mask_resize",
+      "class_type": "ResizeMask",
+      "title": "同步缩放商品蒙版",
+      "stage": "preprocessing",
+      "group_title": "03 自动抠图与等比适配",
+      "position": [970, 80],
+      "inputs": {
+        "mask": {"link": ["foreground_mask", 0]},
+        "width": "${product_width}",
+        "height": "${product_height}",
+        "keep_proportions": false,
+        "upscale_method": "bilinear",
+        "crop": "disabled"
+      }
+    },
+    {
+      "key": "background_positive",
+      "class_type": "CLIPTextEncode",
+      "title": "英文背景正向提示",
+      "stage": "conditioning",
+      "group_title": "04 背景与商品独立提示词",
+      "position": [360, 650],
+      "inputs": {
+        "text": "${background_positive_prompt}",
+        "clip": {"link": ["checkpoint", 1]}
+      }
+    },
+    {
+      "key": "background_negative",
+      "class_type": "CLIPTextEncode",
+      "title": "英文背景负向提示",
+      "stage": "conditioning",
+      "group_title": "04 背景与商品独立提示词",
+      "position": [360, 880],
+      "inputs": {
+        "text": "${background_negative_prompt}",
+        "clip": {"link": ["checkpoint", 1]}
+      }
+    },
+    {
+      "key": "product_positive",
+      "class_type": "CLIPTextEncode",
+      "title": "商品保真正向提示",
+      "stage": "conditioning",
+      "group_title": "04 背景与商品独立提示词",
+      "position": [700, 650],
+      "inputs": {
+        "text": "${product_positive_prompt}",
+        "clip": {"link": ["checkpoint", 1]}
+      }
+    },
+    {
+      "key": "product_negative",
+      "class_type": "CLIPTextEncode",
+      "title": "商品保真负向提示",
+      "stage": "conditioning",
+      "group_title": "04 背景与商品独立提示词",
+      "position": [700, 880],
+      "inputs": {
+        "text": "${product_negative_prompt}",
+        "clip": {"link": ["checkpoint", 1]}
+      }
+    },
+    {
+      "key": "background_latent",
+      "class_type": "EmptyLatentImage",
+      "title": "文生图场景画布",
+      "stage": "latent",
+      "group_title": "05 双潜空间",
+      "position": [1080, 510],
+      "inputs": {
+        "width": "${width}",
+        "height": "${height}",
+        "batch_size": 1
+      }
+    },
+    {
+      "key": "product_encode",
+      "class_type": "VAEEncode",
+      "title": "缩放商品图 VAE 编码",
+      "stage": "latent",
+      "group_title": "05 双潜空间",
+      "position": [1080, 760],
+      "inputs": {
+        "pixels": {"link": ["product_scale", 0]},
+        "vae": {"link": ["checkpoint", 2]}
+      }
+    },
+    {
+      "key": "background_sampler",
+      "class_type": "KSampler",
+      "title": "文生图场景采样",
+      "stage": "sampling",
+      "group_title": "06 双分支采样",
+      "position": [1390, 480],
+      "inputs": {
+        "model": {"link": ["checkpoint", 0]},
+        "seed": "${seed}",
+        "steps": "${steps}",
+        "cfg": "${cfg}",
+        "sampler_name": "${sampler_name}",
+        "scheduler": "${scheduler}",
+        "positive": {"link": ["background_positive", 0]},
+        "negative": {"link": ["background_negative", 0]},
+        "latent_image": {"link": ["background_latent", 0]},
+        "denoise": 1.0
+      }
+    },
+    {
+      "key": "product_sampler",
+      "class_type": "KSampler",
+      "title": "低强度商品保真采样",
+      "stage": "sampling",
+      "group_title": "06 双分支采样",
+      "position": [1390, 870],
+      "inputs": {
+        "model": {"link": ["checkpoint", 0]},
+        "seed": "${seed}",
+        "steps": "${steps}",
+        "cfg": "${cfg}",
+        "sampler_name": "${sampler_name}",
+        "scheduler": "${scheduler}",
+        "positive": {"link": ["product_positive", 0]},
+        "negative": {"link": ["product_negative", 0]},
+        "latent_image": {"link": ["product_encode", 0]},
+        "denoise": "${denoise}"
+      }
+    },
+    {
+      "key": "background_decode",
+      "class_type": "VAEDecode",
+      "title": "解码空影棚背景",
+      "stage": "decode",
+      "group_title": "07 双分支解码",
+      "position": [1750, 520],
+      "inputs": {
+        "samples": {"link": ["background_sampler", 0]},
+        "vae": {"link": ["checkpoint", 2]}
+      }
+    },
+    {
+      "key": "product_decode",
+      "class_type": "VAEDecode",
+      "title": "解码保真商品",
+      "stage": "decode",
+      "group_title": "07 双分支解码",
+      "position": [1750, 890],
+      "inputs": {
+        "samples": {"link": ["product_sampler", 0]},
+        "vae": {"link": ["checkpoint", 2]}
+      }
+    },
+    {
+      "key": "identity_restore",
+      "class_type": "ImageCompositeMasked",
+      "title": "用原图复原商品结构与 Logo",
+      "stage": "identity_restore",
+      "group_title": "08 商品原始像素复原",
+      "position": [2070, 900],
+      "inputs": {
+        "destination": {"link": ["product_decode", 0]},
+        "source": {"link": ["product_scale", 0]},
+        "x": 0,
+        "y": 0,
+        "resize_source": false,
+        "mask": {"link": ["mask_resize", 0]}
+      }
+    },
+    {
+      "key": "composite",
+      "class_type": "ImageCompositeMasked",
+      "title": "商品居中合成到场景",
+      "stage": "generation",
+      "group_title": "09 商品场景合成",
+      "position": [2420, 690],
+      "inputs": {
+        "destination": {"link": ["background_decode", 0]},
+        "source": {"link": ["identity_restore", 0]},
+        "x": "${product_x}",
+        "y": "${product_y}",
+        "resize_source": false,
+        "mask": {"link": ["mask_resize", 0]}
+      }
+    },
+    {
+      "key": "save",
+      "class_type": "SaveImage",
+      "title": "保存详情页底图",
+      "stage": "output",
+      "group_title": "10 输出",
+      "position": [2770, 690],
+      "inputs": {
+        "images": {"link": ["composite", 0]},
+        "filename_prefix": "${filename_prefix}"
+      }
+    }
+  ]
+}

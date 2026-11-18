@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "version": "EXAMPLE-ONLY",
+  "generate": {
+    "provider": "aliyun_bailian",
+    "model": "qwen-image-3.0",
+    "credential_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+    "endpoint_origin": "https://ws-example.cn-beijing.maas.aliyuncs.com",
+    "merchant_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+    "billing_group": "EXAMPLE-NOT-REVIEWED"
+  },
+  "detect": {
+    "provider": "hubway_gemini",
+    "model": "gemini-3.8-flash",
+    "credential_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+    "endpoint_origin": "https://hubway.cc",
+    "merchant_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+    "billing_group": "EXAMPLE-NOT-REVIEWED"
+  }
+}

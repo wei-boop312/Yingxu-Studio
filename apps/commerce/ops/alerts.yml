@@ -1,0 +1,33 @@
+groups:
+  - name: visual-platform
+    rules:
+      - alert: VisualFinancialInvariant
+        expr: visual_wallet_equation_errors + visual_ledger_total_errors + visual_reservation_link_errors + visual_task_credit_state_errors + visual_duplicate_terminal_settlements > 0
+        for: 0m
+        labels: {severity: critical}
+        annotations: {summary: "Financial invariants require investigation; do not auto-adjust credits"}
+      - alert: VisualUnknownBacklog
+        expr: visual_unknown_oldest_seconds >= 300 and on() visual_tasks{status="uncertain"} > 0
+        for: 1m
+        labels: {severity: warning}
+        annotations: {summary: "Reconcile existing supplier receipts; never auto-resubmit"}
+      - alert: VisualOutboxLag
+        expr: visual_outbox_oldest_seconds >= 30 and visual_outbox_pending > 0
+        for: 1m
+        labels: {severity: warning}
+        annotations: {summary: "Inspect publisher and RabbitMQ confirms"}
+      - alert: VisualServiceHeartbeat
+        expr: visual_service_alive == 0
+        for: 15s
+        labels: {severity: critical}
+        annotations: {summary: "Publisher or Worker heartbeat is stale"}
+      - alert: VisualDependencyUnavailable
+        expr: visual_dependency_up == 0
+        for: 15s
+        labels: {severity: critical}
+        annotations: {summary: "Configured MQ or storage probe failed"}
+      - alert: VisualMonitorUnavailable
+        expr: visual_monitor_scrape_error == 1
+        for: 0m
+        labels: {severity: critical}
+        annotations: {summary: "Aggregate monitor could not complete"}

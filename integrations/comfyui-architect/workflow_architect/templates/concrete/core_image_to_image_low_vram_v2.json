@@ -1,0 +1,69 @@
+{
+  "kind": "concrete",
+  "template_id": "core_image_to_image_low_vram_v2",
+  "task": "image_to_image",
+  "profiles": ["low_vram"],
+  "verified": true,
+  "model_bindings": [
+    {"binding": "checkpoint", "class_type": "CheckpointLoaderSimple", "input": "ckpt_name", "label": "基础模型"}
+  ],
+  "nodes": [
+    {"key": "source", "class_type": "LoadImage", "title": "读取参考图", "stage": "input", "group_title": "01 输入", "position": [50, 70], "inputs": {"image": "${source_image}"}},
+    {"key": "checkpoint", "class_type": "CheckpointLoaderSimple", "title": "加载基础模型", "stage": "model", "group_title": "02 模型", "position": [50, 410], "inputs": {"ckpt_name": "${checkpoint}"}},
+    {"key": "positive", "class_type": "CLIPTextEncode", "title": "正向提示词", "stage": "conditioning", "group_title": "03 提示词", "position": [380, 160], "inputs": {"text": "${positive_prompt}", "clip": {"link": ["checkpoint", 1]}}},
+    {"key": "negative", "class_type": "CLIPTextEncode", "title": "负向提示词", "stage": "conditioning", "group_title": "03 提示词", "position": [380, 480], "inputs": {"text": "${negative_prompt}", "clip": {"link": ["checkpoint", 1]}}},
+    {
+      "key": "encode",
+      "class_type": "VAEEncodeTiled",
+      "title": "分块 VAE 编码",
+      "stage": "latent",
+      "group_title": "04 低显存编码",
+      "position": [390, 760],
+      "inputs": {
+        "pixels": {"link": ["source", 0]},
+        "vae": {"link": ["checkpoint", 2]},
+        "tile_size": 512,
+        "overlap": 64,
+        "temporal_size": 64,
+        "temporal_overlap": 8
+      }
+    },
+    {
+      "key": "sampler",
+      "class_type": "KSampler",
+      "title": "低显存图生图采样",
+      "stage": "sampling",
+      "group_title": "05 采样",
+      "position": [760, 310],
+      "inputs": {
+        "model": {"link": ["checkpoint", 0]},
+        "seed": "${seed}",
+        "steps": "${steps}",
+        "cfg": "${cfg}",
+        "sampler_name": "${sampler_name}",
+        "scheduler": "${scheduler}",
+        "positive": {"link": ["positive", 0]},
+        "negative": {"link": ["negative", 0]},
+        "latent_image": {"link": ["encode", 0]},
+        "denoise": "${denoise}"
+      }
+    },
+    {
+      "key": "decode",
+      "class_type": "VAEDecodeTiled",
+      "title": "分块 VAE 解码",
+      "stage": "decode",
+      "group_title": "06 低显存解码",
+      "position": [1110, 310],
+      "inputs": {
+        "samples": {"link": ["sampler", 0]},
+        "vae": {"link": ["checkpoint", 2]},
+        "tile_size": 512,
+        "overlap": 64,
+        "temporal_size": 64,
+        "temporal_overlap": 8
+      }
+    },
+    {"key": "save", "class_type": "SaveImage", "title": "保存结果", "stage": "output", "group_title": "07 输出", "position": [1420, 310], "inputs": {"images": {"link": ["decode", 0]}, "filename_prefix": "${filename_prefix}"}}
+  ]
+}

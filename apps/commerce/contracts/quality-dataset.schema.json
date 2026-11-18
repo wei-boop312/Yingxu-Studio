@@ -1,0 +1,179 @@
+{
+  "$defs": {
+    "QualitySample": {
+      "additionalProperties": false,
+      "properties": {
+        "sample_id": {
+          "pattern": "^[A-Za-z0-9_-]{1,64}$",
+          "title": "Sample Id",
+          "type": "string"
+        },
+        "image_file": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Image File",
+          "type": "string"
+        },
+        "image_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Image Sha256",
+          "type": "string"
+        },
+        "report_file": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Report File",
+          "type": "string"
+        },
+        "report_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Report Sha256",
+          "type": "string"
+        },
+        "platform": {
+          "enum": [
+            "amazon",
+            "temu",
+            "ozon"
+          ],
+          "title": "Platform",
+          "type": "string"
+        },
+        "marketplace": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Marketplace",
+          "type": "string"
+        },
+        "category": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Category",
+          "type": "string"
+        },
+        "image_type": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Image Type",
+          "type": "string"
+        },
+        "rule_version": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Rule Version",
+          "type": "string"
+        },
+        "human_label": {
+          "enum": [
+            "compliant",
+            "non_compliant"
+          ],
+          "title": "Human Label",
+          "type": "string"
+        },
+        "annotator_fingerprint": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Annotator Fingerprint",
+          "type": "string"
+        },
+        "features": {
+          "$ref": "#/$defs/SampleFeatures"
+        }
+      },
+      "required": [
+        "sample_id",
+        "image_file",
+        "image_sha256",
+        "report_file",
+        "report_sha256",
+        "platform",
+        "marketplace",
+        "category",
+        "image_type",
+        "rule_version",
+        "human_label",
+        "annotator_fingerprint",
+        "features"
+      ],
+      "title": "QualitySample",
+      "type": "object"
+    },
+    "SampleFeatures": {
+      "additionalProperties": false,
+      "properties": {
+        "visible_text": {
+          "title": "Visible Text",
+          "type": "boolean"
+        },
+        "on_product_logo": {
+          "title": "On Product Logo",
+          "type": "boolean"
+        },
+        "added_watermark": {
+          "title": "Added Watermark",
+          "type": "boolean"
+        },
+        "dark_background": {
+          "title": "Dark Background",
+          "type": "boolean"
+        },
+        "category_exception": {
+          "title": "Category Exception",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "visible_text",
+        "on_product_logo",
+        "added_watermark",
+        "dark_background",
+        "category_exception"
+      ],
+      "title": "SampleFeatures",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "maximum": 1,
+      "minimum": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "dataset_kind": {
+      "enum": [
+        "synthetic_fixture",
+        "real_product_set"
+      ],
+      "title": "Dataset Kind",
+      "type": "string"
+    },
+    "human_reviewed_attested": {
+      "title": "Human Reviewed Attested",
+      "type": "boolean"
+    },
+    "usage_rights_attested": {
+      "title": "Usage Rights Attested",
+      "type": "boolean"
+    },
+    "samples": {
+      "items": {
+        "$ref": "#/$defs/QualitySample"
+      },
+      "maxItems": 10000,
+      "minItems": 1,
+      "title": "Samples",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "dataset_kind",
+    "human_reviewed_attested",
+    "usage_rights_attested",
+    "samples"
+  ],
+  "title": "QualityDataset",
+  "type": "object"
+}

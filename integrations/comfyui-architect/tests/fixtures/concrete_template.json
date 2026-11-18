@@ -1,0 +1,104 @@
+{
+  "kind": "concrete",
+  "verified": true,
+  "test_fixture_only": true,
+  "template_id": "fixture_virtual_tryon_v1",
+  "task": "virtual_tryon",
+  "required_models": [],
+  "nodes": [
+    {
+      "key": "person",
+      "capability": "image_loader.person",
+      "title": "人物图片",
+      "stage": "inputs",
+      "group_title": "01 人物与服装输入",
+      "position": [0, 0],
+      "inputs": {"image": "${person_image}"}
+    },
+    {
+      "key": "garment",
+      "capability": "image_loader.garment",
+      "title": "服装图片",
+      "stage": "inputs",
+      "group_title": "01 人物与服装输入",
+      "position": [0, 180],
+      "inputs": {"image": "${garment_image}"}
+    },
+    {
+      "key": "person_seg",
+      "capability": "person_segmentation",
+      "stage": "preprocessing",
+      "group_title": "02 人体和服装预处理",
+      "position": [300, 0],
+      "inputs": {"image": {"link": ["person", 0]}}
+    },
+    {
+      "key": "garment_mask",
+      "capability": "garment_mask",
+      "stage": "preprocessing",
+      "group_title": "02 人体和服装预处理",
+      "position": [300, 180],
+      "inputs": {"image": {"link": ["garment", 0]}}
+    },
+    {
+      "key": "protected",
+      "capability": "protected_region_mask",
+      "stage": "protected_regions",
+      "group_title": "03 受保护区域",
+      "position": [580, 0],
+      "inputs": {"image": {"link": ["person", 0]}}
+    },
+    {
+      "key": "tryon",
+      "capability": "virtual_tryon",
+      "stage": "generation",
+      "group_title": "04 虚拟换装",
+      "position": [860, 100],
+      "inputs": {
+        "person": {"link": ["person", 0]},
+        "garment": {"link": ["garment", 0]},
+        "garment_mask": {"link": ["garment_mask", 0]},
+        "protected_mask": {"link": ["protected", 0]},
+        "width": "${width}",
+        "height": "${height}"
+      }
+    },
+    {
+      "key": "restore",
+      "capability": "image_composite",
+      "stage": "identity_restore",
+      "group_title": "05 原始头部恢复",
+      "position": [1140, 100],
+      "inputs": {
+        "destination": {"link": ["tryon", 0]},
+        "source": {"link": ["person", 0]},
+        "x": 0,
+        "y": 0,
+        "resize_source": false,
+        "mask": {"link": ["protected", 0]}
+      }
+    },
+    {
+      "key": "blend",
+      "capability": "edge_blend",
+      "stage": "edge_blend",
+      "group_title": "06 边缘融合",
+      "position": [1420, 100],
+      "inputs": {
+        "image": {"link": ["restore", 0]},
+        "mask": {"link": ["garment_mask", 0]}
+      }
+    },
+    {
+      "key": "save",
+      "capability": "image_saver",
+      "stage": "output",
+      "group_title": "07 输出",
+      "position": [1700, 100],
+      "inputs": {
+        "images": {"link": ["blend", 0]},
+        "filename_prefix": "${filename_prefix}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1626 @@
+{
+  "schema_version": 1,
+  "revision": "2026-11-02.1",
+  "authorship": "assistant-authored-local-recipes-not-provider-documentation",
+  "cards": [
+    {
+      "id": "hero_living_room",
+      "title": "品牌首屏·客厅观影背景",
+      "category": "主图与场景",
+      "engine": "text-to-image",
+      "inputs": [
+        "品牌首屏：场景背景单独生成；真实产品、文案和图标后合成"
+      ],
+      "variables": {
+        "audience": "a family of three seen from behind",
+        "palette": "warm walnut, charcoal and muted teal"
+      },
+      "positive": "Photorealistic commercial interior photograph of a modern living room. {audience} sit naturally on a sofa watching a large television showing an original mountain lake landscape. Warm practical lamps, believable room depth, restrained {palette} palette, clear separation of people and furniture. Eye-level camera behind the sofa. Keep the upper left quiet for later typography. No foreground product, no lettering, no logos.",
+      "negative": "illegible text, watermark, duplicate people, fused bodies, malformed hands, floating furniture, warped television, excessive neon",
+      "checks": [
+        "电视、沙发和人物空间关系合理，无肢体错误",
+        "产品与遥控器使用真实原图后合成，不让背景模型猜商品",
+        "上方标题留白；桌面透视、接触阴影另核对"
+      ],
+      "note": "用于背景分支，不是整页广告生成；人数仅意图，必须看实际结果。"
+    },
+    {
+      "id": "studio_background",
+      "title": "主图·极简影棚背景",
+      "category": "主图与场景",
+      "engine": "text-to-image",
+      "inputs": [
+        "商品原图与蒙版另行准备"
+      ],
+      "variables": {
+        "palette": "warm ivory",
+        "surface": "matte stone",
+        "placement": "lower center"
+      },
+      "positive": "An empty premium commercial photography set in {palette}. A continuous {surface} surface with believable fine texture and no seams. Large diffused key light from upper left, gentle fill, subtle tonal depth. Leave an uncluttered landing area at {placement} for a real product to be composited later. Quiet upper third for typography. No objects, no products, no text, no logos.",
+      "negative": "product, ornament, pedestal, clutter, lettering, watermark, harsh halo, oversaturated",
+      "checks": [
+        "背景不能生成假商品或多余配件",
+        "落位区域有足够空间和可匹配光线"
+      ],
+      "note": "背景质量不等于商品保真，需确定性合成。"
+    },
+    {
+      "id": "table_surface",
+      "title": "首屏·连续桌面素材",
+      "category": "主图与场景",
+      "engine": "text-to-image",
+      "inputs": [
+        "与客厅背景光线相符的空桌面"
+      ],
+      "variables": {
+        "surface": "dark walnut wood",
+        "light": "soft warm light from upper left"
+      },
+      "positive": "Close commercial photograph of an empty continuous {surface} tabletop filling the entire frame edge to edge. Viewed from a gentle elevated front angle, natural perspective, fine realistic grain, subtle {light}, restrained contrast, no visible table edge or wall. A clean uninterrupted surface for later product placement. No objects, no lettering.",
+      "negative": "table legs, horizon, room, objects, clutter, tile seams, letters, watermark, extreme wide angle",
+      "checks": [
+        "避免桌面纹理尺度与产品大小不匹配",
+        "与场景拼接处不能像硬贴的水平条带"
+      ],
+      "note": "固定版式素材；不是用提示词自动解决合成透视。"
+    },
+    {
+      "id": "white_background",
+      "title": "白底商品·只替换背景",
+      "category": "主图与场景",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1：真实商品原图",
+        "商品前景蒙版；优先抠图而非生成"
+      ],
+      "variables": {},
+      "positive": "Edit only the background of image 1 to a seamless pure white studio background. Retain the product count, silhouette, existing color, proportions and visible markings. Keep a restrained natural contact shadow. Do not redesign, add accessories or invent unseen details.",
+      "negative": "redesigned product, duplicate object, extra accessories, changed logo, warped edges, colored backdrop",
+      "checks": [
+        "原图商品结构与文字逐项对照",
+        "若必须保留原像素，改用蒙版抠图合成",
+        "上架前另核平台规则，不将此配方称为平台审核通过"
+      ],
+      "note": "编辑模型可能改商品；保留指令不是像素锁定。"
+    },
+    {
+      "id": "memory_module",
+      "title": "详情页·内存与容量",
+      "category": "详情页卖点",
+      "engine": "text-to-image",
+      "inputs": [
+        "已核实RAM/ROM事实供后续文字层使用",
+        "真实商品后合成"
+      ],
+      "variables": {
+        "palette": "charcoal with restrained purple highlights"
+      },
+      "positive": "Original technology advertising background, {palette}. Abstract orderly memory blocks and subtle data pathways, physically plausible materials, elegant depth and clean negative space on the left for a verified specification overlay. Keep a clear lower-right area for the real product. No numbers, no comparison chart, no text, no logos.",
+      "negative": "fake benchmark, random numbers, lettering, watermark, excessive glow, busy circuitry",
+      "checks": [
+        "容量由已核实事实排版，不让模型生成数值",
+        "不从容量推断速度提升或可缓存片数"
+      ],
+      "note": "概念背景不是芯片内部实拍或性能证据。"
+    },
+    {
+      "id": "processor_module",
+      "title": "详情页·处理器概念视觉",
+      "category": "详情页卖点",
+      "engine": "text-to-image",
+      "inputs": [
+        "处理器型号、核心数、频率的可信资料另核",
+        "产品原图后合成"
+      ],
+      "variables": {
+        "palette": "matte black and purple",
+        "composition": "central chip with clear space on the left"
+      },
+      "positive": "A restrained conceptual semiconductor illustration for a consumer electronics advertisement, {palette}, {composition}. Precise geometric traces, soft controlled highlights, premium realistic materials, clear visual hierarchy. No branded chip package, no fabricated circuit labels, no numbers or text.",
+      "negative": "benchmark bars, fabricated logo, random letters, flames, extreme glow, impossible machinery",
+      "checks": [
+        "明确为概念示意，不冒充实际拆机结构",
+        "不写无卡顿、最快或未测性能对比"
+      ],
+      "note": "图标与准确参数另排版；频率需保留原资料的最高/典型语义。"
+    },
+    {
+      "id": "voice_module",
+      "title": "详情页·语音遥控生活场景",
+      "category": "详情页卖点",
+      "engine": "text-to-image",
+      "inputs": [
+        "背景生成；实际随售遥控器另合成",
+        "确认语音功能与支持范围"
+      ],
+      "variables": {
+        "audience": "an adult sitting comfortably on a sofa",
+        "setting": "a modern compact living room"
+      },
+      "positive": "A realistic lifestyle advertising photograph in {setting}. {audience}, relaxed viewing posture, warm natural evening light, a television softly visible in the background with an original generic landscape. Leave a clear foreground area for a separately composited real remote control and a quiet area for later copy. No readable screen text, no app logos, no invented device.",
+      "negative": "extra fingers, fused hands, fake remote, app logos, readable subtitles, watermark",
+      "checks": [
+        "遥控器型号与SKU一致",
+        "不把普通语音能力写成已验证的特定平台认证"
+      ],
+      "note": "不要同时让模型精确生成握持商品和品牌按钮；握持合成需另验遮挡。"
+    },
+    {
+      "id": "casting_module",
+      "title": "详情页·多屏互动示意",
+      "category": "详情页卖点",
+      "engine": "text-to-image",
+      "inputs": [
+        "经核实的投屏协议和兼容系统",
+        "屏幕内容建议后期同步合成"
+      ],
+      "variables": {
+        "setting": "a bright modern apartment living room"
+      },
+      "positive": "A realistic commercial interior photograph of {setting}. A television and a tablet placed naturally in the scene, both screens with simple neutral blank surfaces for later compositing of the same licensed content. Coherent perspective and lighting, clean negative space for explanatory text. No brand names, no logos, no wireless icons or lettering.",
+      "negative": "inconsistent perspective, warped screens, random text, logos, floating devices",
+      "checks": [
+        "后期屏幕内容一致，不暗示未支持系统或协议",
+        "连线与图标只是示意，不冒充实测连接成功"
+      ],
+      "note": "不能由画面推出Windows/iOS/Android全兼容。"
+    },
+    {
+      "id": "ports_module",
+      "title": "详情页·接口标注（原图优先）",
+      "category": "详情页卖点",
+      "engine": "layout-only",
+      "inputs": [
+        "清晰接口原图",
+        "经核实的接口名称及位置"
+      ],
+      "variables": {
+        "angle": "the provided rear and side views"
+      },
+      "positive": "LAYOUT BRIEF ONLY: Use {angle} without generative reconstruction. Place the original product views on a clean dark background. Add precise leader lines outside the silhouette and verified port labels in a separate typography layer. Keep each leader endpoint tied to the actual visible port. Do not invent a port or label an unidentified hole.",
+      "negative": "",
+      "checks": [
+        "USB/TF/供电/HD等逐一对照原图",
+        "未确认的小孔不擅自标Reset",
+        "文字与指示线用确定性排版"
+      ],
+      "note": "这条是排版任务说明，不应送入采样器当可执行工作流。"
+    },
+    {
+      "id": "size_module",
+      "title": "详情页·尺寸与重量",
+      "category": "详情页卖点",
+      "engine": "layout-only",
+      "inputs": [
+        "真实商品图",
+        "经核实尺寸与重量（含单位）"
+      ],
+      "variables": {
+        "view": "a clear original three-quarter product view"
+      },
+      "positive": "LAYOUT BRIEF ONLY: Arrange {view} with generous empty margins. Draw dimension arrows and exact verified measurements in a separate vector or typography layer, with consistent unit formatting. Use the original silhouette; do not synthesize an alternate perspective or hidden geometry. Keep weight as a separate verified caption.",
+      "negative": "",
+      "checks": [
+        "长宽高箭头对应正确轴向",
+        "不将包装尺寸或毛重当作机身数据"
+      ],
+      "note": "精确尺寸是数据排版，不是提示词生成出的测量证明。"
+    },
+    {
+      "id": "kit_module",
+      "title": "详情页·配件清单",
+      "category": "详情页卖点",
+      "engine": "layout-only",
+      "inputs": [
+        "该SKU真实全套配件照片",
+        "人工确认随售清单及数量"
+      ],
+      "variables": {
+        "palette": "dark purple and charcoal"
+      },
+      "positive": "LAYOUT BRIEF ONLY: Use the provided photographs of the exact included items. Arrange each real item once on a {palette} background with balanced spacing, consistent shadows and separate verified English labels. Preserve cable ends, connectors, remote layout and packaging text. Do not add batteries, adapters, cables or accessories absent from the confirmed kit.",
+      "negative": "",
+      "checks": [
+        "不混用不同版本遥控器",
+        "被裁切的线缆不能据此确定根数或两端类型",
+        "每件配件数量与清单一致"
+      ],
+      "note": "缺少素材时列缺口，不生成假配件填满画面。"
+    },
+    {
+      "id": "material_detail",
+      "title": "精修·材质近景",
+      "category": "精修与编辑",
+      "engine": "reference-edit",
+      "inputs": [
+        "含真实细节的高分辨率原图",
+        "指定局部区域"
+      ],
+      "variables": {
+        "detail": "the existing matte surface texture",
+        "light": "soft grazing light from the upper left"
+      },
+      "positive": "Refine only {detail} already visible in the reference, with {light}. Keep the original geometry, seams, ports, color and visible markings. Preserve believable microtexture and restrained highlights. No new engraving, ports or labels, no imagined internal structure.",
+      "negative": "invented texture, new ports, plastic shine, oversharpening, waxy surface, changed logo",
+      "checks": [
+        "不将AI补出的纹理当原商品实拍细节",
+        "特写缩放不超出证据可支持的细节"
+      ],
+      "note": "需要真实细节参考，不能只靠文案生成材质证据。"
+    },
+    {
+      "id": "masked_cleanup",
+      "title": "精修·蒙版局部清理",
+      "category": "精修与编辑",
+      "engine": "masked-edit",
+      "inputs": [
+        "原图",
+        "人工检查的编辑蒙版；确认节点蒙版极性"
+      ],
+      "variables": {
+        "defect": "dust on the background surface"
+      },
+      "positive": "Remove only {defect} inside the provided edit mask. Reconstruct the nearby background texture and illumination naturally. Do not alter the product, printed text, people, hands, feet or any area outside the intended edit region. Blend the edit boundary without halos.",
+      "negative": "changed product, altered logo, extra objects, hard seam, halo, distorted anatomy",
+      "checks": [
+        "先查看实际蒙版；文字不能替代蒙版",
+        "如需严格区域外不变，最后用原图蒙版合成并作差分核验"
+      ],
+      "note": "各节点mask白黑定义可能不同，必须核实际合同。"
+    },
+    {
+      "id": "relighting",
+      "title": "精修·柔光与反光控制",
+      "category": "精修与编辑",
+      "engine": "reference-edit",
+      "inputs": [
+        "商品原图",
+        "允许改变光照的明确范围"
+      ],
+      "variables": {
+        "key": "upper left",
+        "fill": "right side"
+      },
+      "positive": "Relight the supplied scene using a broad diffused key light from {key} and gentle fill from the {fill}. Preserve the existing product shape, material identity and neutral base color. Use controlled highlights and soft believable shadows. Avoid clipped specular areas, artificial glow and exaggerated saturation.",
+      "negative": "blown highlights, neon halo, color shift, melted edges, new objects",
+      "checks": [
+        "不把改变光照同时宣称为所有像素不变",
+        "深色商品边缘、Logo和材质仍清晰"
+      ],
+      "note": "只在接受光照变化时使用，不自动修改商品色卡。"
+    },
+    {
+      "id": "style_reference",
+      "title": "风格参考·只借视觉语言",
+      "category": "精修与编辑",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1：自有商品",
+        "图2：有权使用的风格参考"
+      ],
+      "variables": {
+        "palette": "charcoal, purple and restrained cyan",
+        "layout": "clear headline space above, product below"
+      },
+      "positive": "Use image 1 as the sole product identity reference. Use image 2 only for lighting softness, color relationships, surface finish and negative-space rhythm, not its subject, wording, logo or watermark. Build an original composition with {palette} and {layout}. Preserve the visible product geometry and markings; do not copy competitor branding.",
+      "negative": "copied logo, copied watermark, invented accessories, distorted product",
+      "checks": [
+        "参考图角色明确，不把风格参考当商品",
+        "核素材权利和近似复制风险"
+      ],
+      "note": "提示词不是版权许可或精确保真证明。"
+    },
+    {
+      "id": "tryon_full_set",
+      "title": "参考图换装·整套替换而非换色",
+      "category": "人物与换装",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1：获授权的成年模特原图",
+        "图2：实际服装参考；明确上衣/下装/套装",
+        "编辑蒙版与原图保护合成按实际工作流配置"
+      ],
+      "variables": {
+        "garment": "the exact two-piece outfit in image 2",
+        "protected": "face, hairstyle, pose, hands, feet and background"
+      },
+      "positive": "Image 1 is the person reference; image 2 is the garment reference. Completely replace the original clothing with {garment}, not merely recolor it. Match the reference garment category, silhouette, neckline, strap construction, hem, color, pattern and visible fastenings. Keep {protected} consistent with image 1. Respect natural fit, occlusion and fabric tension. Edit only the necessary clothing region and newly exposed skin; do not retain old clothing shapes or invent extra layers.",
+      "negative": "recolored old garment, wrong neckline, high waist when reference is low waist, extra fabric, changed face, changed hands, changed feet",
+      "checks": [
+        "逐项比较服装版型，而不是只看颜色",
+        "腰线/肩带/花纹/遮挡与参考相符",
+        "手脚和背景对照原图；必要时区域外回贴原像素"
+      ],
+      "note": "通用参考编辑是实验路线，不保证专业试穿效果；不能把文本强接到无prompt端口的VTON节点。"
+    },
+    {
+      "id": "tryon_top",
+      "title": "参考图换装·只换上衣",
+      "category": "人物与换装",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1：获授权成年模特",
+        "图2：上衣商品图",
+        "上衣编辑区域与遮挡检查"
+      ],
+      "variables": {
+        "garment": "the jacket in image 2"
+      },
+      "positive": "Replace only the top worn by the person in image 1 with {garment}. Preserve the reference collar, sleeves, closure, fabric color and visible pattern placement. Keep the original lower garment, face, body pose, hands and background unchanged in appearance. Resolve arm and hair occlusions naturally. Do not substitute a visually similar top.",
+      "negative": "changed trousers, wrong sleeves, wrong collar, extra buttons, changed identity, fused hands",
+      "checks": [
+        "下装不被连带替换",
+        "袖口、领口和前襟与图2一致"
+      ],
+      "note": "同一seed不保证身份一致；仍需原图对照。"
+    },
+    {
+      "id": "tryon_bottom",
+      "title": "参考图换装·只换下装",
+      "category": "人物与换装",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1：获授权成年模特",
+        "图2：下装参考",
+        "下装区域蒙版"
+      ],
+      "variables": {
+        "garment": "the trousers in image 2"
+      },
+      "positive": "Replace only the lower garment in image 1 with {garment}. Match the actual waistband height, leg or hem shape, length, color, seams and visible pattern of image 2. Preserve the original top, face, pose, hands, legs outside the edit region, feet, shoes and background. Keep natural contact and occlusion at the waist; do not add a belt or raise the waistband beyond the reference design.",
+      "negative": "wrong waist height, changed top, altered feet, extra belt, incorrect hem, fused legs",
+      "checks": [
+        "腰线和裤脚版型不是只换颜色",
+        "脚部与手部无额外重绘"
+      ],
+      "note": "商品版型判断须参考清晰服装图，无法保证隐藏面细节。"
+    },
+    {
+      "id": "vton_roles",
+      "title": "专业VTON·输入角色核对",
+      "category": "人物与换装",
+      "engine": "vton-input-only",
+      "inputs": [
+        "person：获授权成年模特",
+        "garment：目标服装",
+        "category：按实际节点枚举选择"
+      ],
+      "variables": {},
+      "positive": "INPUT CHECKLIST ONLY: person is the model photograph, garment is the actual clothing photograph, and category must match the installed VTON node options. Validate framing, garment boundaries, occlusion and supported garment types before execution. Do not treat a written description as a substitute for the garment image.",
+      "negative": "",
+      "checks": [
+        "核实际节点是否有文本端口；无则不发送prompt",
+        "模型/节点/品类支持与授权许可另核",
+        "双件套若需拆分，上下装间的保护范围分别确认"
+      ],
+      "note": "不是采样器提示词，也不表示已经安装或验收VTON模型。"
+    },
+    {
+      "id": "portrait_scene",
+      "title": "人物·授权模特生活方式场景",
+      "category": "人物与换装",
+      "engine": "reference-edit",
+      "inputs": [
+        "获授权成年人物参考",
+        "获授权服装及场景描述"
+      ],
+      "variables": {
+        "scene": "a bright contemporary living room",
+        "pose": "a relaxed seated pose"
+      },
+      "positive": "Create a natural commercial lifestyle portrait of the authorized adult in image 1 in {scene}, with {pose}. Keep recognizable identity cues, natural skin texture and believable anatomy. Use soft realistic light and a coherent camera perspective. Do not change age, body proportions or clothing details without instruction. Leave quiet space for later typography.",
+      "negative": "waxy skin, deformed anatomy, extra fingers, altered age, copied watermark",
+      "checks": [
+        "身份保持需专用条件及实际对照，不能靠文字保证",
+        "无未授权肖像、误导代言或身份使用"
+      ],
+      "note": "不等于换脸节点流程；未接身份模型时应说明实验性。"
+    },
+    {
+      "id": "video_pushin",
+      "title": "视频·商品静态轻推镜头",
+      "category": "视频",
+      "engine": "image-to-video",
+      "inputs": [
+        "已验收商品首帧",
+        "实际视频节点的frames/fps/分辨率设置"
+      ],
+      "variables": {
+        "light": "soft studio illumination"
+      },
+      "positive": "One continuous commercial shot. A slow subtle camera push-in toward the product in the supplied first frame. The product remains stationary with unchanged silhouette and markings. Gentle natural background motion under {light}, stable framing and controlled reflections. No cut, no opening, no rotation, no new text or accessories.",
+      "negative": "morphing product, flickering logo, camera shake, cuts, extra objects",
+      "checks": [
+        "逐帧检查Logo/端口/轮廓是否漂移",
+        "时长由frames和fps决定，不靠提示词"
+      ],
+      "note": "保持指令不构成时序保真保证；negative仅在实际模型支持时使用。"
+    },
+    {
+      "id": "video_lifestyle",
+      "title": "视频·生活方式单动作镜头",
+      "category": "视频",
+      "engine": "image-to-video",
+      "inputs": [
+        "获授权场景首帧",
+        "明确单一动作与镜头"
+      ],
+      "variables": {
+        "action": "a seated adult gently reaches toward a remote on the table",
+        "camera": "a nearly locked camera"
+      },
+      "positive": "One continuous realistic lifestyle shot from the provided first frame. {action}. Use {camera}, restrained natural motion, stable room geometry and soft practical lighting. Keep the supplied product stationary and recognizable. No scene transition, no dialogue, no new screen text, no added branded content.",
+      "negative": "multiple actions, scene cut, warped hands, disappearing object, flicker, subtitles",
+      "checks": [
+        "手与遥控器接触无遮挡错误",
+        "不将跨帧形变误称为真实产品演示"
+      ],
+      "note": "复杂手部交互需实际验收；失败可改无人物接触的镜头。"
+    },
+    {
+      "id": "video_scene",
+      "title": "视频·无商品场景B-roll",
+      "category": "视频",
+      "engine": "text-to-video",
+      "inputs": [
+        "场景说明；不要暗示未经验证功能"
+      ],
+      "variables": {
+        "setting": "a warm modern living room at dusk",
+        "motion": "a slow lateral camera drift"
+      },
+      "positive": "An original realistic establishing shot of {setting}. {motion}. One continuous shot, coherent room geometry, subtle natural ambient motion and controlled lighting. No featured product, no visible branding, no lettering, no cuts or sudden camera movement.",
+      "negative": "flicker, warping room, abrupt cuts, text, watermark",
+      "checks": [
+        "只做气氛镜头，不冒充商品功能实测",
+        "镜头顺序与实际剪辑计划一致"
+      ],
+      "note": "实际时长、音频能力、分辨率按已安装模型与节点核验。"
+    },
+    {
+      "id": "series_art_direction",
+      "title": "整套详情页·一致性制作说明",
+      "category": "整套规划",
+      "engine": "planning-only",
+      "inputs": [
+        "产品事实编号清单",
+        "真实商品多角度及配件素材",
+        "目标语言与页面用途"
+      ],
+      "variables": {
+        "palette": "matte black, purple and restrained cyan",
+        "sections": "hero, storage, connectivity, voice remote, dimensions, included items"
+      },
+      "positive": "PLANNING BRIEF ONLY: Plan {sections} as a coherent commerce image series using {palette}. For every section specify one verified message, fact IDs, exact original image roles, background prompt, reserved text area, English headline and an acceptance checklist. Keep real product geometry and SKU consistent. Separate generated scenery from factual product layers and typography. List missing evidence instead of inventing specifications, certification, compatibility or benchmarks.",
+      "negative": "",
+      "checks": [
+        "每张图有独立卖点与素材角色，不是六次同一背景",
+        "所有文案可追溯事实；无资料则保留缺口",
+        "此说明不是可直接导入ComfyUI的节点JSON"
+      ],
+      "note": "规划需后续校验与真实工作流编译，不能将文字方案当作已生成结果。"
+    },
+    {
+      "id": "env_living",
+      "title": "美式客厅·日间",
+      "category": "环境空间",
+      "engine": "text-to-image",
+      "inputs": [
+        "生成无商品背景；商品原图和匹配蒙版后合成"
+      ],
+      "variables": {
+        "palette": "warm neutrals with charcoal accents",
+        "landing": "lower right"
+      },
+      "positive": "Commercial background photograph. A lived-in contemporary living room with an unoccupied sofa, a low walnut console and generous breathing room. Side daylight softly shapes the room; the television is a neutral blank surface for licensed content later. Use {palette} as the restrained color family. Reserve a clear landing zone at {landing} for the real product to be composited separately. Maintain coherent physical scale and lighting, with uncluttered separation of foreground and background. Keep the set free of baked-in text, unverified symbols and invented merchandise.",
+      "negative": "",
+      "checks": [
+        "检查水平线、落位面积、尺度与场景透视；不让道具暗示未验证功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "env_desk",
+      "title": "办公桌·效率场景",
+      "category": "环境空间",
+      "engine": "text-to-image",
+      "inputs": [
+        "生成无商品背景；商品原图和匹配蒙版后合成"
+      ],
+      "variables": {
+        "palette": "warm neutrals with charcoal accents",
+        "landing": "lower right"
+      },
+      "positive": "Commercial background photograph. An orderly home-office desk with a restrained keyboard and notebook in the distance. A continuous clear desk plane occupies the foreground. Cable clutter is controlled without making the room feel sterile. Use {palette} as the restrained color family. Reserve a clear landing zone at {landing} for the real product to be composited separately. Maintain coherent physical scale and lighting, with uncluttered separation of foreground and background. Keep the set free of baked-in text, unverified symbols and invented merchandise.",
+      "negative": "",
+      "checks": [
+        "检查水平线、落位面积、尺度与场景透视；不让道具暗示未验证功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "env_kitchen",
+      "title": "厨房·干净台面",
+      "category": "环境空间",
+      "engine": "text-to-image",
+      "inputs": [
+        "生成无商品背景；商品原图和匹配蒙版后合成"
+      ],
+      "variables": {
+        "palette": "warm neutrals with charcoal accents",
+        "landing": "lower right"
+      },
+      "positive": "Commercial background photograph. A bright domestic kitchen with a clean pale worktop, restrained cabinetry and softly blurred cookware far from the landing zone. Keep the counter dry and physically continuous, with no implied food-contact certification. Use {palette} as the restrained color family. Reserve a clear landing zone at {landing} for the real product to be composited separately. Maintain coherent physical scale and lighting, with uncluttered separation of foreground and background. Keep the set free of baked-in text, unverified symbols and invented merchandise.",
+      "negative": "",
+      "checks": [
+        "检查水平线、落位面积、尺度与场景透视；不让道具暗示未验证功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "env_bath",
+      "title": "浴室·护肤场景",
+      "category": "环境空间",
+      "engine": "text-to-image",
+      "inputs": [
+        "生成无商品背景；商品原图和匹配蒙版后合成"
+      ],
+      "variables": {
+        "palette": "warm neutrals with charcoal accents",
+        "landing": "lower right"
+      },
+      "positive": "Commercial background photograph. A calm bathroom vanity with pale stone and diffused daylight, small distant folded towels and a dry foreground. Restrained moisture in the atmosphere; no water droplets on the future product footprint. Use {palette} as the restrained color family. Reserve a clear landing zone at {landing} for the real product to be composited separately. Maintain coherent physical scale and lighting, with uncluttered separation of foreground and background. Keep the set free of baked-in text, unverified symbols and invented merchandise.",
+      "negative": "",
+      "checks": [
+        "检查水平线、落位面积、尺度与场景透视；不让道具暗示未验证功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "env_outdoor",
+      "title": "户外·自然石台",
+      "category": "环境空间",
+      "engine": "text-to-image",
+      "inputs": [
+        "生成无商品背景；商品原图和匹配蒙版后合成"
+      ],
+      "variables": {
+        "palette": "warm neutrals with charcoal accents",
+        "landing": "lower right"
+      },
+      "positive": "Commercial background photograph. A shaded garden terrace with a stable stone surface, gentle foliage depth and realistic open-sky illumination. The intended product area remains dry, with no implied waterproof or outdoor durability test. Use {palette} as the restrained color family. Reserve a clear landing zone at {landing} for the real product to be composited separately. Maintain coherent physical scale and lighting, with uncluttered separation of foreground and background. Keep the set free of baked-in text, unverified symbols and invented merchandise.",
+      "negative": "",
+      "checks": [
+        "检查水平线、落位面积、尺度与场景透视；不让道具暗示未验证功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "env_bedroom",
+      "title": "卧室·柔和生活方式",
+      "category": "环境空间",
+      "engine": "text-to-image",
+      "inputs": [
+        "生成无商品背景；商品原图和匹配蒙版后合成"
+      ],
+      "variables": {
+        "palette": "warm neutrals with charcoal accents",
+        "landing": "lower right"
+      },
+      "positive": "Commercial background photograph. A quiet adult bedroom in morning light, plain linen bedding, simple bedside furniture and uncluttered wall planes. Keep a credible foreground surface rather than an unsupported floating pedestal. Use {palette} as the restrained color family. Reserve a clear landing zone at {landing} for the real product to be composited separately. Maintain coherent physical scale and lighting, with uncluttered separation of foreground and background. Keep the set free of baked-in text, unverified symbols and invented merchandise.",
+      "negative": "",
+      "checks": [
+        "检查水平线、落位面积、尺度与场景透视；不让道具暗示未验证功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "env_retail",
+      "title": "零售·展示空间",
+      "category": "环境空间",
+      "engine": "text-to-image",
+      "inputs": [
+        "生成无商品背景；商品原图和匹配蒙版后合成"
+      ],
+      "variables": {
+        "palette": "warm neutrals with charcoal accents",
+        "landing": "lower right"
+      },
+      "positive": "Commercial background photograph. An understated boutique display environment with layered shelves and soft architectural lighting. Keep the foreground plinth broad and physically grounded, without fabricated price tickets, seals or endorsement signs. Use {palette} as the restrained color family. Reserve a clear landing zone at {landing} for the real product to be composited separately. Maintain coherent physical scale and lighting, with uncluttered separation of foreground and background. Keep the set free of baked-in text, unverified symbols and invented merchandise.",
+      "negative": "",
+      "checks": [
+        "检查水平线、落位面积、尺度与场景透视；不让道具暗示未验证功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "env_season",
+      "title": "节日·克制氛围",
+      "category": "环境空间",
+      "engine": "text-to-image",
+      "inputs": [
+        "生成无商品背景；商品原图和匹配蒙版后合成"
+      ],
+      "variables": {
+        "palette": "warm neutrals with charcoal accents",
+        "landing": "lower right"
+      },
+      "positive": "Commercial background photograph. A restrained winter gifting environment with distant out-of-focus warm lights and small neutral wrapped props. Keep decorations outside the future product silhouette and reserve a calm area for later campaign typography. Use {palette} as the restrained color family. Reserve a clear landing zone at {landing} for the real product to be composited separately. Maintain coherent physical scale and lighting, with uncluttered separation of foreground and background. Keep the set free of baked-in text, unverified symbols and invented merchandise.",
+      "negative": "",
+      "checks": [
+        "检查水平线、落位面积、尺度与场景透视；不让道具暗示未验证功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "camera_normal",
+      "title": "标准视角·自然透视",
+      "category": "镜头表现",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1真实商品；需要新角度时另提供对应实拍，不据文字臆造背面"
+      ],
+      "variables": {
+        "subject": "the product in image 1",
+        "setting": "a restrained neutral studio"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {setting}. Use a normal-lens visual impression with level camera orientation and moderate working distance. Keep near and far edges believable and avoid the enlarged front face associated with a very close camera. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "焦距/光圈是视觉意图，不是EXIF或真实拍摄证明；检查完整清晰商品而非只追求虚化",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "camera_tele",
+      "title": "中长焦·压缩感",
+      "category": "镜头表现",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1真实商品；需要新角度时另提供对应实拍，不据文字臆造背面"
+      ],
+      "variables": {
+        "subject": "the product in image 1",
+        "setting": "a restrained neutral studio"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {setting}. Use a modest telephoto visual impression from a greater working distance, restrained perspective convergence and a quiet background. Keep the product at a credible scale without flattening its recognizable shape. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "焦距/光圈是视觉意图，不是EXIF或真实拍摄证明；检查完整清晰商品而非只追求虚化",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "camera_macro",
+      "title": "微距·关键细节",
+      "category": "镜头表现",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1真实商品；需要新角度时另提供对应实拍，不据文字臆造背面"
+      ],
+      "variables": {
+        "subject": "the product in image 1",
+        "setting": "a restrained neutral studio"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {setting}. Frame only a detail that is visible in the source photograph. Place the focal plane across that detail; allow a gradual falloff behind it. Do not fabricate pores, threads, serial numbers or machining marks. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "焦距/光圈是视觉意图，不是EXIF或真实拍摄证明；检查完整清晰商品而非只追求虚化",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "camera_deep",
+      "title": "深景深·完整可读",
+      "category": "镜头表现",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1真实商品；需要新角度时另提供对应实拍，不据文字臆造背面"
+      ],
+      "variables": {
+        "subject": "the product in image 1",
+        "setting": "a restrained neutral studio"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {setting}. Keep the front edge, key controls and visible rear boundary simultaneously legible with a deep-focus visual impression. Avoid artificial sharpened outlines and do not blur factual ports or labels. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "焦距/光圈是视觉意图，不是EXIF或真实拍摄证明；检查完整清晰商品而非只追求虚化",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "camera_shallow",
+      "title": "浅景深·背景分离",
+      "category": "镜头表现",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1真实商品；需要新角度时另提供对应实拍，不据文字臆造背面"
+      ],
+      "variables": {
+        "subject": "the product in image 1",
+        "setting": "a restrained neutral studio"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {setting}. Keep the full functional product area crisp while allowing a smooth background blur. The focus plane must not cut through a logo or a dimension-critical edge. Avoid pasted bokeh circles. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "焦距/光圈是视觉意图，不是EXIF或真实拍摄证明；检查完整清晰商品而非只追求虚化",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "camera_negative",
+      "title": "留白构图·文案区域",
+      "category": "镜头表现",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1真实商品；需要新角度时另提供对应实拍，不据文字臆造背面"
+      ],
+      "variables": {
+        "subject": "the product in image 1",
+        "setting": "a restrained neutral studio"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {setting}. Compose an asymmetrical product presentation with substantial clean space beside the subject. Keep the quiet area free of bright edge detail, placing the visual mass away from future headline placement. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "焦距/光圈是视觉意图，不是EXIF或真实拍摄证明；检查完整清晰商品而非只追求虚化",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "camera_close",
+      "title": "近景·质感展示",
+      "category": "镜头表现",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1真实商品；需要新角度时另提供对应实拍，不据文字臆造背面"
+      ],
+      "variables": {
+        "subject": "the product in image 1",
+        "setting": "a restrained neutral studio"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {setting}. Use a tight but complete product framing with deliberate margins. Preserve the entire silhouette and avoid clipping small feet, strap ends or protruding connectors. Keep the perceived camera height coherent with the source. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "焦距/光圈是视觉意图，不是EXIF或真实拍摄证明；检查完整清晰商品而非只追求虚化",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "camera_wide",
+      "title": "环境中景·比例可信",
+      "category": "镜头表现",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1真实商品；需要新角度时另提供对应实拍，不据文字臆造背面"
+      ],
+      "variables": {
+        "subject": "the product in image 1",
+        "setting": "a restrained neutral studio"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {setting}. Place the product as a credible part of a wider setting, with enough environmental context to communicate use. Keep the product identifiable but not implausibly large relative to furniture or people. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "焦距/光圈是视觉意图，不是EXIF或真实拍摄证明；检查完整清晰商品而非只追求虚化",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "angle_front",
+      "title": "正面·对称展示",
+      "category": "产品角度",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1必须已经是目标角度实拍；本卡只整理背景、构图、光线，不凭单张图证明隐藏结构"
+      ],
+      "variables": {
+        "subject": "the exact product in image 1",
+        "backdrop": "a neutral gray studio background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use the supplied front view, level horizon, centered axis and balanced left-right margins. Preserve the exact front panel and visible controls, avoiding an invented symmetric redesign. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "逐项核对轮廓、Logo、端口数量与遮挡；缺目标视角应补拍，不能生成后称实拍",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "angle_threequarter",
+      "title": "前侧四分之三·厚度展示",
+      "category": "产品角度",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1必须已经是目标角度实拍；本卡只整理背景、构图、光线，不凭单张图证明隐藏结构"
+      ],
+      "variables": {
+        "subject": "the exact product in image 1",
+        "backdrop": "a neutral gray studio background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use the supplied three-quarter angle so the top and one side are legible. Preserve the existing perspective and edge convergence; communicate thickness through real visible shading rather than an exaggerated bevel. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "逐项核对轮廓、Logo、端口数量与遮挡；缺目标视角应补拍，不能生成后称实拍",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "angle_top",
+      "title": "俯视·平铺展示",
+      "category": "产品角度",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1必须已经是目标角度实拍；本卡只整理背景、构图、光线，不凭单张图证明隐藏结构"
+      ],
+      "variables": {
+        "subject": "the exact product in image 1",
+        "backdrop": "a neutral gray studio background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use the supplied overhead view. Keep the main plane parallel to the image plane and arrange only confirmed included items with controlled gaps. Avoid presenting a tilted reference as an exact orthographic measurement. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "逐项核对轮廓、Logo、端口数量与遮挡；缺目标视角应补拍，不能生成后称实拍",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "angle_side",
+      "title": "侧面·轮廓展示",
+      "category": "产品角度",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1必须已经是目标角度实拍；本卡只整理背景、构图、光线，不凭单张图证明隐藏结构"
+      ],
+      "variables": {
+        "subject": "the exact product in image 1",
+        "backdrop": "a neutral gray studio background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use the original side profile, with a stable baseline and breathing room around protrusions. Retain the source thickness, connector geometry and curve transitions without beautifying the silhouette. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "逐项核对轮廓、Logo、端口数量与遮挡；缺目标视角应补拍，不能生成后称实拍",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "angle_back",
+      "title": "背面·功能展示",
+      "category": "产品角度",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1必须已经是目标角度实拍；本卡只整理背景、构图、光线，不凭单张图证明隐藏结构"
+      ],
+      "variables": {
+        "subject": "the exact product in image 1",
+        "backdrop": "a neutral gray studio background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use the actual rear-view source. Keep all visible sockets and markings exactly as supplied, with unobstructed space for external callout lines. Unidentified holes remain unlabeled. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "逐项核对轮廓、Logo、端口数量与遮挡；缺目标视角应补拍，不能生成后称实拍",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "angle_low",
+      "title": "低机位·稳重表现",
+      "category": "产品角度",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1必须已经是目标角度实拍；本卡只整理背景、构图、光线，不凭单张图证明隐藏结构"
+      ],
+      "variables": {
+        "subject": "the exact product in image 1",
+        "backdrop": "a neutral gray studio background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use a source already captured from a low camera position. Retain its actual top visibility and ground plane; avoid stretching the vertical face or transforming a thin enclosure into a heavy tower. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "逐项核对轮廓、Logo、端口数量与遮挡；缺目标视角应补拍，不能生成后称实拍",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "angle_detail",
+      "title": "局部接口·功能近景",
+      "category": "产品角度",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1必须已经是目标角度实拍；本卡只整理背景、构图、光线，不凭单张图证明隐藏结构"
+      ],
+      "variables": {
+        "subject": "the exact product in image 1",
+        "backdrop": "a neutral gray studio background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Crop a real close view of the selected interface, retaining enough surrounding casing to establish its location. Keep the socket interior and pin pattern as photographed, without generative enhancement of unreadable detail. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "逐项核对轮廓、Logo、端口数量与遮挡；缺目标视角应补拍，不能生成后称实拍",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "angle_set",
+      "title": "多角度系列·一致性",
+      "category": "产品角度",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1必须已经是目标角度实拍；本卡只整理背景、构图、光线，不凭单张图证明隐藏结构"
+      ],
+      "variables": {
+        "subject": "the exact product in image 1",
+        "backdrop": "a neutral gray studio background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Arrange supplied front, side and three-quarter photographs as one coordinated series. Keep consistent scale logic and tonal treatment while retaining view-specific lighting; do not infer a full 3D reconstruction. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "逐项核对轮廓、Logo、端口数量与遮挡；缺目标视角应补拍，不能生成后称实拍",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "material_plastic",
+      "title": "哑光塑料·微粗糙",
+      "category": "纹理材质",
+      "engine": "reference-edit",
+      "inputs": [
+        "原图必须支持该材质；不要给哑光塑料强行换成金属后当商品事实"
+      ],
+      "variables": {
+        "subject": "the supplied product in image 1",
+        "light": "soft controlled side illumination"
+      },
+      "positive": "Reference-guided commercial edit of {subject} under {light}. Render the existing matte polymer finish with low-intensity broad reflections and fine restrained surface variation. Keep mold lines and real edges visible, avoiding rubber-like softness or metallic highlights. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "纹理只是编辑意图，微细节和色卡需原图对照；不能把AI修饰当材料检测",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "material_brushed",
+      "title": "拉丝金属·方向一致",
+      "category": "纹理材质",
+      "engine": "reference-edit",
+      "inputs": [
+        "原图必须支持该材质；不要给哑光塑料强行换成金属后当商品事实"
+      ],
+      "variables": {
+        "subject": "the supplied product in image 1",
+        "light": "soft controlled side illumination"
+      },
+      "positive": "Reference-guided commercial edit of {subject} under {light}. Keep the existing brushed-metal direction consistent across each real surface. Let elongated highlights follow the material and curvature. Avoid random scratch patterns and do not add a brushed finish absent from the reference. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "纹理只是编辑意图，微细节和色卡需原图对照；不能把AI修饰当材料检测",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "material_polished",
+      "title": "抛光金属·反射控制",
+      "category": "纹理材质",
+      "engine": "reference-edit",
+      "inputs": [
+        "原图必须支持该材质；不要给哑光塑料强行换成金属后当商品事实"
+      ],
+      "variables": {
+        "subject": "the supplied product in image 1",
+        "light": "soft controlled side illumination"
+      },
+      "positive": "Reference-guided commercial edit of {subject} under {light}. Retain the polished surface with coherent large reflected shapes and restrained bright accents. Reflections must follow the object curvature; preserve edge separation without turning the object into a mirror of an unrelated room. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "纹理只是编辑意图，微细节和色卡需原图对照；不能把AI修饰当材料检测",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "material_glass",
+      "title": "玻璃·透明与折射",
+      "category": "纹理材质",
+      "engine": "reference-edit",
+      "inputs": [
+        "原图必须支持该材质；不要给哑光塑料强行换成金属后当商品事实"
+      ],
+      "variables": {
+        "subject": "the supplied product in image 1",
+        "light": "soft controlled side illumination"
+      },
+      "positive": "Reference-guided commercial edit of {subject} under {light}. Retain visible glass thickness, existing tint and plausible transmitted background. Show restrained edge highlights; avoid invented contents, impossible transparency or a floating outline disconnected from its base. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "纹理只是编辑意图，微细节和色卡需原图对照；不能把AI修饰当材料检测",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "material_fabric",
+      "title": "织物·织纹与褶皱",
+      "category": "纹理材质",
+      "engine": "reference-edit",
+      "inputs": [
+        "原图必须支持该材质；不要给哑光塑料强行换成金属后当商品事实"
+      ],
+      "variables": {
+        "subject": "the supplied product in image 1",
+        "light": "soft controlled side illumination"
+      },
+      "positive": "Reference-guided commercial edit of {subject} under {light}. Retain the actual weave direction, seam construction and fabric weight visible in the reference. Let folds arise from gravity and real tension points rather than adding decorative wrinkles everywhere. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "纹理只是编辑意图，微细节和色卡需原图对照；不能把AI修饰当材料检测",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "material_leather",
+      "title": "皮革·自然纹理",
+      "category": "纹理材质",
+      "engine": "reference-edit",
+      "inputs": [
+        "原图必须支持该材质；不要给哑光塑料强行换成金属后当商品事实"
+      ],
+      "variables": {
+        "subject": "the supplied product in image 1",
+        "light": "soft controlled side illumination"
+      },
+      "positive": "Reference-guided commercial edit of {subject} under {light}. Keep the supplied leather-like grain, edge finishing and stitching scale. Use gentle tonal variation rather than repetitive stamped pores. Do not imply genuine leather certification from appearance. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "纹理只是编辑意图，微细节和色卡需原图对照；不能把AI修饰当材料检测",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "material_ceramic",
+      "title": "陶瓷·釉面层次",
+      "category": "纹理材质",
+      "engine": "reference-edit",
+      "inputs": [
+        "原图必须支持该材质；不要给哑光塑料强行换成金属后当商品事实"
+      ],
+      "variables": {
+        "subject": "the supplied product in image 1",
+        "light": "soft controlled side illumination"
+      },
+      "positive": "Reference-guided commercial edit of {subject} under {light}. Preserve the existing glazed or unglazed finish and rim thickness. Use smooth broad tonal transitions with restrained specular reflection; keep actual surface irregularities instead of inventing handmade defects. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "纹理只是编辑意图，微细节和色卡需原图对照；不能把AI修饰当材料检测",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "material_paper",
+      "title": "纸张包装·印刷边缘",
+      "category": "纹理材质",
+      "engine": "reference-edit",
+      "inputs": [
+        "原图必须支持该材质；不要给哑光塑料强行换成金属后当商品事实"
+      ],
+      "variables": {
+        "subject": "the supplied product in image 1",
+        "light": "soft controlled side illumination"
+      },
+      "positive": "Reference-guided commercial edit of {subject} under {light}. Keep the supplied paper or cardboard structure, folds and print registration. Render a restrained fiber impression where already supported. Preserve exact packaging artwork rather than substituting invented seals or premium labels. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "纹理只是编辑意图，微细节和色卡需原图对照；不能把AI修饰当材料检测",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "person_portrait",
+      "title": "自然肖像·肤质真实",
+      "category": "人物模特",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1获授权成年模特；姿势参考如有必须单独说明，当前库不自动安装身份或姿态模型"
+      ],
+      "variables": {
+        "person": "the authorized adult in image 1",
+        "setting": "a natural contemporary lifestyle setting"
+      },
+      "positive": "Reference-guided commercial edit of {person} in {setting}. Create a relaxed chest-up commercial portrait with a subtle expression and natural skin variation. Keep facial proportions and recognizable accessories consistent with the reference, with gentle eye highlights and no porcelain smoothing. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "核脸部身份、手指数、脚部、身体比例与商品接触；描述不能代替专用条件或本人许可",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "person_standing",
+      "title": "站姿·全身服装展示",
+      "category": "人物模特",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1获授权成年模特；姿势参考如有必须单独说明，当前库不自动安装身份或姿态模型"
+      ],
+      "variables": {
+        "person": "the authorized adult in image 1",
+        "setting": "a natural contemporary lifestyle setting"
+      },
+      "positive": "Reference-guided commercial edit of {person} in {setting}. Use a balanced full-body standing pose with visible feet, relaxed shoulders and believable weight distribution. Keep the complete outfit within the frame and leave separation between arms and torso. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "核脸部身份、手指数、脚部、身体比例与商品接触；描述不能代替专用条件或本人许可",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "person_seated",
+      "title": "坐姿·生活方式",
+      "category": "人物模特",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1获授权成年模特；姿势参考如有必须单独说明，当前库不自动安装身份或姿态模型"
+      ],
+      "variables": {
+        "person": "the authorized adult in image 1",
+        "setting": "a natural contemporary lifestyle setting"
+      },
+      "positive": "Reference-guided commercial edit of {person} in {setting}. Use a comfortable seated posture with plausible hip and knee angles, hands resting naturally and a credible chair contact. Avoid merging limbs with furniture or hiding structural errors behind excessive blur. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "核脸部身份、手指数、脚部、身体比例与商品接触；描述不能代替专用条件或本人许可",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "person_hands",
+      "title": "手部持物·接触与遮挡",
+      "category": "人物模特",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1获授权成年模特；姿势参考如有必须单独说明，当前库不自动安装身份或姿态模型"
+      ],
+      "variables": {
+        "person": "the authorized adult in image 1",
+        "setting": "a natural contemporary lifestyle setting"
+      },
+      "positive": "Reference-guided commercial edit of {person} in {setting}. Show a restrained single-object handling gesture with anatomically plausible fingers. Keep the held product identity tied to its supplied reference, with correct occlusion and contact shadows. If fine markings drift, return to staged photography or verified compositing. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "核脸部身份、手指数、脚部、身体比例与商品接触；描述不能代替专用条件或本人许可",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "person_group",
+      "title": "多人场景·分工清楚",
+      "category": "人物模特",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1获授权成年模特；姿势参考如有必须单独说明，当前库不自动安装身份或姿态模型"
+      ],
+      "variables": {
+        "person": "the authorized adult in image 1",
+        "setting": "a natural contemporary lifestyle setting"
+      },
+      "positive": "Reference-guided commercial edit of {person} in {setting}. Show a small group of authorized adults interacting naturally, with distinct bodies and individually coherent gaze directions. Keep every person's limb ownership clear and avoid duplicated facial features. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "核脸部身份、手指数、脚部、身体比例与商品接触；描述不能代替专用条件或本人许可",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "person_mature",
+      "title": "熟龄模特·年龄真实",
+      "category": "人物模特",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1获授权成年模特；姿势参考如有必须单独说明，当前库不自动安装身份或姿态模型"
+      ],
+      "variables": {
+        "person": "the authorized adult in image 1",
+        "setting": "a natural contemporary lifestyle setting"
+      },
+      "positive": "Reference-guided commercial edit of {person} in {setting}. Retain the adult subject's actual age cues, skin folds and natural expression. Use respectful ordinary styling and an approachable pose without artificial de-aging or exaggerated frailty. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "核脸部身份、手指数、脚部、身体比例与商品接触；描述不能代替专用条件或本人许可",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "person_wardrobe",
+      "title": "服装展示·面料与版型",
+      "category": "人物模特",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1获授权成年模特；姿势参考如有必须单独说明，当前库不自动安装身份或姿态模型"
+      ],
+      "variables": {
+        "person": "the authorized adult in image 1",
+        "setting": "a natural contemporary lifestyle setting"
+      },
+      "positive": "Reference-guided commercial edit of {person} in {setting}. Keep the supplied garment construction, proportions and fit, with natural tension at shoulder and waist. Clearly expose the intended selling detail while retaining the model's identity and the reference garment's real coverage. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "核脸部身份、手指数、脚部、身体比例与商品接触；描述不能代替专用条件或本人许可",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "person_pose",
+      "title": "姿态参考·结构先行",
+      "category": "人物模特",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1获授权成年模特；姿势参考如有必须单独说明，当前库不自动安装身份或姿态模型"
+      ],
+      "variables": {
+        "person": "the authorized adult in image 1",
+        "setting": "a natural contemporary lifestyle setting"
+      },
+      "positive": "Reference-guided commercial edit of {person} in {setting}. Use the separately supplied authorized pose reference for body arrangement only. Keep identity from image 1 and wardrobe from the designated garment reference; do not mix identity, pose and clothing roles. Check the actual pose-conditioning workflow separately. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "核脸部身份、手指数、脚部、身体比例与商品接触；描述不能代替专用条件或本人许可",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "light_softbox",
+      "title": "大柔光箱·干净商业照",
+      "category": "灯光质感",
+      "engine": "reference-edit",
+      "inputs": [
+        "真实商品原图；接受受控光照变化，不能同时宣称全部像素不变"
+      ],
+      "variables": {
+        "subject": "the real product in image 1",
+        "backdrop": "a quiet neutral background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use a large soft key from upper left with gentle front fill. Highlights are broad and graduated, shadow edges soft but grounded, and the existing surface color remains neutral rather than washed out. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "检查高光方向、阴影接触、边缘光和背景一致性；重打光流程与权重须另验",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "light_rim",
+      "title": "边缘光·深色主体分离",
+      "category": "灯光质感",
+      "engine": "reference-edit",
+      "inputs": [
+        "真实商品原图；接受受控光照变化，不能同时宣称全部像素不变"
+      ],
+      "variables": {
+        "subject": "the real product in image 1",
+        "backdrop": "a quiet neutral background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Add a restrained rear-side rim that separates the dark silhouette from the backdrop. Keep the interior surface readable with a low soft fill; avoid a uniform glowing outline around every edge. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "检查高光方向、阴影接触、边缘光和背景一致性；重打光流程与权重须另验",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "light_window",
+      "title": "窗光·柔和自然",
+      "category": "灯光质感",
+      "engine": "reference-edit",
+      "inputs": [
+        "真实商品原图；接受受控光照变化，不能同时宣称全部像素不变"
+      ],
+      "variables": {
+        "subject": "the real product in image 1",
+        "backdrop": "a quiet neutral background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use broad indirect window light from one side with a subtle room bounce. Maintain a believable falloff across the product, avoiding contradictory multiple suns or hard window patterns across critical markings. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "检查高光方向、阴影接触、边缘光和背景一致性；重打光流程与权重须另验",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "light_hard",
+      "title": "硬光·几何与结构",
+      "category": "灯光质感",
+      "engine": "reference-edit",
+      "inputs": [
+        "真实商品原图；接受受控光照变化，不能同时宣称全部像素不变"
+      ],
+      "variables": {
+        "subject": "the real product in image 1",
+        "backdrop": "a quiet neutral background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use one small directional light for deliberate crisp shadows and defined planes. Preserve detail in bright surfaces and shadowed functional areas; avoid crushing dark product controls to black. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "检查高光方向、阴影接触、边缘光和背景一致性；重打光流程与权重须另验",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "light_highkey",
+      "title": "高调·白色层次",
+      "category": "灯光质感",
+      "engine": "reference-edit",
+      "inputs": [
+        "真实商品原图；接受受控光照变化，不能同时宣称全部像素不变"
+      ],
+      "variables": {
+        "subject": "the real product in image 1",
+        "backdrop": "a quiet neutral background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use a bright neutral set with soft wraparound illumination while keeping the product boundary readable. Preserve subtle shadows and real white material detail rather than clipping everything to pure white. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "检查高光方向、阴影接触、边缘光和背景一致性；重打光流程与权重须另验",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "light_lowkey",
+      "title": "低调·黑色层次",
+      "category": "灯光质感",
+      "engine": "reference-edit",
+      "inputs": [
+        "真实商品原图；接受受控光照变化，不能同时宣称全部像素不变"
+      ],
+      "variables": {
+        "subject": "the real product in image 1",
+        "backdrop": "a quiet neutral background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use a dark controlled set with selective soft highlights and enough fill to resolve real edges. Keep the product surface distinguishable from the background without artificial cyan outlines. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "检查高光方向、阴影接触、边缘光和背景一致性；重打光流程与权重须另验",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "light_grazing",
+      "title": "掠射光·纹理起伏",
+      "category": "灯光质感",
+      "engine": "reference-edit",
+      "inputs": [
+        "真实商品原图；接受受控光照变化，不能同时宣称全部像素不变"
+      ],
+      "variables": {
+        "subject": "the real product in image 1",
+        "backdrop": "a quiet neutral background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Use a restrained grazing light across the existing material to reveal real surface relief. Keep texture scale consistent and avoid adding dust, scratches or a dramatically rough finish unsupported by the reference. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "检查高光方向、阴影接触、边缘光和背景一致性；重打光流程与权重须另验",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "light_contact",
+      "title": "接触阴影·落位真实",
+      "category": "灯光质感",
+      "engine": "reference-edit",
+      "inputs": [
+        "真实商品原图；接受受控光照变化，不能同时宣称全部像素不变"
+      ],
+      "variables": {
+        "subject": "the real product in image 1",
+        "backdrop": "a quiet neutral background"
+      },
+      "positive": "Reference-guided commercial edit of {subject} in {backdrop}. Match the scene's dominant light direction. Add a tight dark contact region immediately beneath the object, softening and lightening with distance. Keep the shadow on the same support plane and avoid a detached drop-shadow sticker. Retain the reference identity, real visible construction and approved color relationships. Make only the requested presentation change, and compare the final image with the source. Written preservation instructions are not pixel-level evidence.",
+      "negative": "",
+      "checks": [
+        "检查高光方向、阴影接触、边缘光和背景一致性；重打光流程与权重须另验",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "type_hierarchy",
+      "title": "标题层级·主副文案",
+      "category": "文字排版",
+      "engine": "text-to-image",
+      "inputs": [
+        "已核实短标题；此卡用于文字生成试验，不代替精确排版验收"
+      ],
+      "variables": {
+        "headline": "Bring Movie Night Home",
+        "accent": "#9D00FF"
+      },
+      "positive": "An original minimalist commerce poster study. Render the exact headline \"{headline}\" once in bold clear sans-serif lettering, using {accent} as the accent color. Place the headline in the upper left, a quiet supporting line area beneath it, and a clear image area in the lower right for later real-product compositing. Keep letter spacing balanced and contrast strong. Add no specifications, certification seals or invented brand marks. Treat the generated text as a draft for character-by-character review.",
+      "negative": "",
+      "checks": [
+        "检查拼写、数字、单位、对齐、手机缩略图可读性和遮挡；排版意图不是现有版式引擎新增功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "生图文字实验：支持文字的模型也可能错字；保留原文逐字校对，失败时改真实字体排版。"
+    },
+    {
+      "id": "type_grid",
+      "title": "栅格布局·留白与安全边距",
+      "category": "文字排版",
+      "engine": "layout-only",
+      "inputs": [
+        "已核实英文文案、真实参数、可用字体和图像；精确文字建议确定性排版"
+      ],
+      "variables": {
+        "headline": "Bring Movie Night Home",
+        "accent": "#9D00FF"
+      },
+      "positive": "LAYOUT BRIEF ONLY, not a diffusion workflow. Approved headline: \"{headline}\". Use {accent} as a controlled accent while keeping body text legible. Align text and image blocks to a consistent grid with generous outer margins. Reserve the product silhouette as an exclusion area, and keep supporting lines away from bright background details. Place exact text in an editable typography layer, separate from product pixels. Treat all ratios and spacing as a design brief to verify in the actual renderer; no performance or certification claim may be invented.",
+      "negative": "",
+      "checks": [
+        "检查拼写、数字、单位、对齐、手机缩略图可读性和遮挡；排版意图不是现有版式引擎新增功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "type_badges",
+      "title": "参数图标·数据与标签",
+      "category": "文字排版",
+      "engine": "layout-only",
+      "inputs": [
+        "已核实英文文案、真实参数、可用字体和图像；精确文字建议确定性排版"
+      ],
+      "variables": {
+        "headline": "Bring Movie Night Home",
+        "accent": "#9D00FF"
+      },
+      "positive": "LAYOUT BRIEF ONLY, not a diffusion workflow. Approved headline: \"{headline}\". Use {accent} as a controlled accent while keeping body text legible. Arrange a small set of verified parameter badges with consistent icon weight, number alignment and label spacing. Every number must retain its verified unit; icons must not imply certification or unsupported features. Place exact text in an editable typography layer, separate from product pixels. Treat all ratios and spacing as a design brief to verify in the actual renderer; no performance or certification claim may be invented.",
+      "negative": "",
+      "checks": [
+        "检查拼写、数字、单位、对齐、手机缩略图可读性和遮挡；排版意图不是现有版式引擎新增功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "type_mobile",
+      "title": "移动端·缩略可读",
+      "category": "文字排版",
+      "engine": "layout-only",
+      "inputs": [
+        "已核实英文文案、真实参数、可用字体和图像；精确文字建议确定性排版"
+      ],
+      "variables": {
+        "headline": "Bring Movie Night Home",
+        "accent": "#9D00FF"
+      },
+      "positive": "LAYOUT BRIEF ONLY, not a diffusion workflow. Approved headline: \"{headline}\". Use {accent} as a controlled accent while keeping body text legible. Optimize the layout for reduced display size: short headline, limited copy, distinct contrast and sufficient line spacing. Inspect the actual thumbnail rather than trusting large-canvas readability. Place exact text in an editable typography layer, separate from product pixels. Treat all ratios and spacing as a design brief to verify in the actual renderer; no performance or certification claim may be invented.",
+      "negative": "",
+      "checks": [
+        "检查拼写、数字、单位、对齐、手机缩略图可读性和遮挡；排版意图不是现有版式引擎新增功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "type_bilingual",
+      "title": "双语排版·语义一致",
+      "category": "文字排版",
+      "engine": "layout-only",
+      "inputs": [
+        "已核实英文文案、真实参数、可用字体和图像；精确文字建议确定性排版"
+      ],
+      "variables": {
+        "headline": "Bring Movie Night Home",
+        "accent": "#9D00FF"
+      },
+      "positive": "LAYOUT BRIEF ONLY, not a diffusion workflow. Approved headline: \"{headline}\". Use {accent} as a controlled accent while keeping body text legible. Set two approved language versions in clearly separated blocks with comparable hierarchy. Preserve brand spelling and technical units; review translations manually and avoid awkward letter-by-letter wrapping. Place exact text in an editable typography layer, separate from product pixels. Treat all ratios and spacing as a design brief to verify in the actual renderer; no performance or certification claim may be invented.",
+      "negative": "",
+      "checks": [
+        "检查拼写、数字、单位、对齐、手机缩略图可读性和遮挡；排版意图不是现有版式引擎新增功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "type_callouts",
+      "title": "结构标注·引线不遮挡",
+      "category": "文字排版",
+      "engine": "layout-only",
+      "inputs": [
+        "已核实英文文案、真实参数、可用字体和图像；精确文字建议确定性排版"
+      ],
+      "variables": {
+        "headline": "Bring Movie Night Home",
+        "accent": "#9D00FF"
+      },
+      "positive": "LAYOUT BRIEF ONLY, not a diffusion workflow. Approved headline: \"{headline}\". Use {accent} as a controlled accent while keeping body text legible. Place verified labels outside the original product silhouette. Keep leader lines short, avoid crossings and anchor each line to the actual visible feature. Unknown details remain unlabeled. Place exact text in an editable typography layer, separate from product pixels. Treat all ratios and spacing as a design brief to verify in the actual renderer; no performance or certification claim may be invented.",
+      "negative": "",
+      "checks": [
+        "检查拼写、数字、单位、对齐、手机缩略图可读性和遮挡；排版意图不是现有版式引擎新增功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "type_comparison",
+      "title": "对比版式·不伪造数据",
+      "category": "文字排版",
+      "engine": "layout-only",
+      "inputs": [
+        "已核实英文文案、真实参数、可用字体和图像；精确文字建议确定性排版"
+      ],
+      "variables": {
+        "headline": "Bring Movie Night Home",
+        "accent": "#9D00FF"
+      },
+      "positive": "LAYOUT BRIEF ONLY, not a diffusion workflow. Approved headline: \"{headline}\". Use {accent} as a controlled accent while keeping body text legible. Use a restrained two-column comparison only when both sides have substantiated data. Align identical metrics and units, cite the measurement context separately and avoid fabricated bars or unfair scales. Place exact text in an editable typography layer, separate from product pixels. Treat all ratios and spacing as a design brief to verify in the actual renderer; no performance or certification claim may be invented.",
+      "negative": "",
+      "checks": [
+        "检查拼写、数字、单位、对齐、手机缩略图可读性和遮挡；排版意图不是现有版式引擎新增功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "本地原创电商配方，参考资料方法后重新编写，非官方逐字模板或实测承诺。负面提示不跨模型套用；镜头参数、材质及排版描述只是意图。"
+    },
+    {
+      "id": "type_textedit",
+      "title": "文字替换·逐字校对",
+      "category": "文字排版",
+      "engine": "reference-edit",
+      "inputs": [
+        "图1：有权编辑的海报原图；明确只替换的文字位置",
+        "经核对的短标题；Logo和参数层不在替换范围"
+      ],
+      "variables": {
+        "headline": "Bring Movie Night Home",
+        "accent": "#9D00FF"
+      },
+      "positive": "In image 1 replace only the main headline with the exact text \"{headline}\". Keep all other wording, the product, the logo, the layout and the background unchanged in appearance. Use {accent} for the replacement headline, matching the original text block baseline, font character and relative scale. Do not add explanatory words or alter numerical specifications. Review the replacement character by character; this instruction does not prove pixel-level preservation.",
+      "negative": "",
+      "checks": [
+        "检查拼写、数字、单位、对齐、手机缩略图可读性和遮挡；排版意图不是现有版式引擎新增功能",
+        "先生成一张预览并逐项对照；不自动排队，不把未验证示意当作商品事实"
+      ],
+      "note": "参考图文字编辑实验，不把语言保持指令当像素证明；关键文案可回到确定性排版。"
+    }
+  ]
+}

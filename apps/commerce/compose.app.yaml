@@ -1,0 +1,80 @@
+x-app: &app
+  profiles: [application]
+  image: ${VISUAL_API_IMAGE:?verified local backend image required}
+  pull_policy: never
+  network_mode: host
+  init: true
+  restart: unless-stopped
+  stop_grace_period: 40s
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  labels: &owner
+    visual.owner: ${VISUAL_OWNER:?private owner id required}
+    visual.workspace: ${VISUAL_WORKSPACE:?workspace id required}
+  cpus: 1.0
+  mem_limit: 768m
+  pids_limit: 64
+services:
+  api:
+    <<: *app
+    env_file: ${API_RUNTIME_ENV_FILE:?private API environment required}
+    command: [uvicorn, visual_platform.api.main:app, --host, 127.0.0.1, --port, '8000']
+    volumes:
+      - {type: bind, source: '${JWT_PRIVATE_BIND:?private JWT file required}', target: /run/visual/private.pem, read_only: true}
+      - {type: bind, source: '${JWT_PUBLIC_BIND:?public JWT file required}', target: /run/visual/public.pem, read_only: true}
+    depends_on:
+      postgres-dev: {condition: service_healthy}
+      s3: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, scripts/service_health.py, api]
+      interval: 10s
+      timeout: 8s
+      retries: 6
+      start_period: 10s
+  publisher:
+    <<: *app
+    mem_limit: 256m
+    env_file: ${PUBLISHER_RUNTIME_ENV_FILE:?private publisher environment required}
+    command: [python, -m, visual_platform.events]
+    depends_on:
+      postgres-dev: {condition: service_healthy}
+      rabbitmq: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, scripts/service_health.py, publisher]
+      interval: 10s
+      timeout: 8s
+      retries: 6
+      start_period: 10s
+  worker:
+    <<: *app
+    mem_limit: 1024m
+    env_file: ${WORKER_RUNTIME_ENV_FILE:?private worker environment required}
+    command: [python, -m, visual_platform.worker, --consume]
+    volumes: [fake-provider:/app/work]
+    depends_on:
+      postgres-dev: {condition: service_healthy}
+      rabbitmq: {condition: service_healthy}
+      s3: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, scripts/service_health.py, worker]
+      interval: 10s
+      timeout: 8s
+      retries: 6
+      start_period: 10s
+  web:
+    <<: *app
+    image: ${VISUAL_WEB_IMAGE:?verified local web image required}
+    mem_limit: 128m
+    extra_hosts: [api:127.0.0.1]
+    volumes:
+      - {type: bind, source: '${NGINX_LOOPBACK_BIND:?loopback nginx configuration required}', target: /etc/nginx/nginx.conf, read_only: true}
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, 'http://127.0.0.1:8080/']
+      interval: 10s
+      timeout: 3s
+      retries: 6
+      start_period: 5s
+volumes:
+  fake-provider: {labels: *owner}

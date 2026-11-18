@@ -1,0 +1,68 @@
+{
+  "kind": "concrete",
+  "template_id": "core_inpaint_low_vram_v2",
+  "task": "inpaint",
+  "profiles": ["low_vram"],
+  "verified": true,
+  "model_bindings": [
+    {"binding": "checkpoint", "class_type": "CheckpointLoaderSimple", "input": "ckpt_name", "label": "基础模型"}
+  ],
+  "nodes": [
+    {"key": "source", "class_type": "LoadImage", "title": "读取带蒙版图片", "stage": "input", "group_title": "01 图片与蒙版", "position": [50, 80], "inputs": {"image": "${source_image}"}},
+    {"key": "checkpoint", "class_type": "CheckpointLoaderSimple", "title": "加载基础模型", "stage": "model", "group_title": "02 模型", "position": [50, 430], "inputs": {"ckpt_name": "${checkpoint}"}},
+    {"key": "positive", "class_type": "CLIPTextEncode", "title": "正向提示词", "stage": "conditioning", "group_title": "03 提示词", "position": [380, 150], "inputs": {"text": "${positive_prompt}", "clip": {"link": ["checkpoint", 1]}}},
+    {"key": "negative", "class_type": "CLIPTextEncode", "title": "负向提示词", "stage": "conditioning", "group_title": "03 提示词", "position": [380, 470], "inputs": {"text": "${negative_prompt}", "clip": {"link": ["checkpoint", 1]}}},
+    {
+      "key": "encode",
+      "class_type": "VAEEncodeForInpaint",
+      "title": "蒙版区域编码",
+      "stage": "latent",
+      "group_title": "04 局部重绘编码",
+      "position": [390, 760],
+      "inputs": {
+        "pixels": {"link": ["source", 0]},
+        "vae": {"link": ["checkpoint", 2]},
+        "mask": {"link": ["source", 1]},
+        "grow_mask_by": 6
+      }
+    },
+    {
+      "key": "sampler",
+      "class_type": "KSampler",
+      "title": "低显存局部重绘采样",
+      "stage": "sampling",
+      "group_title": "05 采样",
+      "position": [760, 310],
+      "inputs": {
+        "model": {"link": ["checkpoint", 0]},
+        "seed": "${seed}",
+        "steps": "${steps}",
+        "cfg": "${cfg}",
+        "sampler_name": "${sampler_name}",
+        "scheduler": "${scheduler}",
+        "positive": {"link": ["positive", 0]},
+        "negative": {"link": ["negative", 0]},
+        "latent_image": {"link": ["encode", 0]},
+        "denoise": "${denoise}"
+      }
+    },
+    {
+      "key": "decode",
+      "class_type": "VAEDecodeTiled",
+      "title": "分块 VAE 解码",
+      "stage": "decode",
+      "group_title": "06 低显存解码",
+      "position": [1110, 310],
+      "inputs": {
+        "samples": {"link": ["sampler", 0]},
+        "vae": {"link": ["checkpoint", 2]},
+        "tile_size": 512,
+        "overlap": 64,
+        "temporal_size": 64,
+        "temporal_overlap": 8
+      }
+    },
+    {"key": "restore_outside_mask", "class_type": "ImageCompositeMasked", "title": "原蒙版外恢复原图", "stage": "output", "group_title": "07 输出", "position": [1400, 310], "inputs": {"destination": {"link": ["source", 0]}, "source": {"link": ["decode", 0]}, "x": 0, "y": 0, "resize_source": false, "mask": {"link": ["source", 1]}}},
+    {"key": "save", "class_type": "SaveImage", "title": "保存结果", "stage": "output", "group_title": "07 输出", "position": [1720, 310], "inputs": {"images": {"link": ["restore_outside_mask", 0]}, "filename_prefix": "${filename_prefix}"}}
+  ]
+}

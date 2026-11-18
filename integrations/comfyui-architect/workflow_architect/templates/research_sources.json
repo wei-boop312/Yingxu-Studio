@@ -1,0 +1,500 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "S01",
+      "title": "ComfyUI 官方模板库",
+      "url": "https://github.com/Comfy-Org/workflow_templates",
+      "note": "官方模板元数据，不能据名称判断是否本地或付费。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S02",
+      "title": "官方自定义节点架构",
+      "url": "https://docs.comfy.org/custom-nodes/overview",
+      "note": "Python执行与前端扩展分层。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S03",
+      "title": "FLUX.2 Klein 官方教程",
+      "url": "https://docs.comfy.org/tutorials/flux/flux-2-klein",
+      "note": "4B/9B、Base/蒸馏必须分开；显存结果依赖精度环境。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S04",
+      "title": "FLUX.2 Klein 4B 模型卡",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+      "note": "4B权重Apache-2.0；不能外推9B许可。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S05",
+      "title": "Qwen Edit 2511 模型卡",
+      "url": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511",
+      "note": "图像编辑与多参考，Apache-2.0；输出仍可能漂移。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S06",
+      "title": "Qwen Edit 2511 官方工作流",
+      "url": "https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit-2511",
+      "note": "版本专属编码器/采样配置，使用实际JSON核对。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S07",
+      "title": "Qwen 原版 Edit 官方教程",
+      "url": "https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit",
+      "note": "旧版20B编辑模型，不与2511或2.1混称。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S08",
+      "title": "Qwen Layered 模型卡",
+      "url": "https://huggingface.co/Qwen/Qwen-Image-Layered",
+      "note": "图像分层候选，非精确抠图或自动完整PSD承诺。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S09",
+      "title": "Qwen Image 2.1 模型卡",
+      "url": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+      "note": "新架构支持RGBA和多参考；许可为qwen-research，不能沿用旧Apache结论。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S10",
+      "title": "Z-Image Turbo 模型卡",
+      "url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+      "note": "快速文生图候选，Apache-2.0，需自己的采样配置。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S11",
+      "title": "SDXL Base 模型卡",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
+      "note": "旧插件架构基线，OpenRAIL类约束；衍生checkpoint各自核权。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S12",
+      "title": "IPAdapter Plus 节点",
+      "url": "https://github.com/cubiq/ComfyUI_IPAdapter_plus",
+      "note": "参考风格/构图；作者标为maintenance-only；SD1.5/SDXL适配不可混用。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S13",
+      "title": "PuLID 原项目",
+      "url": "https://github.com/ToTheBeginning/PuLID",
+      "note": "身份条件生成；附加InsightFace和基座许可单独审查。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S14",
+      "title": "PuLID Flux 社区实现",
+      "url": "https://github.com/balazik/ComfyUI-PuLID-Flux",
+      "note": "原型兼容风险、附加EVA/人脸模型；不是FLUX.2通用适配。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S15",
+      "title": "InstantID 原项目",
+      "url": "https://github.com/instantX-research/InstantID",
+      "note": "身份保持生成，不等同贴脸；人脸权重限制须核验。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S16",
+      "title": "InstantID Comfy节点",
+      "url": "https://github.com/cubiq/ComfyUI_InstantID",
+      "note": "SDXL身份参考候选；独立依赖与版本。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S17",
+      "title": "ReActor节点",
+      "url": "https://github.com/Gourieff/ComfyUI-ReActor",
+      "note": "图像/帧换脸；权重及身份同意关口，不默认商用。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S18",
+      "title": "InsightFace 原项目许可",
+      "url": "https://github.com/deepinsight/insightface",
+      "note": "代码MIT不等于训练数据和预训练权重商用许可。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S19",
+      "title": "CatVTON 原项目",
+      "url": "https://github.com/Zheng-Chong/CatVTON",
+      "note": "公开代码/权重CC BY-NC-SA 4.0；低显存报告不是任意机器保证。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S20",
+      "title": "CatVTON 社区节点",
+      "url": "https://github.com/chflame163/ComfyUI_CatVTON_Wrapper",
+      "note": "人物+服装+重绘蒙版；第三方分发包不默认信任。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S21",
+      "title": "IDM-VTON 原项目",
+      "url": "https://github.com/yisol/IDM-VTON",
+      "note": "公开代码和权重CC BY-NC-SA 4.0。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S22",
+      "title": "IDM-VTON 社区节点",
+      "url": "https://github.com/TemryL/ComfyUI-IDM-VTON",
+      "note": "依赖DensePose/分割，README要求至少16GB；研究路线。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S23",
+      "title": "FASHN VTON1.5 原项目",
+      "url": "https://github.com/fashn-AI/fashn-vton-1.5",
+      "note": "像素域免显式服装蒙版试穿；仍需姿态/人体解析模型。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S24",
+      "title": "FASHN VTON1.5 模型卡",
+      "url": "https://huggingface.co/fashn-ai/fashn-vton-1.5",
+      "note": "权重Apache-2.0，额外Human Parser等组件单独核验。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S25",
+      "title": "FASHN VTON 社区节点",
+      "url": "https://github.com/drphero/ComfyUI-FASHN-VTON",
+      "note": "本地节点会自动拉取权重，离线模式需预备所有依赖。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S26",
+      "title": "DreamO 原项目",
+      "url": "https://github.com/bytedance/DreamO",
+      "note": "主体/身份/风格/试穿统一参考候选，额外FLUX等许可不能省略。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S27",
+      "title": "BiRefNet 模型卡",
+      "url": "https://huggingface.co/ZhengPeng7/BiRefNet",
+      "note": "抠图候选；镜面透明细丝仍需人工边缘质检。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S28",
+      "title": "RMBG 节点集合",
+      "url": "https://github.com/1038lab/ComfyUI-RMBG",
+      "note": "包内多模型，不能用节点包许可代替各模型许可。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S29",
+      "title": "BRIA RMBG2 模型卡",
+      "url": "https://huggingface.co/briaai/RMBG-2.0",
+      "note": "公开权重条款有限制，商用需单独确认。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S30",
+      "title": "IC-Light 原项目",
+      "url": "https://github.com/lllyasviel/IC-Light",
+      "note": "重打光会改变主体像素，不能包装为像素锁定。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S31",
+      "title": "IC-Light Comfy节点",
+      "url": "https://github.com/kijai/ComfyUI-IC-Light",
+      "note": "架构专属光照流程，原SD1.5路线不可随意换成新模型。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S32",
+      "title": "ControlNet预处理",
+      "url": "https://github.com/Fannovel16/comfyui_controlnet_aux",
+      "note": "DWPose/深度/边缘预处理不等于已加载匹配ControlNet。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S33",
+      "title": "Impact Pack",
+      "url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack",
+      "note": "局部Detailer；检测Subpack独立安装，重绘可能改脸/商品。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S34",
+      "title": "LayerStyle",
+      "url": "https://github.com/chflame163/ComfyUI_LayerStyle",
+      "note": "合成/文字/阴影；部分重依赖节点已拆到Advance。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S35",
+      "title": "KJNodes",
+      "url": "https://github.com/kijai/ComfyUI-KJNodes",
+      "note": "图像/蒙版/视频工具；只安装确实需要的节点包。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S36",
+      "title": "Real-ESRGAN",
+      "url": "https://github.com/xinntao/Real-ESRGAN",
+      "note": "超分辨率模型与权重release，锐化不代表真实细节恢复。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S37",
+      "title": "SUPIR 原项目",
+      "url": "https://github.com/Fanghua-Yu/SUPIR",
+      "note": "生成式修复，防止Logo纹理幻觉并单独查授权。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S38",
+      "title": "SUPIR 社区节点",
+      "url": "https://github.com/kijai/ComfyUI-SUPIR",
+      "note": "作者提示核心已有支持；新旧loader与权重路径不能混用。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S39",
+      "title": "TiledDiffusion",
+      "url": "https://github.com/shiimizu/ComfyUI-TiledDiffusion",
+      "note": "分块采样/VAE；接缝、色差、细节重绘需检查。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S40",
+      "title": "Wan2.2 原项目",
+      "url": "https://github.com/Wan-Video/Wan2.2",
+      "note": "TI2V5B与A14B双专家、Animate等分支。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S41",
+      "title": "Wan2.2 官方教程",
+      "url": "https://docs.comfy.org/tutorials/video/wan/wan2_2",
+      "note": "5B与14B的VAE/专家权重不同；教程与JSON也需交叉核对。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S42",
+      "title": "Wan Animate官方教程",
+      "url": "https://docs.comfy.org/tutorials/video/wan/wan2-2-animate",
+      "note": "参考人物+驱动视频/姿态与分割，非商品形变零误差保证。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S43",
+      "title": "WanVideoWrapper",
+      "url": "https://github.com/kijai/ComfyUI-WanVideoWrapper",
+      "note": "社区视频加载采样体系，不直接与原生latent互接。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S44",
+      "title": "LTX2 原项目",
+      "url": "https://github.com/Lightricks/LTX-2",
+      "note": "音视频联合生成、多个版本分支分别绑定。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S45",
+      "title": "LTX2 官方教程",
+      "url": "https://docs.comfy.org/tutorials/video/ltx/ltx-2",
+      "note": "19B与8步蒸馏、音视频latent及上采样。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S46",
+      "title": "LTX2 模型卡",
+      "url": "https://huggingface.co/Lightricks/LTX-2",
+      "note": "Community License，不是Apache通用放行。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S47",
+      "title": "LTX2.5 模型卡",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5",
+      "note": "新22B版本，不能与2.0 VAE/编码器/LoRA随意混装。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S48",
+      "title": "VideoHelperSuite",
+      "url": "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite",
+      "note": "视频加载/帧批次/编码与音频复用，不是视频生成模型。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S49",
+      "title": "帧插值节点",
+      "url": "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation",
+      "note": "RIFE等补帧；快运动/遮挡重影，不改善主体真实身份。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S50",
+      "title": "SeedVR2 视频超分节点",
+      "url": "https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler",
+      "note": "时序超分候选，显存和窗口参数需实测。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S51",
+      "title": "AnimateDiff Evolved",
+      "url": "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved",
+      "note": "旧SD系动画兼容路线，不视为Wan/LTX替代同模型。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S52",
+      "title": "Mixlab应用化",
+      "url": "https://github.com/MixLabPro/comfyui-mixlab-nodes",
+      "note": "Workflow-to-App参考，含外部功能不默认启用。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S53",
+      "title": "官方文档索引",
+      "url": "https://docs.comfy.org/llms.txt",
+      "note": "导航入口，不据导航名字推断性能/许可。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S54",
+      "title": "官方服务器接口",
+      "url": "https://docs.comfy.org/development/comfyui-server/comms_routes",
+      "note": "prompt/queue/history/WebSocket边界，提交不是完成。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    },
+    {
+      "id": "S55",
+      "title": "官方App Mode",
+      "url": "https://blog.comfy.org/p/from-workflow-to-app-introducing",
+      "note": "同一后端队列的业务输入输出界面，可复用不fork核心。",
+      "checked_at": "2026-10-14",
+      "source_level": "primary-maintainer-or-publisher",
+      "evidence": "page-inspected-not-runtime-tested"
+    }
+  ]
+}

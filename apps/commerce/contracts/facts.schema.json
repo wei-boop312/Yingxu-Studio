@@ -1,0 +1,210 @@
+{
+  "$defs": {
+    "Background": {
+      "additionalProperties": false,
+      "properties": {
+        "classification": {
+          "enum": [
+            "white",
+            "non_white",
+            "unknown"
+          ],
+          "title": "Classification",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        }
+      },
+      "required": [
+        "classification",
+        "confidence"
+      ],
+      "title": "Background",
+      "type": "object"
+    },
+    "Extent": {
+      "additionalProperties": false,
+      "properties": {
+        "bbox": {
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "minimum": 0,
+              "type": "integer"
+            }
+          ],
+          "title": "Bbox",
+          "type": "array"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        }
+      },
+      "required": [
+        "bbox",
+        "confidence"
+      ],
+      "title": "Extent",
+      "type": "object"
+    },
+    "Mark": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 4000,
+          "title": "Text",
+          "type": "string"
+        },
+        "bbox": {
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "minimum": 0,
+              "type": "integer"
+            }
+          ],
+          "title": "Bbox",
+          "type": "array"
+        },
+        "origin": {
+          "enum": [
+            "on_product",
+            "added_overlay",
+            "unknown"
+          ],
+          "title": "Origin",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        }
+      },
+      "required": [
+        "text",
+        "bbox",
+        "origin",
+        "confidence"
+      ],
+      "title": "Mark",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "minimum": 1,
+      "maximum": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "analysis_complete": {
+      "title": "Analysis Complete",
+      "type": "boolean"
+    },
+    "image_width": {
+      "exclusiveMinimum": 0,
+      "title": "Image Width",
+      "type": "integer"
+    },
+    "image_height": {
+      "exclusiveMinimum": 0,
+      "title": "Image Height",
+      "type": "integer"
+    },
+    "text_items": {
+      "items": {
+        "$ref": "#/$defs/Mark"
+      },
+      "maxItems": 300,
+      "title": "Text Items",
+      "type": "array"
+    },
+    "logo_items": {
+      "items": {
+        "$ref": "#/$defs/Mark"
+      },
+      "maxItems": 300,
+      "title": "Logo Items",
+      "type": "array"
+    },
+    "watermark_items": {
+      "items": {
+        "$ref": "#/$defs/Mark"
+      },
+      "maxItems": 300,
+      "title": "Watermark Items",
+      "type": "array"
+    },
+    "background": {
+      "$ref": "#/$defs/Background"
+    },
+    "product_extent": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Extent"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "uncertainties": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 100,
+      "title": "Uncertainties",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "analysis_complete",
+    "image_width",
+    "image_height",
+    "text_items",
+    "logo_items",
+    "watermark_items",
+    "background",
+    "product_extent",
+    "uncertainties"
+  ],
+  "title": "Facts",
+  "type": "object"
+}
