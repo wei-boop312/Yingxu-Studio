@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "product": "Synthetic Studio Fixture",
+  "skus": [
+    {
+      "code": "A",
+      "color": "red",
+      "confirmed_faces": [
+        "FRONT"
+      ],
+      "unknown_faces": [
+        "BACK",
+        "LEFT",
+        "RIGHT",
+        "TOP",
+        "BOTTOM"
+      ],
+      "dimensions": null,
+      "package_list": null,
+      "package_visual_reference": null
+    },
+    {
+      "code": "B",
+      "color": "blue",
+      "confirmed_faces": [
+        "FRONT"
+      ],
+      "unknown_faces": [
+        "BACK",
+        "LEFT",
+        "RIGHT",
+        "TOP",
+        "BOTTOM"
+      ],
+      "dimensions": null,
+      "package_list": null,
+      "package_visual_reference": null
+    }
+  ],
+  "expected": {
+    "slots": 10,
+    "initial_missing_slots": [
+      "09",
+      "10"
+    ],
+    "allowed_partial_delivery_count": 8,
+    "cross_sku_inheritance": false
+  },
+  "files": [
+    {
+      "path": "synthetic-sku-a.png",
+      "sha256": "0896c6654dcbd4b76f97b264f76fcb33abdf97ee559da391409e3dcc2d78101b",
+      "sku": "A",
+      "role": "product_front",
+      "synthetic": true
+    },
+    {
+      "path": "synthetic-sku-b.png",
+      "sha256": "0bf4049cf93824f8a1f6f7e1dc5b273426c74ab1d6b0bd1b607374ca3163b5ff",
+      "sku": "B",
+      "role": "product_front",
+      "synthetic": true
+    }
+  ],
+  "limitation": "Only rule and integration fixtures. No real AI understanding, product truth or commercial quality proven."
+}

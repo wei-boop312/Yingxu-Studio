@@ -1,0 +1,22 @@
+{
+  "all_passed": true,
+  "node_available": true,
+  "scope": "unit-integration-and-mock-DOM-not-live-model-or-GPU-acceptance",
+  "checks": [
+    {
+      "check": "python",
+      "exit_code": 0,
+      "output": "............................................................................................................................................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 364 tests in 45.296s\n\nOK\n"
+    },
+    {
+      "check": "test_knowledge_panel",
+      "exit_code": 0,
+      "output": "11 component scenarios passed: no graph, /prompt, real browser or external API used\n8 identity component scenarios passed with mock API only; no real browser, model execution or /prompt calls\n7 tryon component scenarios passed: explicit inputs, consent, compile/insert only, stale draft clearing and errors; mock DOM, not browser proof\n5 foundation component scenarios passed: no startup calls, empty demand, report, invalidation and failure; mock DOM only\n9 planner mock-DOM scenarios passed: full prompt copy, explicit context/export/import, syntax/error/stale invalidation, no external API or execution\n10 compile mock-DOM scenarios passed: actual workflow export, manual insert, explicit bindings, finite revisions and HTTP errors; no queue or real browser\n6 compile-dimension mock-DOM scenarios passed; requested 256 preserved, no generic garment prompt, invalid size blocked, stale clearing and old backend rejected\n6 API support mock-DOM scenarios passed: no startup network, disabled-unconfigured, dryrun only, invalid JSON and HTTP errors; no secrets or provider calls\n7 detail-panel mock-DOM scenarios passed; no queue, credentials, external API or real browser\n8 poster-panel mock-DOM scenarios passed; explicit roles/consent, stale clearing, no queue or external API\n10 prompt-library mock-DOM scenarios passed; explicit read, search, fill, export, stale/closed isolation, invalid input and missing backend; no execution\n10 offline-AI mock-DOM scenarios passed; explicit consent, compiler handoff, stale isolation, missing backend and verified-excerpt contract; no real model or queue\n"
+    },
+    {
+      "check": "test_detail_runner",
+      "exit_code": 0,
+      "output": "18 detail runner/layout scenarios passed; mock history/canvas, not real browser or GPU proof\n"
+    }
+  ]
+}

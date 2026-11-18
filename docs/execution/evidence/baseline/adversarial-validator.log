@@ -1,0 +1,254 @@
+test_all_cycles_rejected_including_disconnected_cycle (test_validator_boundaries.ValidatorBoundaries.test_all_cycles_rejected_including_disconnected_cycle) ... 
+  test_all_cycles_rejected_including_disconnected_cycle (test_validator_boundaries.ValidatorBoundaries.test_all_cycles_rejected_including_disconnected_cycle) (edges={'2': '2'}) ... FAIL
+  test_all_cycles_rejected_including_disconnected_cycle (test_validator_boundaries.ValidatorBoundaries.test_all_cycles_rejected_including_disconnected_cycle) (edges={'2': '4', '4': '2'}) ... FAIL
+test_broken_link_and_unknown_input (test_validator_boundaries.ValidatorBoundaries.test_broken_link_and_unknown_input) ... FAIL
+test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) ... 
+  test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=-1) ... FAIL
+  test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=-99) ... ERROR
+  test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=99) ... FAIL
+  test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=True) ... FAIL
+  test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=0.5) ... FAIL
+  test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index='0') ... FAIL
+  test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=None) ... FAIL
+test_malformed_nodes_and_metadata_are_structured_errors (test_validator_boundaries.ValidatorBoundaries.test_malformed_nodes_and_metadata_are_structured_errors) ... ERROR
+test_public_service_uses_same_validation (test_validator_boundaries.ValidatorBoundaries.test_public_service_uses_same_validation) ... ERROR
+test_registry_preserves_scalar_contract (test_validator_boundaries.ValidatorBoundaries.test_registry_preserves_scalar_contract) ... ERROR
+test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) ... 
+  test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='steps', value=-5) ... FAIL
+  test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='steps', value=51) ... FAIL
+  test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='steps', value=True) ... FAIL
+  test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='steps', value=1.5) ... FAIL
+  test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='strength', value=nan) ... FAIL
+  test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='strength', value=inf) ... FAIL
+  test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='enabled', value='true') ... FAIL
+  test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='label', value=3) ... FAIL
+  test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='mode', value='1') ... FAIL
+test_shared_upstream_is_not_a_cycle (test_validator_boundaries.ValidatorBoundaries.test_shared_upstream_is_not_a_cycle) ... ok
+test_valid_and_boundary_parameters (test_validator_boundaries.ValidatorBoundaries.test_valid_and_boundary_parameters) ... ok
+
+======================================================================
+ERROR: test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=-99)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 49, in test_invalid_output_indices_never_execute_or_raise
+    report = self.report()
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 34, in report
+    return WorkflowValidator().validate_compiled(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.compiled if compiled is None else compiled, self.registry.current())
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\workflow_architect\validator.py", line 148, in validate_compiled
+    source_def.outputs[output_index], target_input.type
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+IndexError: tuple index out of range
+
+======================================================================
+ERROR: test_malformed_nodes_and_metadata_are_structured_errors (test_validator_boundaries.ValidatorBoundaries.test_malformed_nodes_and_metadata_are_structured_errors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 94, in test_malformed_nodes_and_metadata_are_structured_errors
+    self.assertFalse(self.report(graph).valid)
+                     ~~~~~~~~~~~^^^^^^^
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 34, in report
+    return WorkflowValidator().validate_compiled(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.compiled if compiled is None else compiled, self.registry.current())
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\workflow_architect\validator.py", line 83, in validate_compiled
+    class_name = str(node.get("class_type", ""))
+                     ^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+
+======================================================================
+ERROR: test_public_service_uses_same_validation (test_validator_boundaries.ValidatorBoundaries.test_public_service_uses_same_validation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 104, in test_public_service_uses_same_validation
+    report = service.validate({'compiled': self.compiled})
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\workflow_architect\service.py", line 328, in validate
+    return self.validator.validate_compiled(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        compiled, self.registry.current()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).to_dict()
+    ^
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\workflow_architect\validator.py", line 148, in validate_compiled
+    source_def.outputs[output_index], target_input.type
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+IndexError: tuple index out of range
+
+======================================================================
+ERROR: test_registry_preserves_scalar_contract (test_validator_boundaries.ValidatorBoundaries.test_registry_preserves_scalar_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 110, in test_registry_preserves_scalar_contract
+    self.assertEqual(field.minimum, 1)
+                     ^^^^^^^^^^^^^
+AttributeError: 'InputDefinition' object has no attribute 'minimum'
+
+======================================================================
+FAIL: test_all_cycles_rejected_including_disconnected_cycle (test_validator_boundaries.ValidatorBoundaries.test_all_cycles_rejected_including_disconnected_cycle) (edges={'2': '2'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 68, in test_all_cycles_rejected_including_disconnected_cycle
+    self.assertIn('CYCLIC_DEPENDENCY', {x.code for x in report.errors})
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'CYCLIC_DEPENDENCY' not found in set()
+
+======================================================================
+FAIL: test_all_cycles_rejected_including_disconnected_cycle (test_validator_boundaries.ValidatorBoundaries.test_all_cycles_rejected_including_disconnected_cycle) (edges={'2': '4', '4': '2'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 68, in test_all_cycles_rejected_including_disconnected_cycle
+    self.assertIn('CYCLIC_DEPENDENCY', {x.code for x in report.errors})
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'CYCLIC_DEPENDENCY' not found in set()
+
+======================================================================
+FAIL: test_broken_link_and_unknown_input (test_validator_boundaries.ValidatorBoundaries.test_broken_link_and_unknown_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 57, in test_broken_link_and_unknown_input
+    self.assertIn('UNKNOWN_INPUT', self.codes())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'UNKNOWN_INPUT' not found in {'BROKEN_LINK'}
+
+======================================================================
+FAIL: test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 50, in test_invalid_output_indices_never_execute_or_raise
+    self.assertFalse(report.valid)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=99)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 50, in test_invalid_output_indices_never_execute_or_raise
+    self.assertFalse(report.valid)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 50, in test_invalid_output_indices_never_execute_or_raise
+    self.assertFalse(report.valid)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=0.5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 50, in test_invalid_output_indices_never_execute_or_raise
+    self.assertFalse(report.valid)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 50, in test_invalid_output_indices_never_execute_or_raise
+    self.assertFalse(report.valid)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_output_indices_never_execute_or_raise (test_validator_boundaries.ValidatorBoundaries.test_invalid_output_indices_never_execute_or_raise) (index=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 50, in test_invalid_output_indices_never_execute_or_raise
+    self.assertFalse(report.valid)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='steps', value=-5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 88, in test_scalar_types_bounds_and_enumeration_are_strict
+    self.assertIn(code, self.codes())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'INPUT_OUT_OF_RANGE' not found in set()
+
+======================================================================
+FAIL: test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='steps', value=51)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 88, in test_scalar_types_bounds_and_enumeration_are_strict
+    self.assertIn(code, self.codes())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'INPUT_OUT_OF_RANGE' not found in set()
+
+======================================================================
+FAIL: test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='steps', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 88, in test_scalar_types_bounds_and_enumeration_are_strict
+    self.assertIn(code, self.codes())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'INVALID_INPUT_TYPE' not found in set()
+
+======================================================================
+FAIL: test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='steps', value=1.5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 88, in test_scalar_types_bounds_and_enumeration_are_strict
+    self.assertIn(code, self.codes())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'INVALID_INPUT_TYPE' not found in set()
+
+======================================================================
+FAIL: test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='strength', value=nan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 88, in test_scalar_types_bounds_and_enumeration_are_strict
+    self.assertIn(code, self.codes())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'INVALID_INPUT_TYPE' not found in set()
+
+======================================================================
+FAIL: test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='strength', value=inf)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 88, in test_scalar_types_bounds_and_enumeration_are_strict
+    self.assertIn(code, self.codes())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'INVALID_INPUT_TYPE' not found in set()
+
+======================================================================
+FAIL: test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='enabled', value='true')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 88, in test_scalar_types_bounds_and_enumeration_are_strict
+    self.assertIn(code, self.codes())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'INVALID_INPUT_TYPE' not found in set()
+
+======================================================================
+FAIL: test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='label', value=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 88, in test_scalar_types_bounds_and_enumeration_are_strict
+    self.assertIn(code, self.codes())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'INVALID_INPUT_TYPE' not found in set()
+
+======================================================================
+FAIL: test_scalar_types_bounds_and_enumeration_are_strict (test_validator_boundaries.ValidatorBoundaries.test_scalar_types_bounds_and_enumeration_are_strict) (name='mode', value='1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\Documents\Codex\2026-11-18\new-chat\work\Yingxu-Studio\integrations\comfyui-architect\tests\test_validator_boundaries.py", line 88, in test_scalar_types_bounds_and_enumeration_are_strict
+    self.assertIn(code, self.codes())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'INVALID_WIDGET_CHOICE' not found in set()
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.010s
+
+FAILED (failures=18, errors=4)

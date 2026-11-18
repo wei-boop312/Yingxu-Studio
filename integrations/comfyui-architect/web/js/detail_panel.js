@@ -21,7 +21,9 @@ export function openDetailPanel(){
   let epoch=0,active=null,busy=false,closed=false,context=null,bundle=null,modelFields=[],moduleFields=[],imageSelect=null,journal=null;
   const key='workflow-architect-detail-journal-v1';
   const product=()=>({name:name.value,facts:facts.value.split(/\r?\n/).map(s=>s.trim()).filter(Boolean)});
-  const buttons=()=>{for(const b of [prepare,validate,compile,exportPrompt,exportBundle,workflow,start,recover,long,clear,apiPlan,retry,split])b.disabled=busy;};
+  const buttons=()=>{for(const b of [prepare,validate,compile,exportPrompt,exportBundle,workflow,recover,long,clear,apiPlan,split])b.disabled=busy;start.disabled=retry.disabled=true;};
+  start.disabled=retry.disabled=true;
+  start.title=retry.title='请通过映序工作台的服务端任务协调提交；此面板保留编译、导出与只读恢复。';
   function reset(){epoch++;active?.abort();context=bundle=null;options.replaceChildren();report.textContent='';consent.checked=false;}
   for(const input of [name,facts])input.addEventListener('input',reset);
   plan.addEventListener('input',()=>{epoch++;active?.abort();bundle=null;});
@@ -54,31 +56,10 @@ export function openDetailPanel(){
   }));
   exportBundle.addEventListener('click',()=>{if(bundle)download(bundle,'detail-page-job-bundle.json');});
   workflow.addEventListener('click',()=>{if(bundle)for(const job of bundle.jobs)download(job.ui_workflow,'detail-'+job.id+'-workflow.json');});
-  start.addEventListener('click',async()=>{
-    if(busy||!bundle||!consent.checked)return;
-    if(!confirm('开始最多六张本机生成？每张两个采样分支。失败暂停，不自动重试。不调用供应商API。'))return;
-    busy=true;buttons();const e=epoch;active=new AbortController();
-    try{
-      const previous=read();if(previous&&(previous.bundle_sha256!==bundle.bundle_sha256||previous.entries.some(v=>!['ready','done'].includes(v.status))))throw new Error('已有进度不匹配或存在未结清任务；先只读恢复，不自动补投');
-      const q=await request('/queue');if(q.queue_running?.length||q.queue_pending?.length)throw new Error('ComfyUI队列非空，请先完成原任务');
-      if(closed||epoch!==e||active.signal.aborted)throw new Error('界面已变化，不提交');
-      journal=previous||{version:1,id:crypto.randomUUID(),plan_sha256:bundle.plan_sha256,bundle_sha256:bundle.bundle_sha256,entries:bundle.jobs.map(j=>({id:j.id,status:'ready'}))};save(journal);
-      await runDetailJobs({jobs:bundle.jobs,journal,save,submit:(prompt,client_id)=>request('/prompt',{prompt,client_id}),
-        history:async id=>(await request('/history/'+id))[id],wait:()=>new Promise(r=>setTimeout(r,2000)),stopped:()=>closed||epoch!==e||active.signal.aborted,changed:show});
-      status.textContent=journal.entries.every(v=>v.status==='done')?'六张完成，可排版导出。':'后续提交已暂停；已提交任务可能仍在运行。';
-    }catch(error){status.textContent=error.message;}finally{busy=false;buttons();show();}
-  });
+  start.addEventListener('click',()=>{status.textContent='请在映序工作台创建受服务端协调的制作任务；当前面板不直接提交。';});
   stop.addEventListener('click',()=>{epoch++;active?.abort();status.textContent='暂停后续提交；不取消服务器已提交任务。';});
   recover.addEventListener('click',()=>action(async(signal,e)=>{journal=read();if(!journal)throw new Error('没有进度');for(const entry of journal.entries){if(entry.status==='submitted'&&/^[0-9a-f-]{36}$/i.test(entry.prompt_id)){const value=(await request('/history/'+entry.prompt_id,undefined,signal))[entry.prompt_id];valid(e,signal);if(value?.status?.status_str==='success'){const images=Object.values(value.outputs||{}).flatMap(v=>v.images||[]);if(images.length===1){entry.image=images[0];entry.status='done';}}else if(value)entry.status='failed';}}save(journal);show();status.textContent='只读恢复完成；没有补交任务。';}));
-  retry.addEventListener('click',()=>action(async(signal,e)=>{
-    journal=read();if(!bundle||journal?.bundle_sha256!==bundle.bundle_sha256)throw new Error('先编译原绑定并恢复进度');
-    const failed=journal.entries.filter(v=>v.status==='failed');if(failed.length!==1||failed[0].retry_count)throw new Error('仅允许一个已明确失败模块人工重试一次；未知提交不适用');
-    const entry=failed[0];if(!/^[0-9a-f-]{36}$/i.test(entry.prompt_id))throw new Error('缺原任务编号');
-    const value=(await request('/history/'+entry.prompt_id,undefined,signal))[entry.prompt_id];valid(e,signal);
-    if(value?.status?.status_str!=='error')throw new Error('原任务未明确失败，不重试');
-    if(!confirm('原任务已明确失败。允许这一模块再提交一次？可能再次消耗本机GPU，其他完成模块不重跑。'))return;
-    entry.previous_prompt_id=entry.prompt_id;delete entry.prompt_id;entry.retry_count=1;entry.status='ready';save(journal);show();status.textContent='已保留原失败编号；点连续运行继续未完成模块，不会自动提交。';
-  }));
+  retry.addEventListener('click',()=>{status.textContent='请在映序工作台保留旧尝试并明确创建新的制作意图；此处只读恢复。';});
   clear.addEventListener('click',()=>{if(!busy&&confirm('只清浏览器指针，不取消服务器任务。请先核对ComfyUI队列和历史，避免重复出图。')){localStorage.removeItem(key);journal=null;show();}});
   async function verifiedOutputs(signal,e){
     journal=read();if(!bundle||!journal||journal.bundle_sha256!==bundle.bundle_sha256)throw new Error('须重新编译同一方案/商品图/模型并恢复六张结果，才能排版');

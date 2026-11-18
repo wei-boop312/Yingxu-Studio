@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "scope": "static packaging and OpenAPI agreement; not restore or production",
+  "dependency_components": 194,
+  "license_references": 277,
+  "openapi_paths": 55
+}

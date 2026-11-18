@@ -17,6 +17,8 @@ from visual_platform.api import (
     quotes,
     reviews,
     rules,
+    studio_outputs,
+    studio_projects,
     tasks,
 )
 from visual_platform.core.lifecycle import clear_api_shutdown_marker, record_api_shutdown
@@ -41,6 +43,7 @@ def create_app(settings: Settings | None = None):
         app.state.auth_pool = None
         app.state.readiness = None
         app.state.decode_capacity = asyncio.Semaphore(2)
+        app.state.studio_export_capacity = asyncio.Semaphore(1)
         try:
             app.state.storage = (
                 S3Storage(configured) if configured and configured.s3_endpoint else None
@@ -152,6 +155,8 @@ def create_app(settings: Settings | None = None):
     app.include_router(rules.router)
     app.include_router(assets.router)
     app.include_router(reviews.router)
+    app.include_router(studio_projects.router)
+    app.include_router(studio_outputs.router)
     app.add_middleware(RequestTelemetry)
     return app
 

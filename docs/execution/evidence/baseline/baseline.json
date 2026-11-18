@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-19",
+  "reference_commit": "7a8d866b770d210d64cc69b8036537cb33363d51",
+  "branch": "codex/project-closure",
+  "initial_worktree_clean": true,
+  "python": "3.14.6",
+  "windows": "Windows-11-10.0.26200-SP0",
+  "real_calls_enabled": false,
+  "native_services": "dedicated owned Docker instances through WSL; private profile excluded"
+}

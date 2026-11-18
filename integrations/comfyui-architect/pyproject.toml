@@ -11,3 +11,12 @@ requires-python = ">=3.10"
 license = {file = "LICENSE"}
 authors = [{name = "ComfyUI Workflow Architect contributors"}]
 dependencies = []
+
+[project.optional-dependencies]
+test = ["Pillow>=10,<14", "numpy>=2,<3", "aiohttp>=3,<4", "cryptography>=46"]
+
+[tool.setuptools.packages.find]
+include = ["workflow_architect*"]
+
+[tool.setuptools.package-data]
+workflow_architect = ["templates/*.json", "templates/*.yaml", "templates/concrete/*.json", "templates/experimental/*.json"]
