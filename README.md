@@ -13,6 +13,7 @@
 | [docs/sop](docs/sop/README.md) | 电商视觉生产统一规范 V1.3 原文 | 业务设计依据 |
 | [docs/PRODUCT_DIRECTION.md](docs/PRODUCT_DIRECTION.md) | 产品定位、SOP 闭环与形态建议 | 待实现的设计方向 |
 | [docs/INTEGRATION_PLAN.md](docs/INTEGRATION_PLAN.md) | 模块分工、阶段和验收边界 | 后续实施计划 |
+| [docs/REMEDIATION_PLAN.md](docs/REMEDIATION_PLAN.md) | 五类问题解决方案、测试要求和 15 项发现的阶段对应 | 方案已记录，代码待实施 |
 | [docs/audit](docs/audit/README.md) | 15 项审计发现及修复验收要求 | 尚未修复、尚未销项 |
 | [docs/provenance](docs/provenance/README.md) | 上游版本、逐文件哈希与导入范围 | 可追溯基线 |
 
